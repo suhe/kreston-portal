@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>About Us \ Progressive — Responsive Multipurpose HTML Template</title>
+  <title>Panels \ Progressive — Responsive Multipurpose HTML Template</title>
   <meta name="keywords" content="HTML5 Template">
   <meta name="description" content="Progressive — Responsive Multipurpose HTML Template">
   <meta name="author" content="itembridge.com">
@@ -36,7 +36,6 @@
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/customizer/pages.css">
-  <link rel="stylesheet" href="css/customizer/pages-pages-customizer.css">
 
   <!-- IE Styles-->
   <link rel='stylesheet' href="css/ie/ie.css">
@@ -47,7 +46,7 @@
 		<link rel='stylesheet' href="css/ie/ie8.css">
   <![endif]-->
 </head>
-<body  class="fixed-header">
+<body>
 <div class="page-box">
 <div class="page-box-content">
 
@@ -420,338 +419,325 @@
   </div><!-- .header-wrapper -->
 </header><!-- .header -->
 
-
-
 <div class="breadcrumb-box">
   <div class="container">
     <ul class="breadcrumb">
       <li><a href="index.html">Home</a> </li>
-      <li class="active">About Us</li>
+      <li><a href="#">Bootstrap</a> </li>
+      <li class="active">Panels</li>
     </ul>	
   </div>
 </div><!-- .breadcrumb-box -->
 
-<section id="main">
+<section id="main" class="page">
   <header class="page-header">
     <div class="container">
-      <h1 class="title">About Us</h1>
+      <h1 class="title">Panels</h1>
     </div>	
   </header>
+  
   <div class="container">
     <div class="row">
-      <div class="content col-sm-12 col-md-12">
-		<div class="row">
-		  <div class="col-sm-6 col-md-6 bottom-padding">
-			<div class="layer-slider">
-			  <div class="layerslider-box" style="width: 798px; height: 588px; max-width: 798px;">
-				<div class="ls-slide" data-ls="slidedelay:5000;transition2d:92;timeshift:-1000;">
-				  <img class="replace-2x ls-bg" src="content/img/about-us-1.jpg" width="798" height="588" alt="">
-				</div>
-				<div class="ls-slide" data-ls="slidedelay:5000;transition2d:92;timeshift:-1000;">
-				  <img class="replace-2x ls-bg" src="content/img/about-us-2.jpg" width="798" height="588" alt="">
-				</div>
-				<div class="ls-slide" data-ls="slidedelay:5000;transition2d:92;timeshift:-1000;">
-				  <img class="replace-2x ls-bg" src="content/img/about-us-3.jpg" width="798" height="588" alt="">
-				</div>
-			  </div>
-		  </div>
-		  </div>
-		  
-		  <div class="col-sm-6 col-md-6 bottom-padding">
-			<div class="title-box">
-			  <h2 class="title" style="padding: 0;">Intelligent & creative</h2>
-			</div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam in minima iusto voluptatem aliquam odit odio. Aliquam voluptatibus beatae officiis?</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut rem velit nihil sed saepe repellat?</p>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique excepturi voluptates placeat ducimus delectus magnam tempore dolore dolorem quisquam porro modi voluptatum eum saepe dolorum ratione officia sint eos minus.</p>
-			<blockquote class="no-margin">
-			  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis distinctio alias deserunt vel itaque pariatur debitis natus provident eum quos aliquid voluptates quia eligendi nemo illum! Ratione quisquam perferendis dolor minima modi necessitatibus repellat. Ipsam cum natus quia minus deserunt!</p>
-			  <footer>Lorem ipsum dolor sit amet, consectetur adipisicing.</footer>
-			</blockquote>
-		  </div>
-		</div>
+	  <article class="content col-sm-12 col-md-12">
+		<div class="bs-docs-section">
+		  <p class="lead">While not always necessary, sometimes you need to put your DOM in a box. For those situations, try the panel component.</p>
 		
-		<div class="row">
-		  <div class="clearfix"></div>
-		  <div class="bottom-padding col-sm-6 col-md-6">
-			<div class="title-box">
-			  <h2 class="title" style="padding-top: 0;">Services we offer</h2>
+		  <h3 id="panels-basic">Basic example</h3>
+		  <p>By default, all the <code>.panel</code> does is apply some basic border and padding to contain some content.</p>
+		  <div class="bs-example">
+			<div class="panel panel-default">
+			  <div class="panel-body">
+				Basic panel example
+			  </div>
 			</div>
-			
-			<div class="tabs">
-			  <ul class="nav nav-tabs">
-				<li class="active">
-				  <a href="#services" data-toggle="tab">Graphic design</a>
-				</li>
-				<li>
-				  <a href="#features" data-toggle="tab">Web development</a>
-				</li>
-				<li>
-				  <a href="#text" data-toggle="tab">Web design</a>
-				</li>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	Basic panel example
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
+		
+		  <h3 id="panels-heading">Panel with heading</h3>
+		  <p>Easily add a heading container to your panel with <code>.panel-heading</code>. You may also include any <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code> with a <code>.panel-title</code> class to add a pre-styled heading.</p>
+		  <div class="bs-example">
+			<div class="panel panel-default">
+			  <div class="panel-heading">Panel heading without title</div>
+			  <div class="panel-body">
+				Panel content
+			  </div>
+			</div>
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			  </div>
+			  <div class="panel-body">
+				Panel content
+			  </div>
+			</div>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>Panel heading without title<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	Panel content
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span>Panel title<span class="nt">&lt;/h3&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	Panel content
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
+		
+		  <h3 id="panels-footer">Panel with footer</h3>
+		  <p>Wrap buttons or secondary text in <code>.panel-footer</code>. Note that panel footers <strong>do not</strong> inherit colors and borders when using contextual variations as they are not meant to be in the foreground.</p>
+		  <div class="bs-example">
+			<div class="panel panel-default">
+			  <div class="panel-body">
+				Panel content
+			  </div>
+			  <div class="panel-footer">Panel footer</div>
+			</div>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	Panel content
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-footer&quot;</span><span class="nt">&gt;</span>Panel footer<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
+		
+		  <h3 id="panels-alternatives">Contextual alternatives</h3>
+		  <p>Like other components, easily make a panel more meaningful to a particular context by adding any of the contextual state classes.</p>
+		  <div class="bs-example">
+			<div class="panel panel-primary">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			  </div>
+			  <div class="panel-body">
+				Panel content
+			  </div>
+			</div>
+			<div class="panel panel-success">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			  </div>
+			  <div class="panel-body">
+				Panel content
+			  </div>
+			</div>
+			<div class="panel panel-info">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			  </div>
+			  <div class="panel-body">
+				Panel content
+			  </div>
+			</div>
+			<div class="panel panel-warning">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			  </div>
+			  <div class="panel-body">
+				Panel content
+			  </div>
+			</div>
+			<div class="panel panel-danger">
+			  <div class="panel-heading">
+				<h3 class="panel-title">Panel title</h3>
+			  </div>
+			  <div class="panel-body">
+				Panel content
+			  </div>
+			</div>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-primary&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-success&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-info&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-warning&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-danger&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
+		
+		  <h3 id="panels-tables">With tables</h3>
+		  <p>Add any non-bordered <code>.table</code> within a panel for a seamless design. If there is a <code>.panel-body</code>, we add an extra border to the top of the table for separation.</p>
+		  <div class="bs-example">
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Panel heading</div>
+			  <div class="panel-body">
+				<p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+			  </div>
+		
+			  <!-- Table -->
+			  <table class="table">
+				<thead>
+				  <tr>
+					<th>#</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Username</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					<td>1</td>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				  </tr>
+				  <tr>
+					<td>2</td>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				  </tr>
+				  <tr>
+					<td>3</td>
+					<td>Larry</td>
+					<td>the Bird</td>
+					<td>@twitter</td>
+				  </tr>
+				</tbody>
+			  </table>
+			</div>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Default panel contents --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>Panel heading<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Table --&gt;</span>
+  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&quot;table&quot;</span><span class="nt">&gt;</span>
+	...
+  <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
+		
+		  <p>If there is no panel body, the component moves from panel header to table without interruption.</p>
+		  <div class="bs-example">
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Panel heading</div>
+		
+			  <!-- Table -->
+			  <table class="table">
+				<thead>
+				  <tr>
+					<th>#</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Username</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr>
+					<td>1</td>
+					<td>Mark</td>
+					<td>Otto</td>
+					<td>@mdo</td>
+				  </tr>
+				  <tr>
+					<td>2</td>
+					<td>Jacob</td>
+					<td>Thornton</td>
+					<td>@fat</td>
+				  </tr>
+				  <tr>
+					<td>3</td>
+					<td>Larry</td>
+					<td>the Bird</td>
+					<td>@twitter</td>
+				  </tr>
+				</tbody>
+			  </table>
+			</div>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Default panel contents --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>Panel heading<span class="nt">&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- Table --&gt;</span>
+  <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&quot;table&quot;</span><span class="nt">&gt;</span>
+	...
+  <span class="nt">&lt;/table&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
+
+		  <h3 id="panels-list-group">With list groups</h3>
+		  <p>Easily include full-width <a href="#list-group">list groups</a> within any panel.</p>
+		  <div class="bs-example">
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading">Panel heading</div>
+			  <div class="panel-body">
+				<p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+			  </div>
+		
+			  <!-- List group -->
+			  <ul class="list-group">
+				<li class="list-group-item">Cras justo odio</li>
+				<li class="list-group-item">Dapibus ac facilisis in</li>
+				<li class="list-group-item">Morbi leo risus</li>
+				<li class="list-group-item">Porta ac consectetur ac</li>
+				<li class="list-group-item">Vestibulum at eros</li>
 			  </ul>
-			  <div class="tab-content">
-				<div class="tab-pane active fade in" id="services">
-				  <img class="replace-2x alignleft" src="content/img/product-1.jpg" width="200" height="200" alt="">
-				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quidem voluptatem accusantium praesentium inventore quae illum aliquid dolores totam perspiciatis. Officia illum eos quos voluptate omnis deleniti molestiae numquam fugiat delectus aliquam ab cupiditate dicta commodi</p>
-				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut itaque veritatis distinctio unde.</p>
-				</div>
-				
-				<div class="tab-pane fade in" id="features">
-				  <img class="replace-2x alignright" src="content/img/product-3.jpg" width="200" height="200" alt="">
-				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam quidem voluptatem accusantium praesentium inventore quae illum aliquid dolores totam perspiciatis. Officia illum eos quos voluptate omnis deleniti molestiae numquam fugiat delectus aliquam ab cupiditate dicta commodi</p>
-				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut itaque veritatis distinctio unde.</p>
-				</div>
-				
-				<div class="tab-pane fade in" id="text">
-				  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo quaerat praesentium odio vero necessitatibus vel fuga minima cum provident veniam ducimus perferendis non voluptates qui aperiam quisquam magni minus eligendi eos rerum doloremque mollitia ex at molestias eius veritatis placeat eaque totam culpa. Atque reprehenderit voluptatum tenetur maiores vel blanditiis?</p>
-				</div>
-			  </div>
 			</div>
 		  </div>
-		  
-		  <div class="bottom-padding col-sm-6 col-md-6">
-			<div class="title-box">
-			  <h2 class="title">Our Skills</h2>
-			</div>
-			<div class="progress progress-striped active" data-appear-progress-animation="80%">
-			  <div class="progress-bar progress-bar-warning">Web Design 80%</div>
-			</div>
-			
-			<div class="progress progress-striped active" data-appear-progress-animation="70%">
-			  <div class="progress-bar progress-bar-danger">HTML/CSS 70%</div>
-			</div>
-			
-			<div class="progress progress-striped active" data-appear-progress-animation="40%">
-			  <div class="progress-bar progress-bar-success">Opencart 40%</div>
-			</div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="c">&lt;!-- Default panel contents --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>Panel heading<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;p&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 
-			<div class="progress progress-striped active" data-appear-progress-animation="58%">
-			  <div class="progress-bar progress-bar-info">WordPress 58%</div>
-			</div>
-			
-			<div class="progress progress-striped active no-margin" data-appear-progress-animation="60%">
-			  <div class="progress-bar">Magento 60%</div>
-			</div>
+  <span class="c">&lt;!-- List group --&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Cras justo odio<span class="nt">&lt;/li&gt;</span>
+	<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/li&gt;</span>
+	<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Morbi leo risus<span class="nt">&lt;/li&gt;</span>
+	<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/li&gt;</span>
+	<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
 		  </div>
 		</div>
-		  
-		<div class="clearfix"></div>
-	  </div>
-	</div>
-  </div>
-  
-  <div class="full-width-box bottom-padding cm-padding-bottom-36">
-	<div class="fwb-bg fwb-blur" data-blur-image="content/img/band-5.jpg" data-blur-amount="3"><div class="overlay"></div></div>
-	
-	<div class="container">
-	  <div class="row text-center">
-		<div class="col-sm-3 col-md-3 rotation employee">
-		  <div class="default">
-			<div class="image">
-			  <img class="replace-2x" src="content/img/team-1.jpg" alt="" title="" width="270" height="270">
-			</div>
-			<div class="description">
-			  <div class="vertical">
-				<h3 class="name">Mett Rayan</h3>
-				<div class="role">Manager</div>	
-			  </div>
-			</div>
-		  </div>
-		  <div class="employee-hover">
-			<h3 class="name">Mett Rayan</h3>
-			<div class="role">Manager</div>
-			<div class="image">
-			  <img class="replace-2x" src="content/img/team-1.jpg" alt="" title="" width="270" height="270">
-			</div>
-			<div>
-			  <p>Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
-			  <div class="contact"><b>Email: </b>mett@itembridge.com</div>
-			  <div class="contact"><b>Phone: </b>11 555 333 77</div>
-			</div>
-			<div class="social">
-			  <a class="icon rounded" href="#"><span class="icon-facebook"><i class="fa fa-facebook"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-twitter"><i class="fa fa-twitter"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-google"><i class="fa fa-google"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-linkedin"><i class="fa fa-linkedin"></i></span></a>
-			</div>
-		  </div><!-- .employee-hover -->
-		</div><!-- .employee 
-		
-		--><div class="col-sm-3 col-md-3 rotation employee">
-		  <div class="default">
-			<div class="image">
-			  <img class="replace-2x" src="content/img/team-2.jpg" alt="" title="" width="270" height="270">
-			</div>
-			<div class="description">
-			  <div class="vertical">
-				<h3 class="name">Jon O. Example</h3>
-				<div class="role">Web designer</div>	
-			  </div>
-			</div>
-		  </div>
-		  <div class="employee-hover">
-			<h3 class="name">Jon O. Example</h3>
-			<div class="role">Web designer</div>
-			<div class="image">
-			  <img class="replace-2x" src="content/img/team-2.jpg" alt="" title="" width="270" height="270">
-			</div>
-			<div>
-			  <p>Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
-			  <div class="contact"><b>Email: </b>mett@itembridge.com</div>
-			  <div class="contact"><b>Phone: </b>11 555 333 77</div>
-			</div>
-			<div class="social">
-			  <a class="icon rounded" href="#"><span class="icon-facebook"><i class="fa fa-facebook"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-twitter"><i class="fa fa-twitter"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-google"><i class="fa fa-google"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-linkedin"><i class="fa fa-linkedin"></i></span></a>
-			</div>
-		  </div><!-- .employee-hover -->
-		</div><!-- .employee
-		
-		--><div class="col-sm-3 col-md-3 rotation employee">
-		  <div class="default">
-			<div class="image">
-			  <img class="replace-2x" src="content/img/team-3.jpg" alt="" title="" width="270" height="270">
-			</div>
-			<div class="description">
-			  <div class="vertical">
-				<h3 class="name">Turanga Leela</h3>
-				<div class="role">Graphic designer</div>	
-			  </div>
-			</div>
-		  </div>
-		  <div class="employee-hover">
-			<h3 class="name">Turanga Leela</h3>
-			<div class="role">Graphic designer</div>
-			<div class="image">
-			  <img class="replace-2x" src="content/img/team-3.jpg" alt="" title="" width="270" height="270">
-			</div>
-			<div>
-			  <p>Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
-			  <div class="contact"><b>Email: </b>mett@itembridge.com</div>
-			  <div class="contact"><b>Phone: </b>11 555 333 77</div>
-			</div>
-			<div class="social">
-			  <a class="icon rounded" href="#"><span class="icon-facebook"><i class="fa fa-facebook"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-twitter"><i class="fa fa-twitter"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-google"><i class="fa fa-google"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-linkedin"><i class="fa fa-linkedin"></i></span></a>
-			</div>
-		  </div><!-- .employee-hover -->
-		</div><!-- .employee
-		
-		--><div class="col-sm-3 col-md-3 rotation employee">
-		  <div class="default">
-			<div class="image">
-			  <img class="replace-2x" src="content/img/team-4.jpg" alt="" title="" width="270" height="270">
-			</div>
-			<div class="description">
-			  <div class="vertical">
-				<h3 class="name">David X. Cohen</h3>
-				<div class="role">Developer</div>	
-			  </div>
-			</div>
-		  </div>
-		  <div class="employee-hover">
-			<h3 class="name">David X. Cohen</h3>
-			<div class="role">Developer</div>
-			<div class="image">
-			  <img class="replace-2x" src="content/img/team-4.jpg" alt="" title="" width="270" height="270">
-			</div>
-			<div>
-			  <p>Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
-			  <div class="contact"><b>Email: </b>mett@itembridge.com</div>
-			  <div class="contact"><b>Phone: </b>11 555 333 77</div>
-			</div>
-			<div class="social">
-			  <a class="icon rounded" href="#"><span class="icon-facebook"><i class="fa fa-facebook"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-twitter"><i class="fa fa-twitter"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-google"><i class="fa fa-google"></i></span></a>
-			  <a class="icon rounded" href="#"><span class="icon-linkedin"><i class="fa fa-linkedin"></i></span></a>
-			</div>
-		  </div><!-- .employee-hover -->
-		</div><!-- .employee -->
-	  </div>
-	</div>
-  </div><!-- .full-width-box -->
-
-  <div class="container">
-	<div class="row">
-	  <div class="content col-sm-12 col-md-12">
-		<div class="carousel-box load overflow" data-autoplay-disable="true">
-		  <div class="title-box">
-			<a class="next" href="#">
-			  <svg x="0" y="0" width="9px" height="16px" viewBox="0 0 9 16" enable-background="new 0 0 9 16" xml:space="preserve">
-				<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#fcfcfc" points="1,0.001 0,1.001 7,8 0,14.999 1,15.999 9,8 "></polygon>
-			  </svg>
-			</a>
-			<a class="prev" href="#">
-			  <svg x="0" y="0" width="9px" height="16px" viewBox="0 0 9 16" enable-background="new 0 0 9 16" xml:space="preserve">
-				<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#fcfcfc" points="8,15.999 9,14.999 2,8 9,1.001 8,0.001 0,8 "></polygon>
-			  </svg>
-			</a>
-			<h2 class="title">Our Happy Clients</h2>
-		  </div>
-		  
-		  <div class="clearfix"></div>
-		  
-		  <div class="row">
-			<div class="carousel">
-			  <div class="col-sm-3 col-md-2 text-center">
-				<a href="#" class="client">
-				  <img class="replace-2x" src="content/img/clients/yahoo.png" width="170" height="103" alt="">
-				</a>
-			  </div>
-			  
-			  <div class="col-sm-3 col-md-2 text-center">
-				<a href="#" class="client">
-				  <img class="replace-2x" src="content/img/clients/sony.png" width="170" height="103" alt="">
-				</a>
-			  </div>
-			  
-			  <div class="col-sm-3 col-md-2 text-center">
-				<a href="#" class="client">
-				  <img class="replace-2x" src="content/img/clients/yelp.png" width="170" height="103" alt="">
-				</a>
-			  </div>
-			  
-			  <div class="col-sm-3 col-md-2 text-center">
-				<a href="#" class="client">
-				  <img class="replace-2x" src="content/img/clients/virgin.png" width="170" height="103" alt="">
-				</a>
-			  </div>
-			  
-			  <div class="col-sm-3 col-md-2 text-center">
-				<a href="#" class="client">
-				  <img class="replace-2x" src="content/img/clients/rolex.png" width="170" height="103" alt="">
-				</a>
-			  </div>
-			  
-			  <div class="col-sm-3 col-md-2 text-center">
-				<a href="#" class="client">
-				  <img class="replace-2x" src="content/img/clients/nike.png" width="170" height="103" alt="">
-				</a>
-			  </div>
-			  
-			  <div class="col-sm-3 col-md-2 text-center">
-				<a href="#" class="client">
-				  <img class="replace-2x" src="content/img/clients/nickelodeon.png" width="170" height="103" alt="">
-				</a>
-			  </div>
-			  
-			  <div class="col-sm-3 col-md-2 text-center">
-				<a href="#" class="client">
-				  <img class="replace-2x" src="content/img/clients/microsoft.png" width="170" height="103" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div>
-		</div>
-      </div><!-- .content -->
+	  </article><!-- .content -->
     </div>
-  </div><!-- .container -->
+  </div>
 </section><!-- #main -->
 
 </div><!-- .page-box-content -->
@@ -871,7 +857,7 @@
 <div class="clearfix"></div>
 
 <!--[if (!IE)|(gt IE 8)]><!-->
-  <script src="js/jquery-2.1.3.min.js"></script>
+  <script src="js/jquery-3.0.0.min.js"></script>
 <!--<![endif]-->
 
 <!--[if lte IE 8]>

@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Portfolio (1 column) \ Progressive — Responsive Multipurpose HTML Template</title>
+  <title>List Group \ Progressive — Responsive Multipurpose HTML Template</title>
   <meta name="keywords" content="HTML5 Template">
   <meta name="description" content="Progressive — Responsive Multipurpose HTML Template">
   <meta name="author" content="itembridge.com">
@@ -36,7 +36,6 @@
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/customizer/pages.css">
-  <link rel="stylesheet" href="css/customizer/pages-pages-customizer.css">
 
   <!-- IE Styles-->
   <link rel='stylesheet' href="css/ie/ie.css">
@@ -47,7 +46,7 @@
 		<link rel='stylesheet' href="css/ie/ie8.css">
   <![endif]-->
 </head>
-<body class="fixed-header">
+<body>
 <div class="page-box">
 <div class="page-box-content">
 
@@ -424,125 +423,180 @@
   <div class="container">
     <ul class="breadcrumb">
       <li><a href="index.html">Home</a> </li>
-      <li class="active">Portfolio</li>
+      <li><a href="#">Bootstrap</a> </li>
+      <li class="active">List Group</li>
     </ul>	
   </div>
 </div><!-- .breadcrumb-box -->
 
-<section id="main">
+<section id="main" class="page">
   <header class="page-header">
     <div class="container">
-      <h1 class="title">Portfolio (1 column)</h1>
+      <h1 class="title">List Group</h1>
     </div>	
   </header>
+  
   <div class="container">
     <div class="row">
-      <div class="content portfolio col-sm-12 col-md-12">
-		<div class="row">
-		  <div class="col-sm-12 col-md-8">
-			<div class="btn-group filter-buttons filter-list">
-			  <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-				All works <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu">
-				<li><a href="#" data-filter="*" class="active">All works</a></li>
-				<li><a href="#" data-filter=".web-design">Web Design</a></li>
-				<li><a href="#" data-filter=".graphic-design">Graphic Design</a></li>
-				<li><a href="#" data-filter=".ecommerce">eCommerce</a></li>
-			  </ul>
-			  <div class="clearfix"></div>
-			</div><!-- .filter-buttons -->
+	  <article class="content col-sm-12 col-md-12">
+		<div class="bs-docs-section">
+		  <p class="lead">List groups are a flexible and powerful component for displaying not only simple lists of elements, but complex ones with custom content.</p>
+		
+		  <h3 id="list-group-basic">Basic example</h3>
+		  <p>The most basic list group is simply an unordered list with list items, and the proper classes. Build upon it with the options that follow, or your own CSS as needed.</p>
+		  <div class="bs-example">
+			<ul class="list-group">
+			  <li class="list-group-item">Cras justo odio</li>
+			  <li class="list-group-item">Dapibus ac facilisis in</li>
+			  <li class="list-group-item">Morbi leo risus</li>
+			  <li class="list-group-item">Porta ac consectetur ac</li>
+			  <li class="list-group-item">Vestibulum at eros</li>
+			</ul>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Cras justo odio<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Morbi leo risus<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code>
+			</pre>
 		  </div>
 		
-		  <div class="col-sm-6 col-md-4 year-regulator">
-			<div class="label">Year:</div>
-			<div class="layout-slider">
-			  <input id="filter" type="slider" name="year" value="2000;2015" class="form-control">
-			</div>
-		  </div><!-- .price-regulator -->
-		</div>
+		  <h3 id="list-group-badges">Badges</h3>
+		  <p>Add the badges component to any list group item and it will automatically be positioned on the right.</p>
+		  <div class="bs-example">
+			<ul class="list-group">
+			  <li class="list-group-item">
+				<span class="badge">14</span>
+				Cras justo odio
+			  </li>
+			  <li class="list-group-item">
+				<span class="badge">2</span>
+				Dapibus ac facilisis in
+			  </li>
+			  <li class="list-group-item">
+				<span class="badge">1</span>
+				Morbi leo risus
+			  </li>
+			</ul>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;badge&quot;</span><span class="nt">&gt;</span>14<span class="nt">&lt;/span&gt;</span>
+	Cras justo odio
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code>
+			</pre>
+		  </div>
 		
-		<div class="clearfix"></div>
+		  <h3 id="list-group-linked">Linked items</h3>
+		  <p>Linkify list group items by using anchor tags instead of list items (that also means a parent <code>&lt;div&gt;</code> instead of an <code>&lt;ul&gt;</code>). No need for individual parents around each element.</p>
+		  <div class="bs-example">
+			<div class="list-group">
+			  <a href="#" class="list-group-item active">
+				Cras justo odio
+			  </a>
+			  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+			  <a href="#" class="list-group-item">Morbi leo risus</a>
+			  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+			  <a href="#" class="list-group-item">Vestibulum at eros</a>
+			</div>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item active&quot;</span><span class="nt">&gt;</span>
+	Cras justo odio
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Morbi leo risus<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item&quot;</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
 		
-		<div class="filter-elements">
-		  <div class="work-one web-design">
+		  <h3 id="list-group-contextual-classes">Contextual classes</h3>
+		  <p>Use contextual classes to style list items, default or linked. Also includes <code>.active</code> state.</p>
+		  <div class="bs-example">
 			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
+			  <div class="col-sm-6">
+				<ul class="list-group">
+				  <li class="list-group-item list-group-item-success">Dapibus ac facilisis in</li>
+				  <li class="list-group-item list-group-item-info">Cras sit amet nibh libero</li>
+				  <li class="list-group-item list-group-item-warning">Porta ac consectetur ac</li>
+				  <li class="list-group-item list-group-item-danger">Vestibulum at eros</li>
+				</ul>
 			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-11.jpg" width="770" height="270" alt="">
-				</a>
+			  <div class="col-sm-6">
+				<div class="list-group">
+				  <a href="#" class="list-group-item list-group-item-success">Dapibus ac facilisis in</a>
+				  <a href="#" class="list-group-item list-group-item-info">Cras sit amet nibh libero</a>
+				  <a href="#" class="list-group-item list-group-item-warning">Porta ac consectetur ac</a>
+				  <a href="#" class="list-group-item list-group-item-danger">Vestibulum at eros</a>
+				</div>
 			  </div>
 			</div>
-		  </div><!-- .work-one -->
-		  
-		  <div class="work-one graphic-design">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-12.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item list-group-item-success&quot;</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item list-group-item-info&quot;</span><span class="nt">&gt;</span>Cras sit amet nibh libero<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item list-group-item-warning&quot;</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;list-group-item list-group-item-danger&quot;</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item list-group-item-success&quot;</span><span class="nt">&gt;</span>Dapibus ac facilisis in<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item list-group-item-info&quot;</span><span class="nt">&gt;</span>Cras sit amet nibh libero<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item list-group-item-warning&quot;</span><span class="nt">&gt;</span>Porta ac consectetur ac<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item list-group-item-danger&quot;</span><span class="nt">&gt;</span>Vestibulum at eros<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
+		
+		  <h3 id="list-group-custom-content">Custom content</h3>
+		  <p>Add nearly any HTML within, even for linked list groups like the one below.</p>
+		  <div class="bs-example">
+			<div class="list-group">
+			  <a href="#" class="list-group-item active">
+				<h5 class="list-group-item-heading">List group item heading</h5>
+				<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+			  </a>
+			  <a href="#" class="list-group-item">
+				<h5 class="list-group-item-heading">List group item heading</h5>
+				<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+			  </a>
+			  <a href="#" class="list-group-item">
+				<h5 class="list-group-item-heading">List group item heading</h5>
+				<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+			  </a>
 			</div>
-		  </div><!-- .work-one -->
-		  
-		  <div class="work-one ecommerce">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-13.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div><!-- .work-one -->
-		  
-		  <div class="work-one ecommerce">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-14.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div><!-- .work-one -->
-		  
-		  <div class="work-one graphic-design">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-15.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div><!-- .work-one -->
+		  </div>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;list-group&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;#&quot;</span> <span class="na">class=</span><span class="s">&quot;list-group-item active&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">&quot;list-group-item-heading&quot;</span><span class="nt">&gt;</span>List group item heading<span class="nt">&lt;/h5&gt;</span>
+	<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;list-group-item-text&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
 		</div>
-      </div><!-- .content -->
+	  </article><!-- .content -->
     </div>
-  </div><!-- .container -->
+  </div>
 </section><!-- #main -->
 
 </div><!-- .page-box-content -->

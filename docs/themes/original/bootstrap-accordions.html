@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Portfolio (1 column) \ Progressive — Responsive Multipurpose HTML Template</title>
+  <title>Accordions Designs \ Progressive — Responsive Multipurpose HTML Template</title>
   <meta name="keywords" content="HTML5 Template">
   <meta name="description" content="Progressive — Responsive Multipurpose HTML Template">
   <meta name="author" content="itembridge.com">
@@ -36,7 +36,6 @@
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/customizer/pages.css">
-  <link rel="stylesheet" href="css/customizer/pages-pages-customizer.css">
 
   <!-- IE Styles-->
   <link rel='stylesheet' href="css/ie/ie.css">
@@ -47,7 +46,7 @@
 		<link rel='stylesheet' href="css/ie/ie8.css">
   <![endif]-->
 </head>
-<body class="fixed-header">
+<body>
 <div class="page-box">
 <div class="page-box-content">
 
@@ -424,125 +423,255 @@
   <div class="container">
     <ul class="breadcrumb">
       <li><a href="index.html">Home</a> </li>
-      <li class="active">Portfolio</li>
+      <li><a href="#">Bootstrap</a> </li>
+      <li class="active">Accordions Designs</li>
     </ul>	
   </div>
 </div><!-- .breadcrumb-box -->
 
-<section id="main">
+<section id="main" class="page">
   <header class="page-header">
     <div class="container">
-      <h1 class="title">Portfolio (1 column)</h1>
+      <h1 class="title">Accordions Designs</h1>
     </div>	
   </header>
+  
   <div class="container">
     <div class="row">
-      <div class="content portfolio col-sm-12 col-md-12">
-		<div class="row">
-		  <div class="col-sm-12 col-md-8">
-			<div class="btn-group filter-buttons filter-list">
-			  <button type="button" class="dropdown-toggle" data-toggle="dropdown">
-				All works <span class="caret"></span>
-			  </button>
-			  <ul class="dropdown-menu" role="menu">
-				<li><a href="#" data-filter="*" class="active">All works</a></li>
-				<li><a href="#" data-filter=".web-design">Web Design</a></li>
-				<li><a href="#" data-filter=".graphic-design">Graphic Design</a></li>
-				<li><a href="#" data-filter=".ecommerce">eCommerce</a></li>
-			  </ul>
-			  <div class="clearfix"></div>
-			</div><!-- .filter-buttons -->
+	  <article class="content col-sm-12 col-md-12">
+		<div class="bs-docs-section">
+		  <h3>About</h3>
+		  <p>Get base styles and flexible support for collapsible components like accordions and navigation.</p>
+		
+		  <h2 id="collapse-examples">Example accordion</h2>
+		  <p>Using the collapse plugin, we built a simple accordion by extending the panel component.</p>
+		
+		  <div class="bs-example">
+			<div class="panel-group" id="accordion">
+			  <div class="panel panel-default active">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+					  Collapsible Group Item #1
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse in">
+				  <div class="panel-body">
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+					  Collapsible Group Item #2
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+				  <div class="panel-body">
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				  </div>
+				</div>
+			  </div>
+			  <div class="panel panel-default">
+				<div class="panel-heading">
+				  <h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+					  Collapsible Group Item #3
+					</a>
+				  </h4>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+				  <div class="panel-body">
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div><!-- /example -->
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-group&quot;</span> <span class="na">id=</span><span class="s">&quot;accordion&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span>
+	  <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-parent=</span><span class="s">&quot;#accordion&quot;</span> <span class="na">href=</span><span class="s">&quot;#collapseOne&quot;</span><span class="nt">&gt;</span>
+		Collapsible Group Item #1
+	  <span class="nt">&lt;/a&gt;</span>
+	<span class="nt">&lt;/h4&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;collapseOne&quot;</span> <span class="na">class=</span><span class="s">&quot;panel-collapse collapse in&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+	<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span>
+	  <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-parent=</span><span class="s">&quot;#accordion&quot;</span> <span class="na">href=</span><span class="s">&quot;#collapseTwo&quot;</span><span class="nt">&gt;</span>
+		Collapsible Group Item #2
+	  <span class="nt">&lt;/a&gt;</span>
+	<span class="nt">&lt;/h4&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;collapseTwo&quot;</span> <span class="na">class=</span><span class="s">&quot;panel-collapse collapse&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+	<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel panel-default&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-heading&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">&quot;panel-title&quot;</span><span class="nt">&gt;</span>
+	  <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-parent=</span><span class="s">&quot;#accordion&quot;</span> <span class="na">href=</span><span class="s">&quot;#collapseThree&quot;</span><span class="nt">&gt;</span>
+		Collapsible Group Item #3
+	  <span class="nt">&lt;/a&gt;</span>
+	<span class="nt">&lt;/h4&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;collapseThree&quot;</span> <span class="na">class=</span><span class="s">&quot;panel-collapse collapse&quot;</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;panel-body&quot;</span><span class="nt">&gt;</span>
+	  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven&#39;t heard of them accusamus labore sustainable VHS.
+	<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
 		  </div>
 		
-		  <div class="col-sm-6 col-md-4 year-regulator">
-			<div class="label">Year:</div>
-			<div class="layout-slider">
-			  <input id="filter" type="slider" name="year" value="2000;2015" class="form-control">
-			</div>
-		  </div><!-- .price-regulator -->
-		</div>
+		  <p>You can also use the plugin without the accordion markup. Make a button toggle the expanding and collapsing of another element.</p>
+		  <div class="highlight">
+			<pre>
+<code class="html"><span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">class=</span><span class="s">&quot;btn btn-danger&quot;</span> <span class="na">data-toggle=</span><span class="s">&quot;collapse&quot;</span> <span class="na">data-target=</span><span class="s">&quot;#demo&quot;</span><span class="nt">&gt;</span>
+  simple collapsible
+<span class="nt">&lt;/button&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;demo&quot;</span> <span class="na">class=</span><span class="s">&quot;collapse in&quot;</span><span class="nt">&gt;</span>...<span class="nt">&lt;/div&gt;</span>
+</code>
+			</pre>
+		  </div>
 		
-		<div class="clearfix"></div>
 		
-		<div class="filter-elements">
-		  <div class="work-one web-design">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-11.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div><!-- .work-one -->
-		  
-		  <div class="work-one graphic-design">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-12.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div><!-- .work-one -->
-		  
-		  <div class="work-one ecommerce">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-13.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div><!-- .work-one -->
-		  
-		  <div class="work-one ecommerce">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-14.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div><!-- .work-one -->
-		  
-		  <div class="work-one graphic-design">
-			<div class="row">
-			  <div class="work-title col-sm-4 col-md-4">
-				<h3 class="title"><a href="portfolio-single.html">Morbi non lacus ac sapien molestie</a></h3>
-				<div class="description">Web design</div>
-				<p>Pellentesque habitant morbi tristiqe senectu netus et malesuada fames turp egestas. Duis accumsan congue nibh id consequat.</p>
-			  </div>
-			  <div class="col-sm-8 col-md-8">
-				<a href="portfolio-single.html" class="work-image">
-				  <img class="replace-2x" src="content/img/portfolio-15.jpg" width="770" height="270" alt="">
-				</a>
-			  </div>
-			</div>
-		  </div><!-- .work-one -->
+		  <h2 id="collapse-usage">Usage</h2>
+		  <p>The collapse plugin utilizes a few classes to handle the heavy lifting:</p>
+		  <ul>
+			<li><code>.collapse</code> hides the content</li>
+			<li><code>.collapse.in</code> shows the content</li>
+			<li><code>.collapsing</code> is added when the transition starts, and removed when it finishes</li>
+		  </ul>
+		  <p>These classes can be found in <code>component-animations.less</code>.</p>
+		
+		  <h3>Via data attributes</h3>
+		  <p>Just add <code>data-toggle="collapse"</code> and a <code>data-target</code> to element to automatically assign control of a collapsible element. The <code>data-target</code> attribute accepts a CSS selector to apply the collapse to. Be sure to add the class <code>collapse</code> to the collapsible element. If you'd like it to default open, add the additional class <code>in</code>.</p>
+		  <p>To add accordion-like group management to a collapsible control, add the data attribute <code>data-parent="#selector"</code>. Refer to the demo to see this in action.</p>
+		
+		  <h3>Via JavaScript</h3>
+		  <p>Enable manually with:</p>
+		  <div class="highlight">
+			<pre>
+<code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.collapse&#39;</span><span class="p">).</span><span class="nx">collapse</span><span class="p">()</span>
+</code>
+			</pre>
+		  </div>
+		
+		  <h3>Options</h3>
+		  <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-parent=""</code>.</p>
+		  <div class="table-responsive">
+			<table class="table table-bordered table-striped text-left">
+			  <thead>
+			   <tr>
+				 <th style="width: 100px;">Name</th>
+				 <th style="width: 50px;">type</th>
+				 <th style="width: 50px;">default</th>
+				 <th>description</th>
+			   </tr>
+			  </thead>
+			  <tbody>
+			   <tr>
+				 <td>parent</td>
+				 <td>selector</td>
+				 <td>false</td>
+				 <td>If selector then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior - this dependent on the <code>panel</code> class)</td>
+			   </tr>
+			   <tr>
+				 <td>toggle</td>
+				 <td>boolean</td>
+				 <td>true</td>
+				 <td>Toggles the collapsible element on invocation</td>
+			   </tr>
+			  </tbody>
+			</table>
+		  </div><!-- /.table-responsive -->
+		
+		  <h3>Methods</h3>
+		
+		  <h4>.collapse(options)</h4>
+		  <p>Activates your content as a collapsible element. Accepts an optional options <code>object</code>.
+		  <div class="highlight"
+			<pre>
+<code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myCollapsible&#39;</span><span class="p">).</span><span class="nx">collapse</span><span class="p">({</span>
+  <span class="nx">toggle</span><span class="o">:</span> <span class="kc">false</span>
+<span class="p">})</span>
+</code>
+			</pre>
+		  </div>
+		
+		  <h4>.collapse('toggle')</h4>
+		  <p>Toggles a collapsible element to shown or hidden.</p>
+		
+		  <h4>.collapse('show')</h4>
+		  <p>Shows a collapsible element.</p>
+		
+		  <h4>.collapse('hide')</h4>
+		  <p>Hides a collapsible element.</p>
+		
+		  <h3>Events</h3>
+		  <p>Bootstrap's collapse class exposes a few events for hooking into collapse functionality.</p>
+		  <div class="table-responsive">
+			<table class="table table-bordered table-striped text-left">
+			  <thead>
+			   <tr>
+				 <th style="width: 150px;">Event Type</th>
+				 <th>Description</th>
+			   </tr>
+			  </thead>
+			  <tbody>
+			   <tr>
+				 <td>show.bs.collapse</td>
+				 <td>This event fires immediately when the <code>show</code> instance method is called.</td>
+			   </tr>
+			   <tr>
+				 <td>shown.bs.collapse</td>
+				 <td>This event is fired when a collapse element has been made visible to the user (will wait for CSS transitions to complete).</td>
+			   </tr>
+			   <tr>
+				 <td>hide.bs.collapse</td>
+				 <td>
+				  This event is fired immediately when the <code>hide</code> method has been called.
+				 </td>
+			   </tr>
+			   <tr>
+				 <td>hidden.bs.collapse</td>
+				 <td>This event is fired when a collapse element has been hidden from the user (will wait for CSS transitions to complete).</td>
+			   </tr>
+			  </tbody>
+			</table>
+		  </div><!-- /.table-responsive -->
+		  <div class="highlight">
+			<pre>
+<code class="js"><span class="nx">$</span><span class="p">(</span><span class="s1">&#39;#myCollapsible&#39;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;hidden.bs.collapse&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// do something…</span>
+<span class="p">})</span>
+</code>
+			</pre>
+		  </div>
 		</div>
-      </div><!-- .content -->
+	  </article><!-- .content -->
     </div>
-  </div><!-- .container -->
+  </div>
 </section><!-- #main -->
 
 </div><!-- .page-box-content -->
