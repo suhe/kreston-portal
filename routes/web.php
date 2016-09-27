@@ -11,9 +11,13 @@
 |
 */
 
+
 Route::get('/', function () {
-	//echo 'test';
-    return view('welcome');
+	dd("x");
+});
+
+Route::get('/administrator', function () {
+	return redirect("/session/login");
 });
 
 /*foreach (Addons::enabled() as $module){

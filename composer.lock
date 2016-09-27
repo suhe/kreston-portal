@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a248da5fdd8a9895fe84a30fae34f39e",
-    "content-hash": "2e1065568975f444befebfe647abfff1",
+    "hash": "f9cf826c034f369abca8f20635de17ad",
+    "content-hash": "a3b316ada0c994a5573ec910c76697cd",
     "packages": [
         {
             "name": "caffeinated/modules",
@@ -407,6 +407,56 @@
             "time": "2015-12-05 17:17:57"
         },
         {
+            "name": "kyslik/column-sortable",
+            "version": "5.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Kyslik/column-sortable.git",
+                "reference": "6d36f395e3cc05675e73b4f97effeef3c3736b5d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Kyslik/column-sortable/zipball/6d36f395e3cc05675e73b4f97effeef3c3736b5d",
+                "reference": "6d36f395e3cc05675e73b4f97effeef3c3736b5d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "5.1.* || 5.2.* || 5.3.*",
+                "illuminate/support": "5.1.* || 5.2.* || 5.3.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "3.3.*",
+                "phpunit/phpunit": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kyslik\\ColumnSortable\\": "src/ColumnSortable/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Kiesel",
+                    "email": "martinkiesel@gmail.com"
+                }
+            ],
+            "description": "Package for handling column sorting in Laravel 5.1, 5.2 and 5.3",
+            "keywords": [
+                "column",
+                "laravel",
+                "one-to-one",
+                "sort",
+                "sortable",
+                "sorting"
+            ],
+            "time": "2016-09-19 18:43:42"
+        },
+        {
             "name": "laravel/framework",
             "version": "v5.3.10",
             "source": {
@@ -533,6 +583,60 @@
                 "laravel"
             ],
             "time": "2016-09-20 13:46:16"
+        },
+        {
+            "name": "laravelcollective/html",
+            "version": "v5.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "961ce141c16c6b085128f209496c26efd3e681ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/961ce141c16c6b085128f209496c26efd3e681ca",
+                "reference": "961ce141c16c6b085128f209496c26efd3e681ca",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.3.*",
+                "illuminate/routing": "5.3.*",
+                "illuminate/session": "5.3.*",
+                "illuminate/support": "5.3.*",
+                "illuminate/view": "5.3.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/database": "5.3.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2016-08-27 23:52:43"
         },
         {
             "name": "league/flysystem",

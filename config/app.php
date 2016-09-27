@@ -166,8 +166,9 @@ return [
         /*
          * Package Service Providers...
          */
-		 Caffeinated\Modules\ModulesServiceProvider::class,
-		 Caffeinated\Themes\ThemesServiceProvider::class,
+        Caffeinated\Modules\ModulesServiceProvider::class,
+        Caffeinated\Themes\ThemesServiceProvider::class,
+        Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         //
 
         /*
