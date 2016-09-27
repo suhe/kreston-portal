@@ -47,7 +47,7 @@
 							</tr>
 							<tr>
 								<th>{!! Lang::get('user::app.password') !!}</th>
-								<td><a href="{!! url('user/administrator/reset-password') !!}" class="btn btn-default btn-sm"><i class="fa fa-key"></i> {!! Lang::get("action.reset password") !!}</a></td>
+								<td><a href="{!! url('user/administrator/reset-password/'.Crypt::encrypt($user->id)) !!}" class="btn btn-default btn-sm"><i class="fa fa-key"></i> {!! Lang::get("action.reset password") !!}</a></td>
 							</tr>
 						</table>
 					</div>

@@ -10,4 +10,5 @@ return array (
     'first name' => 'First Name',
     'last name' => 'Last Name',
 	'password' => 'Password',
+	'repeat password' => 'Repeat Password',
 );

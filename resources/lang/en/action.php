@@ -6,5 +6,6 @@ return array(
     'remove' => 'Remove',
 	'reset password' => 'Reset Password',
 	'save' => 'Save',
+	'update password' => 'Update Password',
     'view' => 'View'
 );

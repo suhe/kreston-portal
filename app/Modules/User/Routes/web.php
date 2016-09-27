@@ -19,5 +19,7 @@ Route::group(['prefix' => 'user'], function() {
 		Route::get('/create', 'Administrator\UserController@create');
 		Route::get('/edit/{id}', 'Administrator\UserController@edit');
 		Route::post('/update', 'Administrator\UserController@update');
+		Route::get('/reset-password/{id}', 'Administrator\UserController@reset_password');
+		Route::post('/update/password', 'Administrator\UserController@update_password');
     });
 });

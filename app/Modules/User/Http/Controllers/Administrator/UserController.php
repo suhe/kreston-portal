@@ -87,5 +87,12 @@ class UserController extends Controller {
 		
 		return json_encode($params);
 	}
+	
+	public function reset_password($id,User $user) {
+		$id = Crypt::decrypt($id);
+		return Theme::view ('user::Administrator.reset-password',array(
+            'user' =>  $user->find($id),
+        ));
+	}
 
 }
