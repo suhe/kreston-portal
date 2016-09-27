@@ -168,6 +168,7 @@ return [
          */
         Caffeinated\Modules\ModulesServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
+		Collective\Html\HtmlServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
         //
 
@@ -208,9 +209,11 @@ return [
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,
         'File' => Illuminate\Support\Facades\File::class,
+		'Form' => Collective\Html\FormFacade::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
+		'Html' => Collective\Html\HtmlFacade::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
 		'Module' => Caffeinated\Modules\Facades\Module::class,	

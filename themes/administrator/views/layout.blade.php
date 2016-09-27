@@ -221,6 +221,7 @@
     <div class="wrap">
         <section class="app-content">
         @yield("content")
+		<div id="divLoading"></div>
         </section>
     </div>
     <div class="wrap p-t-0">
@@ -242,5 +243,6 @@
 <script src="{!! Theme::asset('libs/bower/moment/moment.js') !!}"></script>
 <script src="{!! Theme::asset('libs/bower/fullcalendar/dist/fullcalendar.min.js') !!}"></script>
 <script src="{!! Theme::asset('assets/js/fullcalendar.js') !!}"></script>
+@stack('scripts')
 </body>
 </html>

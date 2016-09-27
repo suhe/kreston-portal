@@ -9,4 +9,5 @@ return array (
     'email' => 'Email',
     'first name' => 'First Name',
     'last name' => 'Last Name',
+	'password' => 'Password',
 );

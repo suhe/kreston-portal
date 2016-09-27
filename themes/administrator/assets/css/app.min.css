@@ -17340,3 +17340,20 @@ td.mail-right {
 .theme-deepOrange .menubar .app-menu li.active, .theme-deepOrange .menubar .app-menu li.open {
     border-left-color: #FF5722
 }
+#divLoading {
+	display : none;
+}
+#divLoading.show {
+	display : block;
+	position : fixed;
+	z-index: 100;
+	background-image : url("../images/medium-loading.gif");
+	background-color:#fff;
+	opacity : 0.4;
+	background-repeat : no-repeat;
+	background-position : center;
+	left : 0;
+	bottom : 0;
+	right : 0;
+	top : 0;
+}

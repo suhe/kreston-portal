@@ -48,7 +48,7 @@
                                     <span class="caret"></span>
                                 </button>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#"> {!! Lang::get('action.view') !!}</a></li>
+                                    <li><a href="{!! url('user/administrator/view/'.Crypt::encrypt($user->id)) !!}"> {!! Lang::get('action.view') !!}</a></li>
                                     <li><a href="#"> {!! Lang::get('action.edit') !!}</a></li>
                                     <li><a href="#"> {!! Lang::get('action.remove') !!}</a></li>
                                 </ul>
