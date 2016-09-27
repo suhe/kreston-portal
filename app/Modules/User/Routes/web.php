@@ -16,6 +16,7 @@ Route::group(['prefix' => 'user'], function() {
     Route::group(['prefix' => 'administrator'], function() {
         Route::get('/', 'Administrator\UserController@index');
 		Route::get('/view/{id}', 'Administrator\UserController@view');
+		Route::get('/create', 'Administrator\UserController@create');
 		Route::get('/edit/{id}', 'Administrator\UserController@edit');
 		Route::post('/update', 'Administrator\UserController@update');
     });

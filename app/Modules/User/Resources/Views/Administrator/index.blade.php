@@ -13,7 +13,7 @@
                         <div class="pull-right">
                             {!! $users->appends(\Request::except('page'))->render() !!}
                             <div class="btn-group pull-right">
-                                <a href="#" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i> Add News</a>
+                                <a href="{!! url('user/administrator/create') !!}" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i> Add News</a>
                             </div>
                         </div>
                     </div>
@@ -49,8 +49,8 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a href="{!! url('user/administrator/view/'.Crypt::encrypt($user->id)) !!}"> {!! Lang::get('action.view') !!}</a></li>
-                                    <li><a href="#"> {!! Lang::get('action.edit') !!}</a></li>
-                                    <li><a href="#"> {!! Lang::get('action.remove') !!}</a></li>
+                                    <li><a href="{!! url('user/administrator/edit/'.Crypt::encrypt($user->id)) !!}"> {!! Lang::get('action.edit') !!}</a></li>
+                                    <li><a href="{!! url('user/administrator/remove/'.Crypt::encrypt($user->id)) !!}"> {!! Lang::get('action.remove') !!}</a></li>
                                 </ul>
                             </div>
                         </td>

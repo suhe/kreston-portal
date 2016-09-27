@@ -32,6 +32,12 @@ class UserController extends Controller {
         ));
 	}
 	
+	public function create() {
+		return Theme::view ('user::Administrator.form',array(
+            'user' =>  null,
+        ));
+	}
+	
 	public function edit($id,User $user) {
 		$id = Crypt::decrypt($id);
 		return Theme::view ('user::Administrator.form',array(
@@ -40,10 +46,11 @@ class UserController extends Controller {
 	}
 	
 	public function update(User $user) {
-		$user_id = Crypt::decrypt(Input::get("id"));
+		$user_id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
 		$first_name = Input::get('first_name');
 		$last_name = Input::get('last_name');
 		$email = Input::get('email');
+		$password = Input::get('password');
 		
 		$is_exist = $user->where('email', $email)->where('id', '!=', $user_id)->get(array('id'))->first();
 		
@@ -59,11 +66,23 @@ class UserController extends Controller {
 				$user->email = $email;
 				$user->updated_at = date("Y-m-d H:i:s");
 				$user->save();
-				
-				$params ['success'] =  true;
-				$params ['redirect'] = url('/user/administrator/view/'.Crypt::encrypt($user->id));
-				$params ['message'] =  Lang::get('users::message.insert successfully');
-			} 
+				$message = Lang::get('users::message.update successfully');			
+			} else {
+				$user->first_name  = $first_name;
+				$user->last_name = $last_name;
+				$user->email = $email;
+				$user->password = bcrypt($password);
+				$user->created_at = date("Y-m-d H:i:s");
+				$user->created_by = 1;
+				$user->updated_at = date("Y-m-d H:i:s");
+				$user->updated_by = 1;
+				$user->remember_token = 'xx';
+				$user->save();
+				$message =  Lang::get('users::message.insert successfully');			
+			}
+			$params ['success'] =  true;
+			$params ['redirect'] = url('/user/administrator/view/'.Crypt::encrypt($user->id));
+			$params ['message'] =  $message;			
 		}
 		
 		return json_encode($params);

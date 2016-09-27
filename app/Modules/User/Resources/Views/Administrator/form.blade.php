@@ -55,7 +55,7 @@
 						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('user::app.password') !!}</label>
                             <div class="col-sm-9">
-								{!! Form::text('password',isset($user)?$user->password:null, ['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('user::app.password'),'maxlength'=>100]) !!}
+								{!! Form::password('password', ['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('user::app.password'),'maxlength'=>100]) !!}
 							</div>
                         </div>
 						@endif
