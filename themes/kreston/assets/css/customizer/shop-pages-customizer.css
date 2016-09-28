@@ -232,3 +232,44 @@ ul.list-news > li  a:hover {
 ul.list-news > li:last-child {
   border: none;
 }
+
+.box_style_1 {
+    background-color: #fff;
+    border: 5px solid #fbfbfc;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #e0e5e9 inset;
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 30px;
+    padding: 15px 25px 5px;
+}
+.box_style_1 hr {
+   -moz-border-bottom-colors: none;
+   -moz-border-left-colors: none;
+   -moz-border-right-colors: none;
+   -moz-border-top-colors: none;
+   border-color: #eee -moz-use-text-color -moz-use-text-color;
+   border-image: none;
+   border-style: solid none none;
+   border-width: 1px 0 0;
+   margin-bottom: 20px;
+   margin-top: 20px;
+}
+ul.list_1 {
+    font-size: 12px;
+    font-weight: 700;
+    list-style: outside none none;
+    margin: 0 0 20px;
+    padding: 0;
+}
+ul.list_1 li a {
+    border-bottom: 1px solid #efefef;
+    display: block;
+    margin-bottom: 0;
+    padding: 4px 10px;
+    text-decoration: none;
+}
+ul.list_1 li a:hover {
+	background:#efefef;
+	color:#326e99;
+}
