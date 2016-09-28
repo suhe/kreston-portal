@@ -12,7 +12,10 @@ use Illuminate\Support\Facades\Input;
 use App\Modules\User\Models\User;
 use Crypt;
 use Lang;
+use Request;
+use Response;
 use Theme;
+use Validator;
 
 class UserController extends Controller {
     public function __construct() {
@@ -21,7 +24,10 @@ class UserController extends Controller {
 
     public function index(User $user) {
         return Theme::view ('user::Administrator.index',array(
-            'users' =>  $users = $user->sortable()->paginate(2),
+            'users' =>  $user
+                ->where("first_name", "like", "%".Request::get("first_name")."%")
+                ->where("email", "like", "%".Request::get("email")."%")
+                ->sortable()->paginate(2),
         ));
     }
 	
@@ -51,12 +57,26 @@ class UserController extends Controller {
 		$last_name = Input::get('last_name');
 		$email = Input::get('email');
 		$password = Input::get('password');
-		
-		$is_exist = $user->where('email', $email)->where('id', '!=', $user_id)->get(array('id'))->first();
-		
-		if($is_exist) {
-			$params ['success'] =  false;
-			$params ['message'] =  Lang::get('users::message.unique email');
+
+        $field = array (
+            'first_name' => $first_name,
+            'email' => $email,
+            'password' => $password,
+        );
+
+        $rules = array (
+            'first_name' => 'required',
+            'email' => (!$user_id ? "required|email|unique:users,email" : "required|email|unique:users,email,$user_id"),
+            'password' => (!$user_id ? "required" : ""),
+        );
+
+        $validate = Validator::make($field,$rules);
+
+        if($validate->fails()) {
+            $params = array(
+                'success' => false,
+                'message' => $validate->getMessageBag()->toArray()
+            );
 		} else {
 			if(!empty($user_id)) {
 				//update user
@@ -66,26 +86,26 @@ class UserController extends Controller {
 				$user->email = $email;
 				$user->updated_at = date("Y-m-d H:i:s");
 				$user->save();
-				$message = Lang::get('users::message.update successfully');			
+				$message = Lang::get('user::message.update successfully');
 			} else {
 				$user->first_name  = $first_name;
 				$user->last_name = $last_name;
 				$user->email = $email;
 				$user->password = bcrypt($password);
+                $user->remember_token = null;
 				$user->created_at = date("Y-m-d H:i:s");
 				$user->created_by = 1;
 				$user->updated_at = date("Y-m-d H:i:s");
 				$user->updated_by = 1;
-				$user->remember_token = 'xx';
 				$user->save();
-				$message =  Lang::get('users::message.insert successfully');			
+				$message =  Lang::get('user::message.insert successfully');
 			}
 			$params ['success'] =  true;
 			$params ['redirect'] = url('/user/administrator/view/'.Crypt::encrypt($user->id));
 			$params ['message'] =  $message;			
 		}
-		
-		return json_encode($params);
+
+        return Response::json($params);
 	}
 	
 	public function reset_password($id,User $user) {
@@ -94,5 +114,53 @@ class UserController extends Controller {
             'user' =>  $user->find($id),
         ));
 	}
+
+	public function update_password(User $user) {
+        $user_id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
+        $password = Input::get('password');
+        $repeat_password = Input::get('repeat_password');
+
+        $field = array (
+            'password' => $password,
+            'repeat_password' => $repeat_password,
+        );
+
+        $rules = array (
+            'password' => "required",
+            'repeat_password' => "required|same:password",
+        );
+
+        $validate = Validator::make($field,$rules);
+        if($validate->fails()) {
+            $params = array(
+                'success' => false,
+                'message' => $validate->getMessageBag()->toArray()
+            );
+        } else {
+            $user = $user->find($user_id);
+            $user->password = bcrypt($password);
+            $user->updated_at = date("Y-m-d H:i:s");
+            $user->updated_by = 1;
+            $user->save();
+
+            $params ['success'] =  true;
+            $params ['redirect'] = url('/user/administrator/view/'.Crypt::encrypt($user->id));
+            $params ['message'] =  Lang::get('user::message.change password successfully');
+        }
+
+        return Response::json($params);
+    }
+
+    public function delete(User $user) {
+        $id = Crypt::decrypt(Input::get("id"));
+        $is_exists = $user->select(['id'])->where('id',$id)->first();
+        if($is_exists) {
+            $user->where(['id' => $id])->delete();
+            $params ['id'] =  $is_exists->id;
+            $params ['success'] =  true;
+            $params ['message'] =  Lang::get('user::message.delete successfully');
+        }
+        return Response::json($params);
+    }
 
 }

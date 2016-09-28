@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
     <meta name="description" content="Admin, Dashboard, Bootstrap">
+    <meta name="csrf_token" content="{!! csrf_token() !!}" />
     <link rel="shortcut icon" sizes="196x196" href="{!! Theme::asset('administrator::images/logo.png') !!}" />
     <title>Infinity - Bootstrap Admin Template</title>
     <link rel="stylesheet" href="{!! Theme::asset('libs/bower/font-awesome/css/font-awesome.min.css') !!}" />
     <link rel="stylesheet" href="{!! Theme::asset('libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.css') !!}" />
     <link rel="stylesheet" href="{!! Theme::asset('css/app.min.css') !!}" />
+    <link rel="stylesheet" href="{!! Theme::asset('libs/bower/jquery-confirm/jquery-confirm.min.css') !!}" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
     <script src="{!! Theme::asset('libs/bower/breakpoints.js/dist/breakpoints.min.js') !!}"></script>
     <script>Breakpoints();</script>
@@ -64,7 +66,7 @@
                                     <div class="avatar avatar-xs avatar-circle"><img src="assets/images/205.jpg" alt="">
                                         <i class="status status-offline"></i></div>
                                 </div>
-                                <div class="media-body"><h5 class="media-heading">John Doe</h5>
+                                <div class="media-body"><h5 class="media-heading">{!! Auth::user()->first_name !!}</h5>
                                     <small class="media-meta">2 hours ago</small>
                                 </div>
                             </div>
@@ -121,18 +123,18 @@
             </div>
             <div class="media-body">
                 <div class="foldable">
-                    <h5><a href="javascript:void(0)" class="username">John Doe</a></h5>
+                    <h5><a href="javascript:void(0)" class="username">{!! Auth::user()->first_name !!}</a></h5>
                     <ul>
                         <li class="dropdown">
                             <a href="javascript:void(0)" class="dropdown-toggle usertitle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <small>Web Developer</small> <span class="caret"></span>
+                                <small>{!! Auth::user()->email!!}</small> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu animated flipInY">
                                 <li><a class="text-color" href="/index.html"><span class="m-r-xs"><i class="fa fa-home"></i></span> <span>Home</span></a></li>
                                 <li><a class="text-color" href="profile.html"><span class="m-r-xs"><i class="fa fa-user"></i></span> <span>Profile</span></a></li>
                                 <li><a class="text-color" href="settings.html"><span class="m-r-xs"><i class="fa fa-gear"></i></span> <span>Settings</span></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a class="text-color" href="logout.html"><span class="m-r-xs"><i class="fa fa-power-off"></i></span> <span>Home</span></a></li>
+                                <li><a class="text-color" href="{!! url("session/logout") !!}"><span class="m-r-xs"><i class="fa fa-power-off"></i></span> <span>{!! Lang::get("action.logout") !!}</span></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -243,6 +245,7 @@
 <script src="{!! Theme::asset('libs/bower/moment/moment.js') !!}"></script>
 <script src="{!! Theme::asset('libs/bower/fullcalendar/dist/fullcalendar.min.js') !!}"></script>
 <script src="{!! Theme::asset('assets/js/fullcalendar.js') !!}"></script>
+<script src="{!! Theme::asset('libs/bower/jquery-confirm/jquery-confirm.min.js') !!}"></script>
 @stack('scripts')
 </body>
 </html>

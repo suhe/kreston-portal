@@ -1,6 +1,6 @@
 @extends('administrator::layout')
 @section('content')
-	{!! Form::open(['url' => 'user/administrator/update','id'=>'user_form','class'=>'form-horizontal']) !!}
+	{!! Form::open(['url' => 'user/administrator/update/password','id'=>'reset_password_form','class'=>'form-horizontal']) !!}
 	{!! Form::hidden('id', isset($user) ?  Crypt::encrypt($user->id) : null, ['id' => 'id']) !!}
     <!-- Panel Header -->
     <div class="row">
@@ -39,7 +39,7 @@
 						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('user::app.repeat password') !!}</label>
                             <div class="col-sm-9">
-								{!! Form::password('repeat_password', ['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('user::app.repeat password'),'maxlength'=>100]) !!}
+								{!! Form::password('repeat_password', ['class' => 'form-control input-md','id'=>'repeat_password','placeholder'=>lang::get('user::app.repeat password'),'maxlength'=>100]) !!}
 							</div>
                         </div>
 					</div>
@@ -54,7 +54,7 @@
 @push('scripts')
     <script type="text/javascript">
 		$(function() {
-			$('#user_form').on('submit', function(event) {
+			$('#reset_password_form').on('submit', function(event) {
 				event.preventDefault();
 				$("div#divLoading").addClass('show');
 				$.ajax({
@@ -65,8 +65,17 @@
 					cache : false,
 					beforeSend : function() { console.log($(this).serialize());},
 					success : function(response) {
-						if(response.success == true) {
-							window.location = response.redirect;	
+						if(response.success == false) {
+							$(".help-block").remove();
+							$.each(response.message, function( index,message) {
+								var element = $('<p>' + message + '</p>').attr({'class' : 'help-block text-danger'}).css({display: 'none'});
+								$('#'+index).after(element);
+								$(element).fadeIn();
+							});
+						}else {
+							$(".help-block").remove();
+							$.alert(response.message);
+							window.location = response.redirect;
 						}
 						
 						$("div#divLoading").removeClass('show');

@@ -13,4 +13,6 @@
 
 Route::group(['prefix' => 'session'], function() {
     Route::get('/login', 'Administrator\AuthController@index');
+    Route::post('/dologin', 'Administrator\AuthController@login');
+    Route::get('/logout', 'Administrator\AuthController@logout');
 });

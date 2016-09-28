@@ -34,12 +34,14 @@
 							<label for="first_name" class="col-sm-3 control-label text-left">{!! Lang::get('user::app.first name') !!}</label>
                             <div class="col-sm-9">
 								{!! Form::text('first_name',isset($user)?$user->first_name:null, ['class' => 'form-control input-md','id'=>'first_name','placeholder'=>lang::get('user::app.first name'),'maxlength'=>100]) !!}
+								<!--<p id ="first_name_error" class="help-block text-danger"></p>-->
 							</div>
                         </div>
 						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('user::app.email') !!}</label>
                             <div class="col-sm-9">
 								{!! Form::text('email',isset($user)?$user->email:null, ['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('user::app.email'),'maxlength'=>100]) !!}
+								<p id ="email_error" class="help-block text-danger"></p>
 							</div>
                         </div>
 					</div>
@@ -55,7 +57,7 @@
 						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('user::app.password') !!}</label>
                             <div class="col-sm-9">
-								{!! Form::password('password', ['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('user::app.password'),'maxlength'=>100]) !!}
+								{!! Form::password('password', ['class' => 'form-control input-md','id'=>'password','placeholder'=>lang::get('user::app.password'),'maxlength'=>100]) !!}
 							</div>
                         </div>
 						@endif
@@ -82,8 +84,18 @@
 					cache : false,
 					beforeSend : function() { console.log($(this).serialize());},
 					success : function(response) {
-						if(response.success == true) {
-							window.location = response.redirect;	
+						if(response.success == false) {
+							$(".help-block").remove();
+							$.each(response.message, function( index,message) {
+								var element = $('<p>' + message + '</p>').attr({'class' : 'help-block text-danger'}).css({display: 'none'});
+								$('#'+index).after(element);
+								$(element).fadeIn();
+							});
+						}
+						else {
+							$.alert(response.message);
+							$(".help-block").remove();
+							window.location = response.redirect;
 						}
 						
 						$("div#divLoading").removeClass('show');

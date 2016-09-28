@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'user'], function() {
+Route::group(['prefix' => 'user','middleware' => ['permission']], function() {
     Route::get('/', 'Administrator\AuthController@index');
     Route::group(['prefix' => 'administrator'], function() {
         Route::get('/', 'Administrator\UserController@index');
@@ -21,5 +21,6 @@ Route::group(['prefix' => 'user'], function() {
 		Route::post('/update', 'Administrator\UserController@update');
 		Route::get('/reset-password/{id}', 'Administrator\UserController@reset_password');
 		Route::post('/update/password', 'Administrator\UserController@update_password');
+        Route::post('/delete', 'Administrator\UserController@delete');
     });
 });

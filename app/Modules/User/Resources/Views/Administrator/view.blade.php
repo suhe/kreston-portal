@@ -12,7 +12,8 @@
                     <div class="col-md-10">
                         <div class="pull-right">
                             <div class="btn-group pull-right">
-                                <a href="{!! url('user/administrator/edit/'.Crypt::encrypt($user->id)) !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.edit") !!}</a>
+								<a href="{!! url('user/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> {!! Lang::get("action.create") !!}</a>
+								<a href="{!! url('user/administrator/edit/'.Crypt::encrypt($user->id)) !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.edit") !!}</a>
 								<a href="{!! url('user/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
                             </div>
                         </div>
