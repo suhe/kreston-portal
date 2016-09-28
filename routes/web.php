@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-	dd("x");
+	return redirect("/home");
 });
 
 Route::get('/administrator', function () {

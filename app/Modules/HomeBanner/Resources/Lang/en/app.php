@@ -10,4 +10,5 @@ return array(
     'home banner' => 'Home Banner',
     'image' => 'Image',
     'name' => 'Name',
+	'storage location' => 'Storage Location',
 );

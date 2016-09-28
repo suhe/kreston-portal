@@ -14,6 +14,7 @@
                             {!! $home_banners->appends(\Request::except('page'))->render() !!}
                             <div class="btn-group pull-right">
                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#search_modal"><i class="fa fa-search"></i>  {!! Lang::get("action.search") !!}</button>
+								<a href="{!! url('home-banner/administrator/') !!}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i> {!! Lang::get("action.refresh") !!}</a>
                                 <a href="{!! url('home-banner/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.add new") !!}</a>
                             </div>
                         </div>
@@ -41,7 +42,7 @@
                             <td>{!! ($key + 1 + (Request::has("page")? Request::get("page") : 0)) !!}</td>
                             <td>{!! $banner->name !!}</td>
                             <td>{!! $banner->storage_location !!}</td>
-                            <td class="text-center">{!! $banner->is_active == 1 ? Lang::get("action.yes"):Lang("action.no") !!}</td>
+                            <td class="text-center">{!! $banner->is_active == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
@@ -68,7 +69,7 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                {!! Form::open(['url' => 'banner/administrator','role' => 'form','id'=>'banner_search_form','method'=>'GET']) !!}
+                {!! Form::open(['url' => 'home-banner/administrator','role' => 'form','id'=>'banner_search_form','method'=>'GET']) !!}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">{!! Lang::get("action.search") !!}</h4>
@@ -76,10 +77,10 @@
                 <div class="modal-body">
                     <div class="row-fluid">
                         <div class="form-group">
-                            {!! Form::text('name',Request::get('first_name'),['class' => 'form-control input-md','id'=>'first_name','placeholder'=>lang::get('home-banner::app.name'),'maxlength'=>100]) !!}
+                            {!! Form::text('name',Request::get('name'),['class' => 'form-control input-md','id'=>'first_name','placeholder'=>lang::get('home-banner::app.name'),'maxlength'=>100]) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::text('storage_location',Request::get('email'),['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('home-banner::app.storage location'),'maxlength'=>100]) !!}
+                            {!! Form::text('storage_location',Request::get('location'),['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('home-banner::app.storage location'),'maxlength'=>100]) !!}
                         </div>
                     </div>
                 </div>
@@ -106,7 +107,7 @@
                 confirm: function(){
                     $.ajax({
                         type  : "post",
-                        url   : "{!! url('banner/administrator/delete') !!}",
+                        url   : "{!! url('home-banner/administrator/delete') !!}",
                         data  : {id : id},
                         dataType: "json",
                         cache : false,
@@ -127,7 +128,7 @@
 
                 },
                 cancel: function(){
-
+					$("div#divLoading").removeClass('show');
                 }
             });
         });

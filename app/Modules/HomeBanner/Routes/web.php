@@ -15,11 +15,10 @@ Route::group(['prefix' => 'home-banner','middleware' => ['permission']], functio
     Route::group(['prefix' => 'administrator'], function() {
         Route::get('/', 'Administrator\HomeBannerController@index');
         Route::get('/view/{id}', 'Administrator\HomeBannerController@view');
+		Route::get('/status/{id}', 'Administrator\HomeBannerController@status');
         Route::get('/create', 'Administrator\HomeBannerController@create');
         Route::get('/edit/{id}', 'Administrator\HomeBannerController@edit');
         Route::post('/update', 'Administrator\HomeBannerController@update');
-        Route::get('/reset-password/{id}', 'Administrator\HomeBannerController@reset_password');
-        Route::post('/update/password', 'Administrator\HomeBannerController@update_password');
         Route::post('/delete', 'Administrator\HomeBannerController@delete');
     });
 });

@@ -8,9 +8,12 @@
 namespace App\Modules\HomeBanner\Http\Controllers\Administrator;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Modules\HomeBanner\Models\HomeBanner;
+use Auth;
 use Crypt;
 use Lang;
+use Redirect;
 use Request;
 use Response;
 use Theme;
@@ -35,6 +38,37 @@ class HomeBannerController extends Controller {
             'home-banner' =>  null,
         ));
     }
+	
+	public function view($id,HomeBanner $home_banner) {
+		$id = Crypt::decrypt($id);
+		return Theme::view ('home-banner::Administrator.view',array(
+            'home_banner' =>  $home_banner->find($id),
+        ));
+	}
+	
+	public function status($id,HomeBanner $home_banner) {
+		$ids = Crypt::decrypt($id);
+		$home_banner = $home_banner->find($ids);
+		if($home_banner) {
+			if($home_banner->is_active == 1) {
+				$is_active = 0;
+			} else {
+				$is_active = 1;
+			}
+			$home_banner->is_active = $is_active;
+			$home_banner->updated_at = date("Y-m-d H:i:s");
+            $home_banner->save();			
+		}  
+		
+		return Redirect::intended ( '/home-banner/administrator/view/'.$id);
+	}
+	
+	public function edit($id,HomeBanner $home_banner) {
+		$id = Crypt::decrypt($id);
+		return Theme::view ('home-banner::Administrator.form',array(
+            'home_banner' =>  $home_banner->find($id),
+        ));
+	}
 
     public function update(HomeBanner $home_banner) {
         $id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
@@ -51,7 +85,7 @@ class HomeBannerController extends Controller {
         $rules = array (
             'name' => 'required',
             'storage_location' => "required",
-            'password' => "required"
+			'description' => "required",
         );
 
         $validate = Validator::make($field,$rules);
@@ -66,25 +100,39 @@ class HomeBannerController extends Controller {
                 $home_banner = $home_banner->find($id);
                 $home_banner->name  = $name;
                 $home_banner->storage_location = $storage_location;
+				$home_banner->description = $description;
                 $home_banner->updated_at = date("Y-m-d H:i:s");
                 $home_banner->save();
                 $message = Lang::get('home-banner::message.update successfully');
             } else {
                 $home_banner->name  = $name;
                 $home_banner->storage_location = $storage_location;
+				$home_banner->description = $description;
                 $home_banner->created_at = date("Y-m-d H:i:s");
-                $home_banner->created_by = Auth::user()->getId();
+                $home_banner->created_by = Auth::user()->id;
                 $home_banner->updated_at = date("Y-m-d H:i:s");
-                $home_banner->updated_by = Auth::user()->getId();
+                $home_banner->updated_by = Auth::user()->id;
                 $home_banner->save();
                 $message =  Lang::get('home-banner::message.insert successfully');
             }
             $params ['success'] =  true;
-            $params ['redirect'] = url('/home-banner/administrator/view/'.Crypt::encrypt($user->id));
+            $params ['redirect'] = url('/home-banner/administrator/view/'.Crypt::encrypt($home_banner->id));
             $params ['message'] =  $message;
         }
-
-
+		
+		return Response::json($params);
+    }
+	
+	public function delete(HomeBanner $home_banner) {
+        $id = Crypt::decrypt(Input::get("id"));
+        $is_exists = $home_banner->select(['id'])->where('id',$id)->first();
+        if($is_exists) {
+            $home_banner->where(['id' => $id])->delete();
+            $params ['id'] =  $is_exists->id;
+            $params ['success'] =  true;
+            $params ['message'] =  Lang::get('home-banner::message.delete successfully');
+        }
+        return Response::json($params);
     }
 
 }

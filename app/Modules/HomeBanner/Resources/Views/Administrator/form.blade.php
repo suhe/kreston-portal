@@ -45,9 +45,9 @@
 										  <i class="fa fa-picture-o"></i> {!! Lang::get('action.choose') !!}
 										</a>
 									  </span>
-									<input id="thumbnail" class="form-control" type="text" name="filepath">
+									<input id="thumbnail" class="form-control" type="text" value="{!! isset($home_banner)?url($home_banner->storage_location):null !!}" name="filepath">
 								</div>
-								<img id="holder" style="margin-top:15px;max-height:100px;">
+								<img id="holder" @if(isset($home_banner)) src="{!! url($home_banner->storage_location) !!}" @endif style="margin-top:15px;">
 							</div>
                         </div>
 						<div class="form-group">
@@ -71,7 +71,7 @@
 			$('#lfm').filemanager('image','{!! url("/") !!}');
 			$('#home_banner_form').on('submit', function(event) {
 				event.preventDefault();
-				$("div#divLoading").addClass('show');
+				$("#divLoading").addClass('show');
 				$.ajax({
 					type : $(this).attr('method'),
 					url : $(this).attr('action'),
@@ -94,10 +94,10 @@
 							window.location = response.redirect;
 						}
 						
-						$("div#divLoading").removeClass('show');
+						$("#divLoading").removeClass('show');
 					},
 					error : function() {
-						$("div#divLoading").removeClass('show');
+						$("#divLoading").removeClass('show');
 					}
 				});
 				return false;
