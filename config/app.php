@@ -169,7 +169,9 @@ return [
         Caffeinated\Modules\ModulesServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         //
 
         /*
@@ -180,6 +182,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
 
     ],
 
@@ -212,6 +215,7 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
+        'Image' => Intervention\Image\Facades\Image::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
 		'Html' => Collective\Html\HtmlFacade::class,
         'Log' => Illuminate\Support\Facades\Log::class,

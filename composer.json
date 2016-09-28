@@ -10,7 +10,8 @@
         "caffeinated/themes": "~3.0",
         "caffeinated/modules": "^4.0",
         "laravelcollective/html": "^5.2.0",
-        "kyslik/column-sortable": "~5.0"
+        "kyslik/column-sortable": "~5.0",
+        "unisharp/laravel-filemanager": "^1.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

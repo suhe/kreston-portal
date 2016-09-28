@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/slider-banner', function (Request $request) {
-    // return $request->slider-banner();
+Route::get('/home-banner', function (Request $request) {
+    // return $request->home-banner();
 })->middleware('auth:api');

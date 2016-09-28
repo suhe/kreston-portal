@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Module\SliderBanner\Providers;
+namespace App\Modules\HomeBanner\Providers;
 
 use Caffeinated\Modules\Support\ServiceProvider;
 
@@ -13,8 +13,8 @@ class ModuleServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'slider-banner');
-        $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'slider-banner');
+        $this->loadTranslationsFrom(__DIR__.'/../Resources/Lang', 'home-banner');
+        $this->loadViewsFrom(__DIR__.'/../Resources/Views', 'home-banner');
     }
 
     /**

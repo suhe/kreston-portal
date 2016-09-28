@@ -159,7 +159,7 @@
                         <i class="menu-icon zmdi zmdi-puzzle-piece zmdi-hc-lg"></i> <span class="menu-text">Home Page</span>
                         <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a href="buttons.html"><span class="menu-text">Banner</span></a></li>
+                        <li><a href="{!! url("home-banner/administrator") !!}"><span class="menu-text">Banner</span></a></li>
 
                     </ul>
                 </li>

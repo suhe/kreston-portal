@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Module\SliderBanner\Providers;
+namespace App\Modules\HomeBanner\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Module\SliderBanner\Http\Controllers';
+    protected $namespace = 'App\Modules\HomeBanner\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -55,7 +55,7 @@ class RouteServiceProvider extends ServiceProvider
             'middleware' => 'web',
             'namespace'  => $this->namespace,
         ], function ($router) {
-            require module_path('slider-banner', 'Routes/web.php');
+            require module_path('home-banner', 'Routes/web.php');
         });
     }
 
@@ -73,7 +73,7 @@ class RouteServiceProvider extends ServiceProvider
             'namespace'  => $this->namespace,
             'prefix'     => 'api',
         ], function ($router) {
-            require module_path('slider-banner', 'Routes/api.php');
+            require module_path('home-banner', 'Routes/api.php');
         });
     }
 }
