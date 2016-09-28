@@ -1,7 +1,7 @@
 @extends('administrator::layout')
 @section('content')
-	{!! Form::open(['url' => 'home-banner/administrator/update','id'=>'user_form','class'=>'form-horizontal']) !!}
-	{!! Form::hidden('id', isset($user) ?  Crypt::encrypt($user->id) : null, ['id' => 'id']) !!}
+	{!! Form::open(['url' => 'home-banner/administrator/update','id'=>'home_banner_form','class'=>'form-horizontal']) !!}
+	{!! Form::hidden('id', isset($home_banner) ?  Crypt::encrypt($home_banner->id) : null, ['id' => 'id']) !!}
     <!-- Panel Header -->
     <div class="row">
         <div class="col-md-12">
@@ -31,19 +31,18 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
-							<label for="first_name" class="col-sm-2 control-label text-left">{!! Lang::get('user::app.first name') !!}</label>
+							<label for="first_name" class="col-sm-2 control-label text-left">{!! Lang::get('home-banner::app.name') !!}</label>
                             <div class="col-sm-10">
-								{!! Form::text('name',isset($user)?$user->first_name:null, ['class' => 'form-control input-md','id'=>'first_name','placeholder'=>lang::get('user::app.first name'),'maxlength'=>100]) !!}
-								<!--<p id ="first_name_error" class="help-block text-danger"></p>-->
+								{!! Form::text('name',isset($home_banner)?$home_banner->name:null, ['class' => 'form-control input-md','id'=>'name','placeholder'=>lang::get('home-banner::app.name'),'maxlength'=>100]) !!}
 							</div>
                         </div>
 						<div class="form-group">
-							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('user::app.email') !!}</label>
+							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('home-banner::app.image') !!}</label>
                             <div class="col-sm-10">
 								<div class="input-group">
 									  <span class="input-group-btn">
 										<a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
-										  <i class="fa fa-picture-o"></i> Choose
+										  <i class="fa fa-picture-o"></i> {!! Lang::get('action.choose') !!}
 										</a>
 									  </span>
 									<input id="thumbnail" class="form-control" type="text" name="filepath">
@@ -51,10 +50,13 @@
 								<img id="holder" style="margin-top:15px;max-height:100px;">
 							</div>
                         </div>
+						<div class="form-group">
+							<label for="description" class="col-sm-2 control-label text-left">{!! Lang::get('home-banner::app.description') !!}</label>
+							<div class="col-sm-10">
+								{!! Form::textarea('description',isset($home_banner)?$home_banner->description:null, ['class' => 'form-control input-md','id'=>'description','placeholder'=>lang::get('home-banner::app.description')]) !!}
+							</div>
+						</div>
 					</div>
-
-
-
 				</div>
             </div>
         </div>
@@ -67,7 +69,7 @@
     <script type="text/javascript">
 		$(function() {
 			$('#lfm').filemanager('image','{!! url("/") !!}');
-			$('#user_form').on('submit', function(event) {
+			$('#home_banner_form').on('submit', function(event) {
 				event.preventDefault();
 				$("div#divLoading").addClass('show');
 				$.ajax({

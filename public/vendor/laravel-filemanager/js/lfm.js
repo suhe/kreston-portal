@@ -21,7 +21,7 @@
 
 })(jQuery);
 
-/*
+
 function SetUrl(url){
   //set the value of the desired input to image url
   let target_input = $('#' + localStorage.getItem('target_input'));
@@ -30,9 +30,9 @@ function SetUrl(url){
   //set or change the preview image src
   let target_preview = $('#' + localStorage.getItem('target_preview'));
   target_preview.attr('src',url);
-}*/
+}
 
-function SetUrl(url){
+/*function SetUrl(url){
     //set the value of the desired input to image url
     //  alert(window.location.protocol + "//" + window.location.host)
     url = url.replace(window.location.protocol + "//" + window.location.host+"/","/");
@@ -42,4 +42,4 @@ function SetUrl(url){
     let target_preview = $('#' + localStorage.getItem('target_preview'));
     target_preview.attr('src',url);
 
-}
+}*/

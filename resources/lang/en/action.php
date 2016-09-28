@@ -3,6 +3,7 @@ return array(
     'active' => 'Active',
 	'add new' => 'Add New',
 	'back' => 'Back',
+    'choose' => 'Choose',
     'close' => 'Close',
     'confirm' => 'Confirm',
     'confirm delete' => 'Are you sure want to delete this ?',

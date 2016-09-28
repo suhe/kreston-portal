@@ -6,5 +6,8 @@
  * Time: 14:56
  */
 return array(
+    'description' => 'Description',
     'home banner' => 'Home Banner',
+    'image' => 'Image',
+    'name' => 'Name',
 );
