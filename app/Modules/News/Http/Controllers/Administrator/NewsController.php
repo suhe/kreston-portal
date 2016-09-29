@@ -102,6 +102,7 @@ class NewsController extends Controller {
                 $post->category_id = $category_id;
                 $post->content = $content;
                 $post->updated_at = date("Y-m-d H:i:s");
+				$post->updated_by = Auth::user()->id;
                 $post->save();
                 $message = Lang::get('news::message.update successfully');
             } else {
@@ -115,7 +116,7 @@ class NewsController extends Controller {
                 $post->updated_at = date("Y-m-d H:i:s");
                 $post->updated_by = Auth::user()->id;
                 $post->save();
-                $message =  Lang::get('Post::message.insert successfully');
+                $message =  Lang::get('news::message.insert successfully');
             }
             $params ['success'] =  true;
             $params ['redirect'] = url('/news/administrator/view/'.Crypt::encrypt($post->id));

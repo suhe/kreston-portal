@@ -172,7 +172,7 @@
                     <ul class="submenu">
                         <li><a href="profile.html"><span class="menu-text">Navigation</span></a></li>
                         <li><a href="{!! url("news/administrator") !!}"><span class="menu-text">News</span></a></li>
-                        <li><a href="invoice.html"><span class="menu-text">Static Page</span></a></li>
+                        <li><a href="{!! url("page/administrator") !!}"><span class="menu-text">Static Page</span></a></li>
                         <li><a href="invoice.html"><span class="menu-text">Article</span></a></li>
                     </ul>
                 </li>

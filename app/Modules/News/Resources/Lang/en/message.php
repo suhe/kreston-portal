@@ -6,7 +6,7 @@
  * Time: 14:56
  */
 return array(
-    'delete successfully' => "Delete People has successfully",
-    'insert successfully' => "Insert People has successfully",
-    'update successfully' => "Update People has successfully",
+    'delete successfully' => "Delete News has successfully",
+    'insert successfully' => "Insert News has successfully",
+    'update successfully' => "Update News has successfully",
 );

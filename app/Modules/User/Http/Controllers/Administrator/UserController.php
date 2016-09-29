@@ -92,7 +92,7 @@ class UserController extends Controller {
 				$user->last_name = $last_name;
 				$user->email = $email;
 				$user->password = bcrypt($password);
-                $user->remember_token = null;
+                $user->remember_token = "";
 				$user->created_at = date("Y-m-d H:i:s");
 				$user->created_by = 1;
 				$user->updated_at = date("Y-m-d H:i:s");

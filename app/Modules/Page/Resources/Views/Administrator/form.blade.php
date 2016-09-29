@@ -1,21 +1,21 @@
 @extends('administrator::layout')
 @section('content')
-	{!! Form::open(['url' => 'news/administrator/update','id'=>'news_form','class'=>'form-horizontal']) !!}
-	{!! Form::hidden('id', isset($post) ?  Crypt::encrypt($post->id) : null, ['id' => 'id']) !!}
+	{!! Form::open(['url' => 'page/administrator/update','id'=>'page_form','class'=>'form-horizontal']) !!}
+	{!! Form::hidden('id', isset($page) ?  Crypt::encrypt($page->id) : null, ['id' => 'id']) !!}
     <!-- Panel Header -->
     <div class="row">
         <div class="col-md-12">
             <div class="panel p-xs">
                 <div class="panel-heading clearfix">
                     <div class="col-md-2">
-                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><i class="fa fa-newspaper-o"></i>  {!! Lang::get('news::app.news') !!}</h4>
+                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><i class="fa fa-newspaper-o"></i>  {!! Lang::get('page::app.page') !!}</h4>
                     </div>
 
                     <div class="col-md-10">
                         <div class="pull-right">
                             <div class="btn-group pull-right">
 								<button class="btn btn-primary btn-sm" type="submit" id="btn-submit"><i class="fa fa-save"></i> {!! Lang::get('action.save') !!}</button>
-								<a href="{!! url('news/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
+								<a href="{!! url('page/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
                             </div>
                         </div>
                     </div>
@@ -31,10 +31,13 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
-							{!! Form::text('title',isset($post)?$post->title:null, ['class' => 'form-control input-lg','id'=>'title','placeholder'=>lang::get('news::app.title'),'maxlength'=>100]) !!}
+							{!! Form::text('name',isset($page)?$page->name:null, ['class' => 'form-control input-lg','id'=>'title','placeholder'=>Lang::get('page::app.page name'),'maxlength'=>100]) !!}
 						</div>
 						<div class="form-group">
-							{!! Form::textarea('content',isset($post)?$post->content:null, ['class' => 'form-control input-lg','id'=>'content','placeholder'=>lang::get('news::app.content'),'rows' => 20]) !!}
+							{!! Form::select('parent_id',$page_dropdown,isset($page)?$page->parent_id:0, ['class' => 'form-control input-lg','id'=>'parent_id']) !!}
+						</div>
+						<div class="form-group">
+							{!! Form::textarea('content',isset($page)?$page->content:null, ['class' => 'form-control input-lg','id'=>'content','placeholder'=> Lang::get('page::app.content'),'rows' => 20]) !!}
 						</div>
 					</div>
 				</div>
@@ -57,7 +60,7 @@
 
     <script type="text/javascript">
 		$(function() {
-			$('#news_form').on('submit', function(event) {
+			$('#page_form').on('submit', function(event) {
 				event.preventDefault();
 				$("#divLoading").addClass('show');
 				//ckeditor 
