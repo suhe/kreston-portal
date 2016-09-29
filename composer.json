@@ -11,7 +11,9 @@
         "caffeinated/modules": "^4.0",
         "laravelcollective/html": "^5.2.0",
         "kyslik/column-sortable": "~5.0",
-        "unisharp/laravel-filemanager": "^1.6"
+        "unisharp/laravel-filemanager": "^1.6",
+        "anakadote/laravel-5-image-manager": "dev-master",
+        "unisharp/laravel-ckeditor": "^4.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

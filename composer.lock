@@ -4,21 +4,59 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "594fc71b09f983154c6004d60b764ea5",
-    "content-hash": "156a05a0c1423900963e3c6394adb838",
+    "hash": "0b1fd0e3c60b53a0ae7052590cc91811",
+    "content-hash": "3dc973bce83fcc850fcd311111afef1f",
     "packages": [
         {
-            "name": "caffeinated/modules",
-            "version": "v4.0.2",
+            "name": "anakadote/laravel-5-image-manager",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/caffeinated/modules.git",
-                "reference": "594474a14244e813011a8c97581300642f5ad682"
+                "url": "https://github.com/anakadote/ImageManager-for-Laravel-5.git",
+                "reference": "e084e92b12008634d55d87c882b1912049e5837c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caffeinated/modules/zipball/594474a14244e813011a8c97581300642f5ad682",
-                "reference": "594474a14244e813011a8c97581300642f5ad682",
+                "url": "https://api.github.com/repos/anakadote/ImageManager-for-Laravel-5/zipball/e084e92b12008634d55d87c882b1912049e5837c",
+                "reference": "e084e92b12008634d55d87c882b1912049e5837c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Anakadote\\ImageManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Taylor Collins",
+                    "email": "taylor@tcdihq.com"
+                }
+            ],
+            "description": "Image resizing and cropping package for Laravel 5.",
+            "keywords": [
+                "images",
+                "laravel"
+            ],
+            "time": "2015-12-04 13:28:51"
+        },
+        {
+            "name": "caffeinated/modules",
+            "version": "v4.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/caffeinated/modules.git",
+                "reference": "c375109b3b1950f05f37904aa8514331858781b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/caffeinated/modules/zipball/c375109b3b1950f05f37904aa8514331858781b0",
+                "reference": "c375109b3b1950f05f37904aa8514331858781b0",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +97,7 @@
                 "laravel",
                 "modules"
             ],
-            "time": "2016-09-04 18:52:54"
+            "time": "2016-09-28 20:25:12"
         },
         {
             "name": "caffeinated/themes",
@@ -2191,6 +2229,60 @@
             "time": "2016-08-31 09:05:42"
         },
         {
+            "name": "unisharp/laravel-ckeditor",
+            "version": "4.5.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/UniSharp/laravel-ckeditor.git",
+                "reference": "cc9a5505dc3c3a060944aa8b5ce13515547263ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/UniSharp/laravel-ckeditor/zipball/cc9a5505dc3c3a060944aa8b5ce13515547263ec",
+                "reference": "cc9a5505dc3c3a060944aa8b5ce13515547263ec",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Unisharp\\Ckeditor\\": "./"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+",
+                "LGPL-2.1+",
+                "MPL-1.1+"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "homepage": "http://cksource.com"
+                },
+                {
+                    "name": "UniSharp Ltd. (Composer Package Maintainer)",
+                    "homepage": "http://www.unisharp.com"
+                }
+            ],
+            "description": "JavaScript WYSIWYG web text editor (for laravel).",
+            "homepage": "http://ckeditor.com",
+            "keywords": [
+                "CKEditor",
+                "editor",
+                "fckeditor",
+                "html",
+                "javascript",
+                "laravel",
+                "richtext",
+                "text",
+                "wysiwyg"
+            ],
+            "time": "2016-02-16 05:56:20"
+        },
+        {
             "name": "unisharp/laravel-filemanager",
             "version": "1.6.1",
             "source": {
@@ -3870,7 +3962,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "anakadote/laravel-5-image-manager": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

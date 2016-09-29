@@ -166,11 +166,14 @@ return [
         /*
          * Package Service Providers...
          */
+        Anakadote\ImageManager\ImageManagerServiceProvider::class,
         Caffeinated\Modules\ModulesServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
+        #Folklore\Image\ImageServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         //
 
@@ -201,6 +204,7 @@ return [
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
+        //'BaseImage' => Folklore\Image\Facades\Image::class,
         'Blade' => Illuminate\Support\Facades\Blade::class,
         'Bus' => Illuminate\Support\Facades\Bus::class,
         'Cache' => Illuminate\Support\Facades\Cache::class,
@@ -216,6 +220,7 @@ return [
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Img' => App\Helpers\Img::class,
         'Lang' => Illuminate\Support\Facades\Lang::class,
 		'Html' => Collective\Html\HtmlFacade::class,
         'Log' => Illuminate\Support\Facades\Log::class,

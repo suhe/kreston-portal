@@ -171,7 +171,7 @@
                         <span class="menu-text">Pages</span> <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
                         <li><a href="profile.html"><span class="menu-text">Navigation</span></a></li>
-                        <li><a href="price.html"><span class="menu-text">News</span></a></li>
+                        <li><a href="{!! url("news/administrator") !!}"><span class="menu-text">News</span></a></li>
                         <li><a href="invoice.html"><span class="menu-text">Static Page</span></a></li>
                         <li><a href="invoice.html"><span class="menu-text">Article</span></a></li>
                     </ul>
@@ -180,7 +180,7 @@
                                 class="menu-icon zmdi zmdi-check zmdi-hc-lg"></i> <span class="menu-text">Company Profile</span> <i
                                 class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a href="form.layouts.html"><span class="menu-text">Our People</span></a></li>
+                        <li><a href="{!! url("people/administrator") !!}"><span class="menu-text">Our People</span></a></li>
                         <li><a href="form.elements.html"><span class="menu-text">Contact Us</span></a></li>
                         <li><a href="form.elements.html"><span class="menu-text">Newsletter</span></a></li>
                     </ul>
@@ -234,7 +234,7 @@
                     <li><a href="javascript:void(0)">Privacy Policy</a></li>
                     <li><a href="javascript:void(0)">Feedback <i class="fa fa-angle-up m-l-md"></i></a></li>
                 </ul>
-                <div class="copyright pull-left">Copyright RaThemes 2016 &copy;</div>
+                <div class="copyright pull-left">Copyright &copy; {!! date('Y') !!}</div>
             </div>
         </footer>
     </div>
