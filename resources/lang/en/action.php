@@ -10,6 +10,7 @@ return array(
     'create' => 'Create',
     'edit' => 'Edit',
     'no' => 'No',
+	'order' => 'Order',
 	'parent' => 'Parent',
 	'refresh' => 'Refresh',
     'remove' => 'Remove',

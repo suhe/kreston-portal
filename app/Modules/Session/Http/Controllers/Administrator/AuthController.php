@@ -27,6 +27,9 @@ class AuthController extends Controller {
     }
 
     public function login() {
+		if(Auth::check()) 
+			return Redirect::intended('/user/administrator/');		
+		
         $email = Input::get("email");
         $password = Input::get("password");
 

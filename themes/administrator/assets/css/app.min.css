@@ -6,6 +6,7 @@
  *
  * Copyright (c) 2016 Daniel Eden
  */
+
 .fc-icon, .fc-unselectable {
     -webkit-user-select: none;
     -ms-user-select: none
@@ -17356,4 +17357,7 @@ td.mail-right {
   bottom : 0;
   right : 0;
   top : 0;
+}
+.numeric {
+	width:100px;
 }

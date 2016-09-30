@@ -11,8 +11,14 @@
 |
 */
 
-Route::group(['prefix' => 'navigation'], function() {
-    Route::get('/', function() {
-        dd('This is the Navigation module index page. Build something great!');
-    });
+Route::group(['prefix' => 'navigation','middleware' => ['permission']], function() {
+	Route::group(['prefix' => 'administrator'], function() {
+		Route::get('/', 'Administrator\NavigationController@index');
+        Route::get('/view/{id}', 'Administrator\NavigationController@view');
+        Route::get('/status/{id}', 'Administrator\NavigationController@status');
+        Route::get('/create', 'Administrator\NavigationController@create');
+        Route::get('/edit/{id}', 'Administrator\NavigationController@edit');
+        Route::post('/update', 'Administrator\NavigationController@update');
+        Route::post('/delete', 'Administrator\NavigationController@delete');
+	});	
 });

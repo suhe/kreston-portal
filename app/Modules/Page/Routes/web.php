@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'page'], function() {
+Route::group(['prefix' => 'page','middleware' => ['permission']], function() {
 	Route::group(['prefix' => 'administrator'], function() {
 		Route::get('/', 'Administrator\PageController@index');
         Route::get('/view/{id}', 'Administrator\PageController@view');

@@ -164,7 +164,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="search.web.html"><i class="menu-icon zmdi zmdi-search zmdi-hc-lg"></i> <span class="menu-text">Job vacancy</span></a>
+                    <a href="{!! url("job-vacancy/administrator") !!}"><i class="menu-icon zmdi zmdi-search zmdi-hc-lg"></i> <span class="menu-text">Job vacancy</span></a>
                 </li>
                 <li class="has-submenu">
                     <a href="javascript:void(0)" class="submenu-toggle"><i class="menu-icon zmdi zmdi-pages zmdi-hc-lg"></i>
