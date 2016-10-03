@@ -38,9 +38,9 @@
 						</div>
 						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('job-vacancy::app.due date') !!}</label>
-							<div class="col-sm-9">
+							<div class="col-sm-4">
 								<div class="input-group date" id="datetimepicker2" data-plugin="datetimepicker">
-									<input type="text" class="form-control" data-date-format="DD/MM/YYYY" />
+									<input name="due_date" id="due_date" type="text" class="form-control" value="{!! isset($job) ? $job->due_date : null !!}" data-date-format="DD/MM/YYYY" />
 										<span class="input-group-addon bg-info text-white">
 											<span class="glyphicon glyphicon-calendar"></span>
 										</span>
@@ -53,7 +53,7 @@
 						<div class="form-group">
 							<label for="name" class="col-sm-3 control-label text-left">{!! Lang::get('job-vacancy::app.position') !!}</label>
                             <div class="col-sm-9">
-								{!! Form::text('position',isset($job)?$job->position:null, ['class' => 'form-control input-md','id'=>'name','placeholder'=>lang::get('job-vacancy::app.position'),'maxlength'=>100]) !!}
+								{!! Form::text('position',isset($job)?$job->position:null, ['class' => 'form-control input-md','id'=>'position','placeholder'=>lang::get('job-vacancy::app.position'),'maxlength'=>100]) !!}
 							</div>
                         </div>
 						<div class="form-group">
@@ -100,6 +100,10 @@
 		$(function() {
 			$('#job-vacancy_form').on('submit', function(event) {
 				event.preventDefault();
+				//ckeditor
+				for ( instance in CKEDITOR.instances ) {
+					CKEDITOR.instances[instance].updateElement();
+				}
 				$("#divLoading").addClass('show');
 				$.ajax({
 					type : $(this).attr('method'),

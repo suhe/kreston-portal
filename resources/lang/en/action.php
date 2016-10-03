@@ -22,6 +22,7 @@ return array(
 	'set inactive' => 'Set Inactive',
     'sigin' => 'Sign In',
 	'update password' => 'Update Password',
+    'upload' => 'Upload',
     'view' => 'View',
     'yes' => 'Yes',
 );

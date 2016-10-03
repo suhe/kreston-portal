@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="{!! Theme::asset('libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.css') !!}" />
     <link rel="stylesheet" href="{!! Theme::asset('css/app.min.css') !!}" />
     <link rel="stylesheet" href="{!! Theme::asset('libs/bower/jquery-confirm/jquery-confirm.min.css') !!}" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900,300" />
+    @stack('css')
     <script src="{!! Theme::asset('libs/bower/breakpoints.js/dist/breakpoints.min.js') !!}"></script>
     <script>Breakpoints();</script>
 </head>
@@ -189,7 +190,7 @@
                                 class="menu-icon zmdi zmdi-storage zmdi-hc-lg"></i> <span class="menu-text">Media</span> <i
                                 class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a href="tables.basic.html"><span class="menu-text">Gallery</span></a></li>
+                        <li><a href="{!! url("gallery/administrator") !!}"><span class="menu-text">Gallery</span></a></li>
 
                     </ul>
                 </li>

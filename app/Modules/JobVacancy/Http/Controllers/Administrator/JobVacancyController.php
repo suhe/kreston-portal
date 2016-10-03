@@ -41,7 +41,7 @@ class JobVacancyController extends Controller {
     public function view($id,JobVacancy $job) {
         $id = Crypt::decrypt($id);
         return Theme::view ('job-vacancy::Administrator.view',array(
-            'job' =>  $job->find($id),
+            'job' =>  $job->selectRaw("*,DATE_FORMAT(due_date,'%d/%m/%Y') as due_date")->find($id),
         ));
     }
 
@@ -65,7 +65,7 @@ class JobVacancyController extends Controller {
     public function edit($id,JobVacancy $job) {
         $id = Crypt::decrypt($id);
         return Theme::view ('job-vacancy::Administrator.form',array(
-            'job' =>  $job->find($id),
+            'job' =>  $job->selectRaw("*,DATE_FORMAT(due_date,'%d/%m/%Y') as due_date")->find($id),
         ));
     }
 
@@ -74,19 +74,19 @@ class JobVacancyController extends Controller {
         $name = Input::get("name");
 		$position = Input::get("position");
         $location = Input::get('location');
-        $due_date = Input::get('due_date');
+        $due_date = preg_replace('!(\d+)/(\d+)/(\d+)!', '\3-\2-\1', Input::get('due_date'));
 		$description = Input::get('description');
 		$requirements = Input::get('requirements');
-		$responsibilites = Input::get('responsibilites');
+		$responsibilities = Input::get('responsibilities');
 
         $field = array (
             'name' => $name,
             'position' => $position,
             'location' => $location,
 			'due_date' => $due_date,
-			'description' => $description,
-			'requirements' => $requirements,
-			'responsibilites' => $responsibilites
+			//'description' => $description,
+			//'requirements' => $requirements,
+			//'responsibilites' => $responsibilites
         );
 
         $rules = array (
@@ -94,9 +94,9 @@ class JobVacancyController extends Controller {
             'position' => 'required',
             'location' => 'required',
 			'due_date' => 'required',
-			'description' => 'required',
-			'requirements' => 'required',
-			'responsibilites' => 'required'
+			//'description' => 'required',
+			//'requirements' => 'required',
+			//'responsibilites' => 'required'
         );
 
         $validate = Validator::make($field,$rules);
@@ -113,8 +113,8 @@ class JobVacancyController extends Controller {
                 $job->location = $location;
                 $job->description = $description;
 				$job->position = $position;
-				$job->due_date = $date;
-				$job->responsibilites = $responsibilites;
+				$job->due_date = $due_date;
+				$job->responsibilities = $responsibilities;
 				$job->requirements = $requirements;
                 $job->updated_at = date("Y-m-d H:i:s");
 				$job->updated_by = Auth::user()->id;
@@ -125,8 +125,8 @@ class JobVacancyController extends Controller {
                 $job->location = $location;
                 $job->description = $description;
 				$job->position = $position;
-				$job->due_date = $date;
-				$job->responsibilites = $responsibilites;
+				$job->due_date = $due_date;
+				$job->responsibilities = $responsibilities;
 				$job->requirements = $requirements;
                 $job->created_at = date("Y-m-d H:i:s");
                 $job->created_by = Auth::user()->id;

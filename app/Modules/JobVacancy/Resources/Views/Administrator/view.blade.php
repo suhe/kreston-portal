@@ -13,7 +13,7 @@
                         <div class="pull-right">
                             <div class="btn-group pull-right">
 								<a href="{!! url('job-vacancy/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> {!! Lang::get("action.create") !!}</a>
-								<a href="{!! url('job-vacancy/administrator/status/'.Crypt::encrypt($people->id)) !!}" class="btn btn-primary btn-sm"><i class="fa fa-flag"></i> {!! isset($people) && $job->is_active == 1 ? Lang::get("action.set inactive"): Lang::get("action.set active")!!}</a>
+								<a href="{!! url('job-vacancy/administrator/status/'.Crypt::encrypt($job->id)) !!}" class="btn btn-primary btn-sm"><i class="fa fa-flag"></i> {!! isset($job) && $job->is_active == 1 ? Lang::get("action.set inactive"): Lang::get("action.set active")!!}</a>
 								<a href="{!! url('job-vacancy/administrator/edit/'.Crypt::encrypt($job->id)) !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.edit") !!}</a>
 								<a href="{!! url('job-vacancy/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
                             </div>
@@ -33,15 +33,15 @@
 						<table class="table">
 							<tr>
 								<th>{!! Lang::get('job-vacancy::app.name') !!}</th>
-								<td>{!!  url($job->name) !!}</td>
+								<td>{!!  $job->name !!}</td>
 							</tr>
 							<tr>
 								<th>{!! Lang::get('job-vacancy::app.due date') !!}</th>
-								<td>{!! $job->due_date !!}" /></td>
+								<td>{!! $job->due_date !!}</td>
 							</tr>
 							<tr>
 								<th>{!! Lang::get('job-vacancy::app.location') !!}</th>
-								<td>{!! $job->location !!}" /></td>
+								<td>{!! $job->location !!}</td>
 							</tr>
 
 						</table>
@@ -64,8 +64,8 @@
                     <div class="col-md-12">
                         <table class="table">
                             <tr>
-                                <th>{!! Lang::get('job-vacancy::app.responsibilities') !!}</th>
-                                <td>{!! $job->responsibilities !!}</td>
+                                <th class="col-md-2">{!! Lang::get('job-vacancy::app.responsibilities') !!}</th>
+                                <td class="col-md-10">{!! $job->responsibilities !!}</td>
                             </tr>
 							<tr>
                                 <th>{!! Lang::get('job-vacancy::app.requirements') !!}</th>
