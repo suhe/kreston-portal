@@ -156,51 +156,48 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="javascript:void(0)" class="submenu-toggle">
-                        <i class="menu-icon zmdi zmdi-puzzle-piece zmdi-hc-lg"></i> <span class="menu-text">Home Page</span>
+                    <a href="javascript:void(0)" class="submenu-toggle"  >
+                        <i class="menu-icon zmdi zmdi-puzzle-piece zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.home page") !!}</span>
                         <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
-                    <ul class="submenu">
-                        <li><a href="{!! url("home-banner/administrator") !!}"><span class="menu-text">Banner</span></a></li>
-
+                    <ul class="submenu active">
+                        <li><a class="home_banner" href="{!! url("home-banner/administrator") !!}"><span class="menu-text">{!! Lang::get("action.banner") !!}</span></a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="{!! url("job-vacancy/administrator") !!}"><i class="menu-icon zmdi zmdi-search zmdi-hc-lg"></i> <span class="menu-text">Job vacancy</span></a>
+                    <a class="job_vacancy" href="{!! url("job-vacancy/administrator") !!}"><i class="menu-icon zmdi zmdi-search zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.job vacancy") !!}</span></a>
                 </li>
                 <li class="has-submenu">
                     <a href="javascript:void(0)" class="submenu-toggle"><i class="menu-icon zmdi zmdi-pages zmdi-hc-lg"></i>
                         <span class="menu-text">Pages</span> <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a href="{!! url("navigation/administrator") !!}"><span class="menu-text">Navigation</span></a></li>
-                        <li><a href="{!! url("news/administrator") !!}"><span class="menu-text">News</span></a></li>
-                        <li><a href="{!! url("page/administrator") !!}"><span class="menu-text">Static Page</span></a></li>
-                        <li><a href="invoice.html"><span class="menu-text">Article</span></a></li>
+                        <li><a class="navigation" href="{!! url("navigation/administrator") !!}"><span class="menu-text">{!! Lang::get("action.navigation") !!}</span></a></li>
+                        <li><a class="news" href="{!! url("news/administrator") !!}"><span class="menu-text">{!! Lang::get("action.news") !!}</span></a></li>
+                        <li><a class="page" href="{!! url("page/administrator") !!}"><span class="menu-text">{!! Lang::get("action.page") !!}</span></a></li>
+                        <li><a class="article" href="{!! url("article/administrator") !!}"><span class="menu-text">{!! Lang::get("action.article") !!}</span></a></li>
                     </ul>
                 </li>
                 <li class="has-submenu"><a href="javascript:void(0)" class="submenu-toggle"><i
-                                class="menu-icon zmdi zmdi-check zmdi-hc-lg"></i> <span class="menu-text">Company Profile</span> <i
+                                class="menu-icon zmdi zmdi-check zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.company profile") !!}</span> <i
                                 class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a href="{!! url("people/administrator") !!}"><span class="menu-text">Our People</span></a></li>
-                        <li><a href="form.elements.html"><span class="menu-text">Contact Us</span></a></li>
-                        <li><a href="form.elements.html"><span class="menu-text">Newsletter</span></a></li>
+                        <li><a class="people" href="{!! url("people/administrator") !!}"><span class="menu-text">{!! Lang::get("action.our people") !!}</span></a></li>
+                        <li><a class="contact" href="{!! url("contact/administrator") !!}"><span class="menu-text">{!! Lang::get("action.contact us") !!}</span></a></li>
+                        <li><a class="newsletter" href="{!! url("newsletter/administrator") !!}"><span class="menu-text">{!! Lang::get("action.newsletter") !!}</span></a></li>
                     </ul>
                 </li>
                 <li class="has-submenu"><a href="javascript:void(0)" class="submenu-toggle"><i
-                                class="menu-icon zmdi zmdi-storage zmdi-hc-lg"></i> <span class="menu-text">Media</span> <i
+                                class="menu-icon zmdi zmdi-storage zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.media") !!}</span> <i
                                 class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a href="{!! url("gallery/administrator") !!}"><span class="menu-text">Gallery</span></a></li>
+                        <li><a class="gallery" href="{!! url("gallery/administrator") !!}"><span class="menu-text">{!! Lang::get("action.gallery") !!}</span></a></li>
 
                     </ul>
                 </li>
-                <li class="has-submenu"><a href="javascript:void(0)" class="submenu-toggle"><i
-                                class="menu-icon zmdi zmdi-settings zmdi-hc-lg"></i> <span class="menu-text">Administration</span> <span
-                                <i
-                                class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
+                <li class="has-submenu"><a href="javascript:void(0)" class="submenu-toggle"><i class="menu-icon zmdi zmdi-settings zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.administration") !!}</span> <span
+                                <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a href="{!! url('user/administrator') !!}"><span class="menu-text">{!! Lang::get("app.user")!!}</span></a></li>
-                        <li><a href="echarts.bar.html"><span class="menu-text">Setting</span></a></li>
+                        <li><a class="user" href="{!! url('user/administrator') !!}"><span class="menu-text">{!! Lang::get("app.user")!!}</span></a></li>
+                        <li><a class="setting" href="{!! url('setting/administrator') !!}"><span class="menu-text">{!! Lang::get("app.setting")!!}</span></a></li>
                     </ul>
                 </li>
 
@@ -242,11 +239,27 @@
 </main>
 
 <script src="{!! Theme::asset('js/core.min.js') !!}"></script>
-<script src="{!! Theme::asset('js/app.min.js') !!}"></script>
+<script src="{!! Theme::asset('libs/bower/jquery-cookie/jquery.cookie.js') !!}"></script>
+<script type="text/javascript">
+    $(function(){
+        var menu_active = '.' + $.cookie('menu_active');
+        //alert(menu_active);
+        $(menu_active).closest('li').addClass('active');
+        $(menu_active).closest('ul').css("display","block");
+        $.removeCookie('menu_active'); // remove cookie
+
+        $('.app-menu a').on('click', function(event) {
+            event.preventDefault();
+            $.cookie('menu_active',$(this).attr("class"));
+            $(location).attr('href',$(this).attr("href"));
+        });
+    });
+</script>
 <script src="{!! Theme::asset('libs/bower/moment/moment.js') !!}"></script>
 <script src="{!! Theme::asset('libs/bower/fullcalendar/dist/fullcalendar.min.js') !!}"></script>
 <script src="{!! Theme::asset('assets/js/fullcalendar.js') !!}"></script>
 <script src="{!! Theme::asset('libs/bower/jquery-confirm/jquery-confirm.min.js') !!}"></script>
+<script src="{!! Theme::asset('js/app.min.js') !!}"></script>
 @stack('scripts')
 </body>
 </html>

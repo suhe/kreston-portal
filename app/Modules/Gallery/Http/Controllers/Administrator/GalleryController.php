@@ -44,10 +44,11 @@ class GalleryController extends Controller {
         ));
     }
 
-    public function view($id,GalleryEvent $event) {
+    public function view($id,GalleryEvent $event,GalleryPhoto $photo) {
         $id = Crypt::decrypt($id);
         return Theme::view ('gallery::Administrator.view',array(
             'event' =>  $event->selectRaw("*,DATE_FORMAT(date_from,'%d/%m/%Y') as date_from,DATE_FORMAT(date_to,'%d/%m/%Y') as date_to")->find($id),
+            'photos' => $photo->where("gallery_event_id",$id)->paginate(1),
         ));
     }
 

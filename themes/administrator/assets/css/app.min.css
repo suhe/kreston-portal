@@ -16806,7 +16806,7 @@ td.mail-right {
 .compose-btn, .mail-toolbar .btn {
     border: none;
     box-shadow: 0 1px 3px #ccc;
-    color: #6a6c6f
+    /*color: #6a6c6f*/
 }
 
 .compose-btn {
@@ -17360,4 +17360,11 @@ td.mail-right {
 }
 .numeric {
 	width:100px;
+}
+.color-white{
+    color: #fff;
+}
+
+ul>.active {
+    display: block;
 }
