@@ -14,11 +14,13 @@ use App\Modules\Gallery\Models\GalleryEvent;
 use App\Modules\Gallery\Models\GalleryPhoto;
 use App\Modules\Gallery\Http\Controllers\Administrator\ImageRepository;
 use Auth;
+use Config;
 use Crypt;
 use Lang;
 use Redirect;
 use Request;
 use Response;
+use Setting;
 use Theme;
 use Validator;
 
@@ -34,7 +36,7 @@ class GalleryController extends Controller {
             'events' =>  $event
                 ->selectRaw("*,DATE_FORMAT(date_from,'%d/%m/%Y') as date_from,DATE_FORMAT(date_to,'%d/%m/%Y') as date_to")
                 ->where("name", "like", "%".Request::get("name")."%")
-                ->sortable()->paginate(2),
+                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 

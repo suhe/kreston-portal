@@ -12,11 +12,13 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Modules\Post\Models\Post;
 use Auth;
+use Config;
 use Crypt;
 use Lang;
 use Redirect;
 use Request;
 use Response;
+use Setting;
 use Theme;
 use Validator;
 
@@ -29,7 +31,7 @@ class NewsController extends Controller {
         return Theme::view ('news::Administrator.index',array(
             'posts' =>  $post
                 ->where("title", "like", "%".Request::get("title")."%")
-                ->sortable()->paginate(2),
+                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 

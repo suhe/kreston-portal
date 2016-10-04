@@ -11,11 +11,13 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Modules\HomeBanner\Models\HomeBanner;
 use Auth;
+use Config;
 use Crypt;
 use Lang;
 use Redirect;
 use Request;
 use Response;
+use Setting;
 use Theme;
 use Validator;
 
@@ -29,7 +31,7 @@ class HomeBannerController extends Controller {
             'home_banners' =>  $home_banner
                 ->where("name", "like", "%".Request::get("name")."%")
                 ->where("storage_location", "like", "%".Request::get("location")."%")
-                ->sortable()->paginate(2),
+                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 

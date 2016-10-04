@@ -12,11 +12,13 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Modules\Navigation\Models\Navigation;
 use Auth;
+use Config;
 use Crypt;
 use Lang;
 use Redirect;
 use Request;
 use Response;
+use Setting;
 use Theme;
 use Validator;
 

@@ -11,11 +11,13 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Modules\People\Models\People;
 use Auth;
+use Config;
 use Crypt;
 use Lang;
 use Redirect;
 use Request;
 use Response;
+use Setting;
 use Theme;
 use Validator;
 
@@ -29,7 +31,7 @@ class PeopleController extends Controller {
             'people' =>  $people
                 ->where("name", "like", "%".Request::get("name")."%")
                 ->where("photo_storage_location", "like", "%".Request::get("location")."%")
-                ->sortable()->paginate(2),
+                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 

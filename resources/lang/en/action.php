@@ -10,6 +10,7 @@ return array(
     'company profile' => 'Company Profile',
     'confirm' => 'Confirm',
     'confirm delete' => 'Are you sure want to delete this ?',
+    'contact us' => 'Contact Us',
     'create' => 'Create',
     'edit' => 'Edit',
     'gallery' => 'Gallery',

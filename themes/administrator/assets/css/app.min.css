@@ -17368,3 +17368,7 @@ td.mail-right {
 ul>.active {
     display: block;
 }
+
+.widget-body {
+    min-height:250px;
+}

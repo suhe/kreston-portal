@@ -181,7 +181,7 @@
                                 class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
                         <li><a class="people" href="{!! url("people/administrator") !!}"><span class="menu-text">{!! Lang::get("action.our people") !!}</span></a></li>
-                        <li><a class="contact" href="{!! url("contact/administrator") !!}"><span class="menu-text">{!! Lang::get("action.contact us") !!}</span></a></li>
+                        <li><a class="contact" href="{!! url("contact-us/administrator") !!}"><span class="menu-text">{!! Lang::get("action.contact us") !!}</span></a></li>
                         <li><a class="newsletter" href="{!! url("newsletter/administrator") !!}"><span class="menu-text">{!! Lang::get("action.newsletter") !!}</span></a></li>
                     </ul>
                 </li>
@@ -246,7 +246,7 @@
         //alert(menu_active);
         $(menu_active).closest('li').addClass('active');
         $(menu_active).closest('ul').css("display","block");
-        $.removeCookie('menu_active'); // remove cookie
+        //$.removeCookie('menu_active'); // remove cookie
 
         $('.app-menu a').on('click', function(event) {
             event.preventDefault();

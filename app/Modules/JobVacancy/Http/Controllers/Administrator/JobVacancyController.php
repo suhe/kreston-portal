@@ -11,11 +11,13 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Modules\JobVacancy\Models\JobVacancy;
 use Auth;
+use Config;
 use Crypt;
 use Lang;
 use Redirect;
 use Request;
 use Response;
+use Setting;
 use Theme;
 use Validator;
 
@@ -28,7 +30,7 @@ class JobVacancyController extends Controller {
         return Theme::view ('job-vacancy::Administrator.index',array(
             'jobs' =>  $job
                 ->where("name", "like", "%".Request::get("name")."%")
-                ->sortable()->paginate(2),
+                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 

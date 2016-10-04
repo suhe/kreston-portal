@@ -236,6 +236,7 @@ return [
         'Route' => Illuminate\Support\Facades\Route::class,
         'Schema' => Illuminate\Support\Facades\Schema::class,
         'Session' => Illuminate\Support\Facades\Session::class,
+        'Setting' => App\Modules\Setting\Models\Setting::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
 		'Theme' => Caffeinated\Themes\Facades\Theme::class,
         'URL' => Illuminate\Support\Facades\URL::class,

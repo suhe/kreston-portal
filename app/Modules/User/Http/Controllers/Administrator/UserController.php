@@ -10,10 +10,12 @@ namespace App\Modules\User\Http\Controllers\Administrator;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Modules\User\Models\User;
+use Config;
 use Crypt;
 use Lang;
 use Request;
 use Response;
+use Setting;
 use Theme;
 use Validator;
 
@@ -27,7 +29,7 @@ class UserController extends Controller {
             'users' =>  $user
                 ->where("first_name", "like", "%".Request::get("first_name")."%")
                 ->where("email", "like", "%".Request::get("email")."%")
-                ->sortable()->paginate(2),
+                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 	
