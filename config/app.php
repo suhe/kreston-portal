@@ -173,6 +173,7 @@ return [
         #Folklore\Image\ImageServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Kyslik\ColumnSortable\ColumnSortableServiceProvider::class,
+        Lavary\Menu\ServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         //
@@ -225,6 +226,7 @@ return [
 		'Html' => Collective\Html\HtmlFacade::class,
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
+        'Menu' => Lavary\Menu\Facade::class,
 		'Module' => Caffeinated\Modules\Facades\Module::class,	
         'Notification' => Illuminate\Support\Facades\Notification::class,
         'Password' => Illuminate\Support\Facades\Password::class,

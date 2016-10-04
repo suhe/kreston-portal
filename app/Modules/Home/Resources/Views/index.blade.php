@@ -15,6 +15,45 @@
 	</div>
 @endsection
 
+
+@section('content')
+	<div class="row">
+		<div class="col-sm-4 col-md-4">
+			<h5 class="title text-center">ACHIEVEMENTS</h5>
+			<img class="img-responsive" src="{!! Theme::asset('content/img/about-us/a1.png') !!}" />
+			<div class="text-small">
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+				<div class="clearfix"></div><br>
+				<div class="text-center">
+					<button class="btn btn-default">Read more</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 col-md-4">
+			<h5 class="title text-center">TESTIMONIALS</h5>
+			<img class="img-responsive" src="{!! Theme::asset('content/img/about-us/a2.png') !!}" />
+			<div class="text-small">
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+				<div class="clearfix"></div><br>
+				<div class="text-center">
+					<button class="btn btn-default">Read more</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 col-md-4">
+			<h5 class="title text-center">OUR DIVISIONS</h5>
+			<img class="img-responsive" src="{!! Theme::asset('content/img/about-us/a3.png') !!}" />
+			<div class="text-small">
+				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
+				<div class="clearfix"></div><br>
+				<div class="text-center">
+					<button class="btn btn-default">Read more</button>
+				</div>
+			</div>
+		</div>
+	</div>
+@endsection
+
 @section('latest-post')
 	<div class="slider progressive-slider load">
 	

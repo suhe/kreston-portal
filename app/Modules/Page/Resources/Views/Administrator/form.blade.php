@@ -50,7 +50,14 @@
 @push('scripts')
 	<script src="{!! url('vendor/unisharp/laravel-ckeditor/ckeditor.js') !!}"></script>
 	<script type="text/javascript">
+		CKEDITOR.config.extraPlugins = 'justify';
 		CKEDITOR.replace( 'content', {
+			toolbarGroups: [
+				{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+				{ name: 'styles' },
+				{ name: 'insert' },
+				{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+			],
 			filebrowserImageBrowseUrl: '{!! url("/") !!}/filemanager?type=Images',
 			filebrowserImageUploadUrl: '{!! url("/") !!}/filemanager/upload?type=Images&_token={{csrf_token()}}',
 			filebrowserBrowseUrl: '{!! url("/") !!}/filemanager?type=Files',

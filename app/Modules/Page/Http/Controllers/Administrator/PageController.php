@@ -11,6 +11,7 @@ namespace App\Modules\Page\Http\Controllers\Administrator;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Modules\Page\Models\Page;
+use Illuminate\Support\Str;
 use Auth;
 use Crypt;
 use Lang;
@@ -96,6 +97,8 @@ class PageController extends Controller {
                 //update home_banner
                 $page = $page->find($id);
 				$page->name  = $name;
+                $page->slug  = Str::slug($name,'-');
+                $page->url  = '/page/'.Str::slug($name,'-');
                 $page->parent_id = $parent_id;
                 $page->content = $content;
                 $page->updated_at = date("Y-m-d H:i:s");
@@ -104,6 +107,8 @@ class PageController extends Controller {
                 $message = Lang::get('page::message.update successfully');
             } else {
                 $page->name  = $name;
+                $page->slug  = Str::slug($name,'-');
+                $page->url  = '/page/'.Str::slug($name,'-');
                 $page->parent_id = $parent_id;
                 $page->content = $content;
                 $page->created_at = date("Y-m-d H:i:s");
