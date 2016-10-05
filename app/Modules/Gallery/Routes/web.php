@@ -11,8 +11,10 @@
 |
 */
 
-Route::group(['prefix' => 'gallery','middleware' => ['permission']], function() {
-    Route::group(['prefix' => 'administrator'], function() {
+Route::group(['prefix' => 'gallery'], function() {
+	Route::get('/collection', 'GalleryController@index');
+	Route::get('/event/{id}/{slug}', 'GalleryController@event');
+    Route::group(['prefix' => 'administrator','middleware' => ['permission']], function() {
         Route::get('/', 'Administrator\GalleryController@index');
         Route::get('/view/{id}', 'Administrator\GalleryController@view');
         Route::get('/status/{id}', 'Administrator\GalleryController@status');

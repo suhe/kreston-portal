@@ -11,6 +11,7 @@ use Illuminate\Support\Str;
 use App\Modules\Post\Models\Post;
 use Breadcrumbs;
 use Config;
+use DB;
 use Lang;
 use SEOMeta;
 use Setting;
@@ -37,6 +38,10 @@ class NewsController extends Controller {
                 ->where('is_active',1)
 				->orderBy('created_at','desc')
                 ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
+			'post_archieves' => $post->selectRaw("CONCAT(YEAR(created_at),'/',MONTH(created_at)) as url,CONCAT(MONTHNAME(created_at),' ',YEAR(created_at)) as periode")
+			->where('is_active',1)
+			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
+			->orderBy("created_at",SORT_DESC)->get(),	
         ));
 	}
 
@@ -55,7 +60,30 @@ class NewsController extends Controller {
 		
         return Theme::view ('news::read',array(
             'post' => $xpost,
-			//'our_peoples' => $people->where('is_active',1)->get(),
+			'post_archieves' => $post->selectRaw("CONCAT(YEAR(created_at),'/',MONTH(created_at)) as url,CONCAT(MONTHNAME(created_at),' ',YEAR(created_at)) as periode")
+			->where('is_active',1)
+			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
+			->orderBy("created_at",SORT_DESC)->get(),	
         ));
     }
+	
+	public function archieve($year,$month,Post $post) {
+		SEOMeta::setTitle(Setting::get_key('company_name').' '.Lang::get('news::app.news'))
+		->setDescription('Kreston News')
+		->setCanonical(url('/'))
+		->addKeyword('kreston','kreston news','news');
+		
+		return Theme::view ('news::index',array(
+			'posts' =>  $post
+                ->where('is_active',1)
+				->whereRaw("MONTH(created_at) = $month AND YEAR(created_at) = $year ")
+				->orderBy('created_at','desc')
+                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
+			'post_archieves' => $post->selectRaw("CONCAT(YEAR(created_at),'/',MONTH(created_at)) as url,CONCAT(MONTHNAME(created_at),' ',YEAR(created_at)) as periode")
+			->where('is_active',1)
+			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
+			->orderBy("created_at",SORT_DESC)->get(),	
+        ));
+		
+	}
 }

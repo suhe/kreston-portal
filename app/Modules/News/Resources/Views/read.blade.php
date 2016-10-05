@@ -29,15 +29,12 @@
 			<h3 class="title">Archives</h3>
 		  </header>
 		  <ul>
-			<li><a href="#">August 2012</a></li>
-			<li><a href="#">September 2012</a></li>
-			<li><a href="#">October 2012</a></li>
-			<li><a href="#">November 2012</a></li>
-			<li><a href="#">December 2012</a></li>
+			@foreach($post_archieves as $key => $row)
+				<li class="active"><a href="{!! url('news/archieve/'.$row->url) !!}">{!! $row->periode !!}</a></li>
+			@endforeach
 		  </ul>
 		</aside><!-- .list -->
-		
-
+	
 	  </div><!-- .sidebar -->
     </div
 @endsection

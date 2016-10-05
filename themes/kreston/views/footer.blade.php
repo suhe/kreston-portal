@@ -122,6 +122,7 @@
 
 <script src="{!! Theme::asset('js/bootstrap.min.js') !!}"></script>
 @stack('scripts')
+<script src="{!! Theme::asset('js/main.js') !!}"></script>
 <!--
 <script src="js/bootstrap.min.js"></script>
 <script src="js/price-regulator/jshashtable-2.1_src.js"></script>

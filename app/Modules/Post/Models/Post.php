@@ -18,5 +18,7 @@ class Post extends Model {
     protected $primaryKey = 'id';
     public $timestamps = false;
     public $sortable = ['id', 'title', 'total_view'];
+	protected $casts = ['grant_all_permissions' => true,];
+
 
 }
