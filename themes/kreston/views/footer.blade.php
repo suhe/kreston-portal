@@ -121,18 +121,9 @@
 <![endif]-->
 
 <script src="{!! Theme::asset('js/bootstrap.min.js') !!}"></script>
-<script src="{!! Theme::asset('js/pgwslider.min.js') !!}"></script>
-<script>
-    $(document).ready(function() {
-        $('.pgwSlider').pgwSlider({
-            displayControls:true,
-            maxHeight : 600,
-            adaptiveHeight: true
-        });
-    });
-</script
-
-        <!--<script src="js/bootstrap.min.js"></script>
+@stack('scripts')
+<!--
+<script src="js/bootstrap.min.js"></script>
 <script src="js/price-regulator/jshashtable-2.1_src.js"></script>
 <script src="js/price-regulator/jquery.numberformatter-1.2.3.js"></script>
 <script src="js/price-regulator/tmpl.js"></script>

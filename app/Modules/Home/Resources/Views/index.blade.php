@@ -91,7 +91,7 @@
                     <hr>
                     <ul class="list_1">
 						@foreach($latest_news as $key => $news)
-							<li><a href="{!! url('post/read/') !!}"><i class="fa fa-caret-right"></i> {!! $news->title !!}</a></li>
+							<li><a href="{!! url('news/read/'.$news->id.'/'.Str::slug($news->title,'-')) !!}"><i class="fa fa-caret-right"></i> {!! $news->title !!}</a></li>
 						@endforeach
                     </ul>
                      
@@ -101,5 +101,20 @@
 	</div>
 </div>
 @endsection
+@push('css')
+	<link rel='stylesheet' href="{!! Theme::asset('css/pgwslider.min.css') !!}">
+@endpush
+@push('scripts')
+	<script src="{!! Theme::asset('js/pgwslider.min.js') !!}"></script>
+	<script>
+    $(document).ready(function() {
+        $('.pgwSlider').pgwSlider({
+            displayControls:true,
+            maxHeight : 600,
+            adaptiveHeight: true
+        });
+    });
+</script
+@endpush
 
 

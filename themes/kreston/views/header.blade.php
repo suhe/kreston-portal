@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="css/custom.css" />
     <!-- IE Styles-->
     <link rel='stylesheet' href="{!! Theme::asset('css/ie/ie.css') !!}">
-    <link rel='stylesheet' href="{!! Theme::asset('css/pgwslider.min.css') !!}">
+    @stack('css')
 
     <!--[if lt IE 9]>
     <script src="{!! Theme::asset('js/html5shiv.js') !!}"></script>
@@ -60,7 +60,7 @@
                         <div class="col-xs-6 col-md-2 col-lg-2 logo-box">
                             <div class="logo">
                                 <a href="{!! url("/") !!}">
-                                    <img src="{!! Theme::asset('img/logo6.png') !!}" class="logo-img" alt="">
+                                    <img src="{!! Theme::asset('img/logo1.png') !!}" class="logo-img" alt="">
                                 </a>
                             </div>
                         </div><!-- .logo-box -->
@@ -101,7 +101,7 @@
                                 <div class="logo">
 
                                     <a href="{!! url("/") !!}">
-                                        <img src="{!! Theme::asset('img/logo6.png') !!}" class="logo-img" alt="">
+                                        <img src="{!! Theme::asset('img/logo.png') !!}" class="logo-img" alt="">
                                     </a>
                                 </div>
                             </div>

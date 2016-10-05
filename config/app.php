@@ -246,6 +246,7 @@ return [
 		'Session' => Illuminate\Support\Facades\Session::class,
         'Setting' => App\Modules\Setting\Models\Setting::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
+		'Str' => Illuminate\Support\Str::class,
 		'Theme' => Caffeinated\Themes\Facades\Theme::class,
 		'Twitter'  => Artesaos\SEOTools\Facades\TwitterCard::class,
         'URL' => Illuminate\Support\Facades\URL::class,
