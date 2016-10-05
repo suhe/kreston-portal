@@ -15,7 +15,7 @@
                         <div class="pull-right">
                             <div class="btn-group pull-right">
 								<button class="btn btn-primary btn-sm" type="submit" id="btn-submit"><i class="fa fa-save"></i> {!! Lang::get('action.save') !!}</button>
-								<a href="{!! url('people/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
+								<a href="{!! url('people/administrator/index') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
                             </div>
                         </div>
                     </div>

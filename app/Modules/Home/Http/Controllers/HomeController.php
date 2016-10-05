@@ -17,11 +17,19 @@ use Lang;
 use Redirect;
 use Request;
 use Response;
+use SEO;
+use SEOMeta;
+use Setting;
 use Theme;
 use Validator;
 
 class HomeController extends Controller {
     public function index(HomeBanner $home_banners,Post $post) {
+		SEOMeta::setTitle(Setting::get_key('company_name'))
+		->setDescription(Setting::get_key('meta_content'))
+		->setCanonical(url('/'))
+		->addKeyword(Setting::get_key('meta_keyword'));
+		
         return Theme::view ('home::index',array(
 			'home_banners' => $home_banners->where(['is_active' => 1])->get(),
 			'latest_news' => $post->where(['is_active' => 1,'type' => 'News'])->orderBy('created_at','asc')->limit(10)->get(),

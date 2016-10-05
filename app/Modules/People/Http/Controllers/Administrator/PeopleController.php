@@ -9,6 +9,7 @@ namespace App\Modules\People\Http\Controllers\Administrator;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Str;
 use App\Modules\People\Models\People;
 use Auth;
 use Config;
@@ -101,6 +102,7 @@ class PeopleController extends Controller {
                 //update home_banner
                 $people = $people->find($id);
                 $people->name  = $name;
+				$people->slug = Str::slug($name,"-");
                 $people->photo_storage_location = $photo_storage_location;
                 $people->description = $description;
                 $people->updated_at = date("Y-m-d H:i:s");
@@ -108,6 +110,7 @@ class PeopleController extends Controller {
                 $message = Lang::get('people::message.update successfully');
             } else {
                 $people->name  = $name;
+				$people->slug = Str::slug($name,"-");
                 $people->photo_storage_location = $photo_storage_location;
                 $people->description = $description;
                 $people->created_at = date("Y-m-d H:i:s");

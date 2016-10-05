@@ -44,9 +44,12 @@ class Page extends Model {
 		return $recursive;		
 	}
 	
-	public static function dropdown() {
+	public static function dropdown($label = null) {
 		$data = array();
-		$data[0] = Lang::get("action.root");
+		if($label)
+			$data[0] = $label;
+		
+		//Lang::get("action.root");
 		if(self::recursive()) {
 			foreach(self::recursive() as $key => $row) {
 				$data[$row['id']] = $row['name'];

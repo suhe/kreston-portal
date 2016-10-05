@@ -14,6 +14,7 @@ return array(
     'create' => 'Create',
     'edit' => 'Edit',
     'gallery' => 'Gallery',
+	'home' => 'Home',
     'home page' => 'Home Page',
     'job vacancy' => 'Job Vacancy',
     'logout' => 'Logout',

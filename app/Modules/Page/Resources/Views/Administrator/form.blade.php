@@ -15,7 +15,7 @@
                         <div class="pull-right">
                             <div class="btn-group pull-right">
 								<button class="btn btn-primary btn-sm" type="submit" id="btn-submit"><i class="fa fa-save"></i> {!! Lang::get('action.save') !!}</button>
-								<a href="{!! url('page/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
+								<a href="{!! url('page/administrator/index') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
                             </div>
                         </div>
                     </div>
@@ -39,6 +39,15 @@
 						<div class="form-group">
 							{!! Form::textarea('content',isset($page)?$page->content:null, ['class' => 'form-control input-lg','id'=>'content','placeholder'=> Lang::get('page::app.content'),'rows' => 20]) !!}
 						</div>
+						<div class="form-group">
+							{!! Form::select('related_page[]',$page_related,$related_page, ['class' => 'chosen form-control input-lg','id'=>'parent_id','data-placeholder'=> Lang::get('page::app.related page'),'multiple' => true]) !!}
+						</div>
+						<div class="form-group">
+							{!! Form::text('meta_keyword',isset($page)?$page->meta_keyword:null, ['class' => 'form-control input-lg','id'=>'meta_keyword','placeholder'=>Lang::get('page::app.meta keyword'),'maxlength'=>255]) !!}
+						</div>
+						<div class="form-group">
+							{!! Form::textarea('meta_description',isset($page)?$page->meta_description:null, ['class' => 'form-control input-lg','id'=>'meta_keyword','placeholder'=>Lang::get('page::app.meta description'),'maxlength'=>255]) !!}
+						</div>
 					</div>
 				</div>
             </div>
@@ -47,9 +56,14 @@
 	{!! Form::close() !!}
 @endsection
 
+@push('css')
+<link href="{!! Theme::asset('administrator::libs/bower/jquery-chosen/chosen.min.css') !!}" rel="stylesheet" />
+@endpush
 @push('scripts')
+	<script src="{!! Theme::asset('administrator::libs/bower/jquery-chosen/chosen.jquery.min.js') !!}"></script>
 	<script src="{!! url('vendor/unisharp/laravel-ckeditor/ckeditor.js') !!}"></script>
 	<script type="text/javascript">
+		$(".chosen").chosen();
 		CKEDITOR.config.extraPlugins = 'justify';
 		CKEDITOR.replace( 'content', {
 			toolbarGroups: [
@@ -57,6 +71,8 @@
 				{ name: 'styles' },
 				{ name: 'insert' },
 				{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+				{ name: 'tools', groups: [ 'Maximize' ] },
+				{ name: 'mode' },
 			],
 			filebrowserImageBrowseUrl: '{!! url("/") !!}/filemanager?type=Images',
 			filebrowserImageUploadUrl: '{!! url("/") !!}/filemanager/upload?type=Images&_token={{csrf_token()}}',

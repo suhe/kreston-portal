@@ -172,7 +172,7 @@
                     <ul class="submenu">
                         <li><a class="navigation" href="{!! url("navigation/administrator") !!}"><span class="menu-text">{!! Lang::get("action.navigation") !!}</span></a></li>
                         <li><a class="news" href="{!! url("news/administrator") !!}"><span class="menu-text">{!! Lang::get("action.news") !!}</span></a></li>
-                        <li><a class="page" href="{!! url("page/administrator") !!}"><span class="menu-text">{!! Lang::get("action.page") !!}</span></a></li>
+                        <li><a class="page" href="{!! url("page/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.page") !!}</span></a></li>
                         <li><a class="article" href="{!! url("article/administrator") !!}"><span class="menu-text">{!! Lang::get("action.article") !!}</span></a></li>
                     </ul>
                 </li>

@@ -29,12 +29,14 @@ class PageController extends Controller {
     public function index(Page $page) {
         return Theme::view ('page::Administrator.index',array(
             'pages' => $page->recursive(),
+		
         ));
     }
 
     public function create(Page $page) {
         return Theme::view ('page::Administrator.form',array(
-			'page_dropdown' => $page->dropdown(),  
+			'page_dropdown' => $page->dropdown(Lang::get("action.root")),  
+			'page_related' => $page->dropdown(), 
             'page' =>  null,
         ));
     }
@@ -65,9 +67,13 @@ class PageController extends Controller {
 
     public function edit($id,Page $page) {
         $id = Crypt::decrypt($id);
+		$page = $page->find($id);
+		$related_page = explode(";",$page->related_page);
         return Theme::view ('page::Administrator.form',array(
-			'page_dropdown' => $page->dropdown(),  
-            'page' =>  $page->find($id),
+			'page_dropdown' => $page->dropdown(Lang::get("action.root")),  
+			'page_related' => $page->dropdown(), 
+            'page' =>  $page,
+			'related_page' => (count($related_page) > 0 ? $related_page : null),
         ));
     }
 
@@ -77,6 +83,22 @@ class PageController extends Controller {
 		$parent_id = Input::get("parent_id");
         $category_id = 1;
         $content = Input::get("content");
+		$meta_keyword = Input::get("meta_keyword");
+		$meta_description = Input::get("meta_description");
+		$link_page = "";
+		$related_page = Input::get("related_page");
+		$total_related_page = count($related_page);
+		if($total_related_page > 0) {
+			for($i = 0;$i<$total_related_page;$i++) {
+				if(isset($related_page[$i])) {
+					//link page
+					$link_page.=$related_page[$i];
+					if($i != ($total_related_page - 1)) {
+						$link_page.=";";
+					}
+				}
+			} 
+		}
 
         $field = array (
             'name' => $name,
@@ -101,6 +123,9 @@ class PageController extends Controller {
                 $page->url  = '/page/'.Str::slug($name,'-');
                 $page->parent_id = $parent_id;
                 $page->content = $content;
+				$page->related_page = $link_page;
+				$page->meta_keyword = $meta_keyword;
+				$page->meta_description = $meta_description;
                 $page->updated_at = date("Y-m-d H:i:s");
 				$page->updated_by = Auth::user()->id;
                 $page->save();
@@ -111,6 +136,9 @@ class PageController extends Controller {
                 $page->url  = '/page/'.Str::slug($name,'-');
                 $page->parent_id = $parent_id;
                 $page->content = $content;
+				$page->related_page = $link_page;
+				$page->meta_keyword = $meta_keyword;
+				$page->meta_description = $meta_description;
                 $page->created_at = date("Y-m-d H:i:s");
                 $page->created_by = Auth::user()->id;
                 $page->updated_at = date("Y-m-d H:i:s");
