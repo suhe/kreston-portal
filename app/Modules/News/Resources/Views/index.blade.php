@@ -12,7 +12,7 @@
 						<img src="{!! \App\Helpers\Img::show($post->content) !!}"  class="img-responsive"/>
 					</div>
 					<div class="col-md-9">
-					{!! str_limit(App\Helpers\Text::only_text($post->content), $limit = 350, $end = '...') !!}
+					{!! str_limit(App\Helpers\Text::only_text($post->content), $limit = 450, $end = '...') !!}
 					</div>
 				</div>	
 			  </div>

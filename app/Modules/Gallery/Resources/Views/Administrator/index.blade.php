@@ -53,7 +53,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                         <li><a href="{!! url('gallery/administrator/view/'.Crypt::encrypt($event->id)) !!}"> {!! Lang::get('action.view') !!}</a></li>
-                                        <li><a href="{!! url('gallery/administrator/edit/'.Crypt::encrypt($event->id)) !!}"> {!! Lang::get('action.edit') !!}</a></li>
+                                        <li><a href="{!! url('gallery/administrator/upload/'.Crypt::encrypt($event->id)) !!}"> {!! Lang::get('action.upload') !!}</a></li>
                                         <li><a href="#" id="{!! Crypt::encrypt($event->id) !!}" class="delete"> {!! Lang::get('action.remove') !!}</a></li>
                                     </ul>
                                 </div>

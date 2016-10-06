@@ -10,7 +10,7 @@ namespace App\Helpers;
 class Text {
     public static function only_text($string) {
 		$content = $string;
-		$content = preg_replace("/<img[^>]+\>/i", "(image) ", $content); 
+		$content = preg_replace("/<img[^>]+\>/i", "", $content); 
 		return $content;
     }
 }

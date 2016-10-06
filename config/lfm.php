@@ -12,7 +12,7 @@ return [
     'use_package_routes'    => true,
 
     // For laravel 5.2, please set to ['web', 'auth']
-    'middlewares'           => ['web','auth'],
+    'middlewares'           => ['web','auth','permission'],
 
     // Add prefix for routes
     'prefix'           => 'filemanager',
@@ -29,10 +29,10 @@ return [
     'shared_folder_name'    => 'shared',
     'thumb_folder_name'     => 'thumbs',
 
-    'images_dir'            => 'media/images/',
+    'images_dir'            => 'public/media/images/',
     'images_url'            => 'media/images/',
 
-    'files_dir'             => 'media/files/',
+    'files_dir'             => 'public/media/files/',
     'files_url'             => 'media/files/',
 
     // available since v1.3.0
