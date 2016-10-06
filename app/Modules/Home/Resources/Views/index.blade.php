@@ -61,10 +61,10 @@
 		<div class="row">
 			<div class="col-md-6">
 				<div class="box_style_1">
-                    <div><span style="font-size:24px;font-weight:500">Article</span><span class="pull-right"><a href="http://iapi.or.id/category/69-1-Berita">Lihat Semua <i class="icon-right-dir"></i></a></span></div>
+                    <div><span style="font-size:24px;font-weight:500">Article</span><span class="pull-right"><a href="http://iapi.or.id/category/69-1-Berita">See all <i class="icon-right-dir"></i></a></span></div>
                     <hr>
                     <ul class="list_1">
-                    
+               
                           <li><a href="http://iapi.or.id/detail/169-Bea-Cukai-dan-IAPI-Edukasi-Akuntan-Publik"><i class="fa fa-caret-right"></i> Bea Cukai dan IAPI Edukasi Akuntan Publik</a></li>
                    
                           <li><a href="http://iapi.or.id/detail/168-UNIKAMA-Siap-Uji-Sertifikasi-Akuntan-Publik"><i class="fa fa-caret-right"></i> UNIKAMA Siap Uji Sertifikasi Akuntan Publik</a></li>
@@ -87,7 +87,7 @@
 			
 			<div class="col-md-6">
 				<div class="box_style_1">
-                    <div><span style="font-size:24px;font-weight:500"> News</span><span class="pull-right"><a href="http://iapi.or.id/category/69-1-Berita">See all <i class="icon-right-dir"></i></a></span></div>
+                    <div><span style="font-size:24px;font-weight:500"> News</span><span class="pull-right"><a href="{!! url('/news') !!}">See all <i class="icon-right-dir"></i></a></span></div>
                     <hr>
                     <ul class="list_1">
 						@foreach($latest_news as $key => $news)

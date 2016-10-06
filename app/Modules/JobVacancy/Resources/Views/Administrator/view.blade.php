@@ -15,7 +15,7 @@
 								<a href="{!! url('job-vacancy/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> {!! Lang::get("action.create") !!}</a>
 								<a href="{!! url('job-vacancy/administrator/status/'.Crypt::encrypt($job->id)) !!}" class="btn btn-primary btn-sm"><i class="fa fa-flag"></i> {!! isset($job) && $job->is_active == 1 ? Lang::get("action.set inactive"): Lang::get("action.set active")!!}</a>
 								<a href="{!! url('job-vacancy/administrator/edit/'.Crypt::encrypt($job->id)) !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.edit") !!}</a>
-								<a href="{!! url('job-vacancy/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
+								<a href="{!! url('job-vacancy/administrator/index') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
                             </div>
                         </div>
                     </div>

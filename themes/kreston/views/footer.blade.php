@@ -68,7 +68,7 @@
         <div class="container">
             <div class="row">
                 <div class="copyright col-xs-12 col-sm-3 col-md-3">
-                    &copy; Copyright 2016 Kantor Akutantan Publik
+                    &copy; Copyright {!! date('Y') !!} {!! Setting::get_key('company_name') !!}
                 </div>
 
                 <div class="phone col-xs-6 col-sm-3 col-md-3">

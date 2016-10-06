@@ -11,9 +11,11 @@
 |
 */
 
-Route::group(['prefix' => 'job-vacancy','middleware' => ['permission']], function() {
-    Route::group(['prefix' => 'administrator'], function() {
-        Route::get('/', 'Administrator\JobVacancyController@index');
+Route::group(['prefix' => 'job-vacancy'], function() {
+	Route::get('/', 'JobVacancyController@index');
+	Route::get('/read/{id}/{slug}', 'JobVacancyController@read');
+    Route::group(['prefix' => 'administrator','middleware' => ['permission']], function() {
+        Route::get('/index', 'Administrator\JobVacancyController@index');
         Route::get('/view/{id}', 'Administrator\JobVacancyController@view');
         Route::get('/status/{id}', 'Administrator\JobVacancyController@status');
         Route::get('/create', 'Administrator\JobVacancyController@create');

@@ -47,7 +47,7 @@
 						<div class="form-group">
 							<label for="url" class="col-sm-2 control-label text-left">{!! Lang::get('navigation::app.url') !!}</label>
 							<div class="col-sm-10">
-								{!! Form::text('url',isset($navigation)?$navigation->name:null, ['class' => 'form-control input-md','id'=>'url','placeholder'=>Lang::get('navigation::app.url'),'maxlength'=>100]) !!}
+								{!! Form::text('url',isset($navigation)?$navigation->url:null, ['class' => 'form-control input-md','id'=>'url','placeholder'=>Lang::get('navigation::app.url'),'maxlength'=>100]) !!}
 							</div>
 						</div>
 						<div class="form-group">

@@ -9,7 +9,7 @@
                 </div>
                 <div class="btn-group" role="group">
                     <a href="{!! url('contact-us/administrator/create') !!}" class="btn btn-primary btn-sm color-white"><i class="fa fa-plus"></i> {!! Lang::get("action.create") !!}</a>
-                    <a href="{!! url('contact-us/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i> {!! Lang::get("action.refresh") !!}</a>
+                    <a href="{!! url('contact-us/administrator/index') !!}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i> {!! Lang::get("action.refresh") !!}</a>
                 </div>
 
                 <div class="btn-group pull-right" role="group">

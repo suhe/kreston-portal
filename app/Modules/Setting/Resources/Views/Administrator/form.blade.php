@@ -79,6 +79,30 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('setting::app.facebook account') !!}</label>
+							<div class="col-sm-10">
+								{!! Form::text('social_facebook',Setting::get_key('social_facebook'), ['class' => 'form-control input-md','id'=>'social_facebook','placeholder'=>lang::get('setting::app.facebook account'),'maxlength'=>100]) !!}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('setting::app.gplus account') !!}</label>
+							<div class="col-sm-10">
+								{!! Form::text('social_gplus',Setting::get_key('social_gplus'), ['class' => 'form-control input-md','id'=>'social_gplus','placeholder'=>lang::get('setting::app.gplus account'),'maxlength'=>100]) !!}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('setting::app.linkedin account') !!}</label>
+							<div class="col-sm-10">
+								{!! Form::text('social_linkedin',Setting::get_key('social_linkedin'), ['class' => 'form-control input-md','id'=>'social_linkedin','placeholder'=>lang::get('setting::app.linkedin account'),'maxlength'=>100]) !!}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('setting::app.twitter account') !!}</label>
+							<div class="col-sm-10">
+								{!! Form::text('social_twitter',Setting::get_key('social_twitter'), ['class' => 'form-control input-md','id'=>'social_twitter','placeholder'=>lang::get('setting::app.twitter account'),'maxlength'=>100]) !!}
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('setting::app.meta author') !!}</label>
 							<div class="col-sm-10">
 								{!! Form::text('meta_author',Setting::get_key('meta_author'), ['class' => 'form-control input-md','id'=>'meta_author','placeholder'=>lang::get('setting::app.meta author'),'maxlength'=>100]) !!}

@@ -30,10 +30,10 @@ return [
     'thumb_folder_name'     => 'thumbs',
 
     'images_dir'            => 'media/images/',
-    'images_url'            => '../media/images/',
+    'images_url'            => 'media/images/',
 
     'files_dir'             => 'media/files/',
-    'files_url'             => '../media/files/',
+    'files_url'             => 'media/files/',
 
     // available since v1.3.0
     'valid_image_mimetypes' => [

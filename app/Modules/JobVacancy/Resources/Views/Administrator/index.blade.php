@@ -14,7 +14,7 @@
                             {!! $jobs->appends(\Request::except('page'))->render() !!}
                             <div class="btn-group pull-right">
                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#search_modal"><i class="fa fa-search"></i>  {!! Lang::get("action.search") !!}</button>
-								<a href="{!! url('job-vacancy/administrator/') !!}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i> {!! Lang::get("action.refresh") !!}</a>
+								<a href="{!! url('job-vacancy/administrator/index') !!}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i> {!! Lang::get("action.refresh") !!}</a>
                                 <a href="{!! url('job-vacancy/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.add new") !!}</a>
                             </div>
                         </div>
