@@ -15,6 +15,7 @@ use Crypt;
 use Lang;
 use Request;
 use Response;
+use SEOMeta;
 use Setting;
 use Theme;
 use Validator;
@@ -25,7 +26,7 @@ class UserController extends Controller {
     }
 
     public function index(User $user) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('user::app.user'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('user::app.user'));
         return Theme::view ('user::Administrator.index',array(
             'users' =>  $user
                 ->where("first_name", "like", "%".Request::get("first_name")."%")
@@ -35,7 +36,7 @@ class UserController extends Controller {
     }
 	
 	public function view($id , User $user) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('user::app.user'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('user::app.user'));
 		$id = Crypt::decrypt($id);
 		return Theme::view ('user::Administrator.view',array(
             'user' =>  $user->find($id),
@@ -43,14 +44,14 @@ class UserController extends Controller {
 	}
 	
 	public function create() {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('user::app.user'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('user::app.user'));
 		return Theme::view ('user::Administrator.form',array(
             'user' =>  null,
         ));
 	}
 	
 	public function edit($id,User $user) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('user::app.user'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('user::app.user'));
 		$id = Crypt::decrypt($id);
 		return Theme::view ('user::Administrator.form',array(
             'user' =>  $user->find($id),
@@ -115,7 +116,7 @@ class UserController extends Controller {
 	}
 	
 	public function reset_password($id,User $user) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.reset password').' '.Lang::get('user::app.user'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.reset password').' '.Lang::get('user::app.user'));
 		$id = Crypt::decrypt($id);
 		return Theme::view ('user::Administrator.reset-password',array(
             'user' =>  $user->find($id),

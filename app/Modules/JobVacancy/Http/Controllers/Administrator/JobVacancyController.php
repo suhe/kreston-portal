@@ -17,6 +17,7 @@ use Lang;
 use Redirect;
 use Request;
 use Response;
+use SEOMeta;
 use Setting;
 use Theme;
 use Validator;
@@ -27,7 +28,7 @@ class JobVacancyController extends Controller {
     }
 
     public function index(JobVacancy $job) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('job-vacancy::app.job vacancy'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('job-vacancy::app.job vacancy'));
         return Theme::view ('job-vacancy::Administrator.index',array(
             'jobs' =>  $job
                 ->where("name", "like", "%".Request::get("name")."%")
@@ -36,14 +37,14 @@ class JobVacancyController extends Controller {
     }
 
     public function create() {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('job-vacancy::app.job vacancy'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('job-vacancy::app.job vacancy'));
         return Theme::view ('job-vacancy::Administrator.form',array(
             'job' =>  null,
         ));
     }
 
     public function view($id,JobVacancy $job) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('job-vacancy::app.job vacancy'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('job-vacancy::app.job vacancy'));
         $id = Crypt::decrypt($id);
         return Theme::view ('job-vacancy::Administrator.view',array(
             'job' =>  $job->selectRaw("*,DATE_FORMAT(due_date,'%d/%m/%Y') as due_date")->find($id),
@@ -68,7 +69,7 @@ class JobVacancyController extends Controller {
     }
 
     public function edit($id,JobVacancy $job) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('job-vacancy::app.job vacancy'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('job-vacancy::app.job vacancy'));
         $id = Crypt::decrypt($id);
         return Theme::view ('job-vacancy::Administrator.form',array(
             'job' =>  $job->selectRaw("*,DATE_FORMAT(due_date,'%d/%m/%Y') as due_date")->find($id),

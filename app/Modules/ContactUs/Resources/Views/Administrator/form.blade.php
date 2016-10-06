@@ -33,7 +33,7 @@
 						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('contact-us::app.name') !!}</label>
 							<div class="col-sm-9">
-								{!! Form::text('name',isset($contact)?$contact->name:null, ['class' => 'form-control input-md','id'=>'name','placeholder'=>lang::get('contact-us::app.name'),'maxlength'=>100]) !!}
+								{!! Form::text('name',isset($contact)?$contact->name:null, ['class' => 'form-control input-md','id'=>'name','placeholder'=>lang::get('contact-us::app.name'),'maxlength'=>100]) !!} 
 							</div>
 						</div>
 						<div class="form-group">
@@ -46,6 +46,12 @@
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('contact-us::app.city') !!}</label>
 							<div class="col-sm-9">
 								{!! Form::text('city',isset($contact)?$contact->city:null, ['class' => 'form-control input-md','id'=>'city','placeholder'=>lang::get('contact-us::app.city'),'maxlength'=>100]) !!}
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('contact-us::app.zip code') !!}</label>
+							<div class="col-sm-9">
+								{!! Form::text('zip_code',isset($contact)?$contact->zip_code:null, ['class' => 'form-control input-md','id'=>'zip_code','placeholder'=>lang::get('contact-us::app.zip code'),'maxlength'=>15]) !!}
 							</div>
 						</div>
 						<div class="form-group">
@@ -77,7 +83,7 @@
 						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('contact-us::app.email') !!}</label>
 							<div class="col-sm-9">
-								{!! Form::text('email',isset($contact)?$contact->email:null, ['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('contact-us::app.email'),'maxlength'=>30]) !!}
+								{!! Form::text('email',isset($contact)?$contact->email:null, ['class' => 'form-control input-md','id'=>'email','placeholder'=>lang::get('contact-us::app.email'),'maxlength'=>50]) !!}
 							</div>
 						</div>
 						<div class="form-group">

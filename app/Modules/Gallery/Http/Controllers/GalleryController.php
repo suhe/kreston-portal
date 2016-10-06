@@ -33,14 +33,10 @@ class GalleryController extends Controller {
     }
 
     public function index(GalleryPhoto $photo,GalleryEvent $event) {
-		/*$xpage = $page->where(['slug' => $slug])->first();
-		$related_page = explode(";",$xpage->related_page);
-		$link_related_page = $related_page ? $related_page : null; 
-		
-		SEOMeta::setTitle(Setting::get_key('company_name').' '.$page->name)
-		->setDescription($page->meta_description)
+		SEOMeta::setTitle(Setting::get_key('company_name').' '.Lang::get('gallery::app.gallery'))
+		->setDescription(Setting::get_key('company_name').' '.Lang::get('gallery::app.gallery'))
 		->setCanonical(url('/'))
-		->addKeyword($page->meta_keyword);*/
+		->addKeyword(Setting::get_key('company_name').' '.Lang::get('gallery::app.gallery'));
 		
         return Theme::view ('gallery::index',array(
 			'index' => 'gallery',

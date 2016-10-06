@@ -18,7 +18,7 @@
 					
 					<div class="price">{!! $contact->contact_name !!}</div>
 					
-					<div class="starting"><i class="fa fa-map-marker"></i> {!! $contact->city !!} </div>
+					<div class="starting"><i class="fa fa-map-marker"></i> {!! $contact->city !!} {!! $contact->zip_code !!}</div>
 					<div class="starting"><i class="fa fa-flag"></i> {!! $contact->country !!} </div>
 					<div class="starting"><i class="fa fa-phone"></i> {!! $contact->phone_number !!} </div>
 					<div class="starting"><i class="fa fa-fax"></i> {!! $contact->fax_number !!} </div>

@@ -17,6 +17,7 @@ use Lang;
 use Redirect;
 use Request;
 use Response;
+use SEOMeta;
 use Setting;
 use Theme;
 use Validator;
@@ -27,7 +28,7 @@ class HomeBannerController extends Controller {
     }
 
     public function index(HomeBanner $home_banner) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('home-banner::app.home banner'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('home-banner::app.home banner'));
         return Theme::view ('home-banner::Administrator.index',array(
             'home_banners' =>  $home_banner
                 ->where("name", "like", "%".Request::get("name")."%")
@@ -37,14 +38,14 @@ class HomeBannerController extends Controller {
     }
 
     public function create() {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('home-banner::app.home banner'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('home-banner::app.home banner'));
         return Theme::view ('home-banner::Administrator.form',array(
             'home-banner' =>  null,
         ));
     }
 	
 	public function view($id,HomeBanner $home_banner) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('home-banner::app.home banner'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('home-banner::app.home banner'));
 		$id = Crypt::decrypt($id);
 		return Theme::view ('home-banner::Administrator.view',array(
             'home_banner' =>  $home_banner->find($id),
@@ -69,7 +70,7 @@ class HomeBannerController extends Controller {
 	}
 	
 	public function edit($id,HomeBanner $home_banner) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('home-banner::app.home banner'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('home-banner::app.home banner'));
 		$id = Crypt::decrypt($id);
 		return Theme::view ('home-banner::Administrator.form',array(
             'home_banner' =>  $home_banner->find($id),

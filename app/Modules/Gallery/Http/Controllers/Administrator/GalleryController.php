@@ -20,6 +20,7 @@ use Lang;
 use Redirect;
 use Request;
 use Response;
+use SEOMeta;
 use Setting;
 use Theme;
 use Validator;
@@ -32,7 +33,7 @@ class GalleryController extends Controller {
     }
 
     public function index(GalleryEvent $event) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').Lang::get('gallery::app.gallery'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').Lang::get('gallery::app.gallery'));
         return Theme::view ('gallery::Administrator.index',array(
             'events' =>  $event
                 ->selectRaw("*,DATE_FORMAT(date_from,'%d/%m/%Y') as date_from,DATE_FORMAT(date_to,'%d/%m/%Y') as date_to")
@@ -42,18 +43,18 @@ class GalleryController extends Controller {
     }
 
     public function create() {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('gallery::app.gallery'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('gallery::app.gallery'));
         return Theme::view ('gallery::Administrator.form',array(
             'event' =>  null,
         ));
     }
 
     public function view($id,GalleryEvent $event,GalleryPhoto $photo) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('gallery::app.gallery'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('gallery::app.gallery'));
         $id = Crypt::decrypt($id);
         return Theme::view ('gallery::Administrator.view',array(
             'event' =>  $event->selectRaw("*,DATE_FORMAT(date_from,'%d/%m/%Y') as date_from,DATE_FORMAT(date_to,'%d/%m/%Y') as date_to")->find($id),
-            'photos' => $photo->where("gallery_event_id",$id)->paginate(1),
+            'photos' => $photo->where("gallery_event_id",$id)->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 
@@ -75,7 +76,7 @@ class GalleryController extends Controller {
     }
 
     public function edit($id,Gallery $event) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('gallery::app.gallery'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('gallery::app.gallery'));
         $id = Crypt::decrypt($id);
         return Theme::view ('gallery::Administrator.form',array(
             'job' =>  $event->selectRaw("*,DATE_FORMAT(date_from,'%d/%m/%Y') as date_from,DATE_FORMAT(date_to,'%d/%m/%Y') as date_to")->find($id),
@@ -137,7 +138,7 @@ class GalleryController extends Controller {
     }
 
     public function upload($id,GalleryEvent $event) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.upload').' '.Lang::get('gallery::app.gallery'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.upload').' '.Lang::get('gallery::app.gallery'));
         $id = Crypt::decrypt($id);
         return Theme::view ('gallery::Administrator.upload',array(
             'event' => $event->selectRaw("*,DATE_FORMAT(date_from,'%d/%m/%Y') as date_from,DATE_FORMAT(date_to,'%d/%m/%Y') as date_to")->find($id),

@@ -32,7 +32,7 @@
                                 <br/>
                                 <small class="media-meta"><i class="fa fa-map-marker"></i> {!! $contact->address !!}</small>
                                 <br/>
-                                <small class="media-meta"><i class="fa fa-map"></i> {!! $contact->city !!}</small>
+                                <small class="media-meta"><i class="fa fa-map"></i> {!! $contact->city !!} {!! $contact->zip_code !!}</small>
                                 <br/>
                                 <small class="media-meta"><i class="fa fa-flag"></i> {!! $contact->country !!}</small>
                                 <br/>

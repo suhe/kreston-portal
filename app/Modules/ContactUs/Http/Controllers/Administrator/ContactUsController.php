@@ -18,6 +18,7 @@ use Redirect;
 use Request;
 use Response;
 use Setting;
+use SEOMeta;
 use Theme;
 use Validator;
 
@@ -27,7 +28,7 @@ class ContactUsController extends Controller {
     }
 
     public function index(ContactUs $contact_us) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('contact-us::app.contact us'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('contact-us::app.contact us'));
         return Theme::view ('contact-us::Administrator.index',array(
             'contacts' =>  $contact_us
                 ->where("name", "like", "%".Request::get("name")."%")
@@ -36,19 +37,11 @@ class ContactUsController extends Controller {
     }
 
     public function create() {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('contact-us::app.contact us'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('contact-us::app.contact us'));
         return Theme::view ('contact-us::Administrator.form',array(
             'event' =>  null,
         ));
     }
-
-    /*public function view($id,ContactUs $contact_us,GalleryPhoto $photo) {
-        $id = Crypt::decrypt($id);
-        return Theme::view ('contact-us::Administrator.view',array(
-            'event' =>  $contact_us->selectRaw("*,DATE_FORMAT(date_from,'%d/%m/%Y') as date_from,DATE_FORMAT(date_to,'%d/%m/%Y') as date_to")->find($id),
-            'photos' => $photo->where("contact-us_event_id",$id)->paginate(1),
-        ));
-    }*/
 
     public function status($id,ContactUs $contact_us) {
         $ids = Crypt::decrypt($id);
@@ -64,11 +57,11 @@ class ContactUsController extends Controller {
             $contact_us->save();
         }
 
-        return Redirect::intended ( '/contact-us/administrator');
+        return Redirect::intended ( '/contact-us/administrator/index');
     }
 
     public function edit($id,ContactUs $contact_us) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('contact-us::app.contact us'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('contact-us::app.contact us'));
         $id = Crypt::decrypt($id);
         return Theme::view ('contact-us::Administrator.form',array(
             'contact' =>  $contact_us->selectRaw("*")->find($id),
@@ -86,6 +79,7 @@ class ContactUsController extends Controller {
         $fax_number = Input::get("fax_number");
         $email = Input::get("email");
         $website = Input::get("website");
+		$zip_code = Input::get("zip_code");
 
         $field = array (
             'name' => $name,
@@ -94,8 +88,8 @@ class ContactUsController extends Controller {
             'city' => $city,
             'country' => $country,
             'phone_number' => $phone_number,
-            'fax_number' => $fax_number,
-            'email' => $email,
+            //'fax_number' => $fax_number,
+            //'email' => $email,
         );
 
         $rules = array (
@@ -105,8 +99,8 @@ class ContactUsController extends Controller {
             'city' => 'required',
             'country' => 'required',
             'phone_number' => 'required',
-            'fax_number' => 'required',
-            'email' => 'required|email',
+            //'fax_number' => 'required',
+            //'email' => 'required|email',
         );
 
         $validate = Validator::make($field,$rules);
@@ -123,6 +117,7 @@ class ContactUsController extends Controller {
                 $contact_us->contact_name  = $contact_name;
 				$contact_us->address = $address;
                 $contact_us->city = $city;
+				$contact_us->zip_code = $zip_code;
                 $contact_us->country = $country;
                 $contact_us->phone_number = $phone_number;
                 $contact_us->fax_number = $fax_number;
@@ -137,6 +132,7 @@ class ContactUsController extends Controller {
                 $contact_us->contact_name  = $contact_name;
                 $contact_us->address = $address;
                 $contact_us->city = $city;
+				$contact_us->zip_code = $zip_code;
                 $contact_us->country = $country;
                 $contact_us->phone_number = $phone_number;
                 $contact_us->fax_number = $fax_number;
@@ -150,7 +146,7 @@ class ContactUsController extends Controller {
                 $message =  Lang::get('contact-us::message.insert successfully');
             }
             $params ['success'] =  true;
-            $params ['redirect'] = url('/contact-us/administrator');
+            $params ['redirect'] = url('/contact-us/administrator/index');
             $params ['message'] =  $message;
         }
 

@@ -26,7 +26,7 @@ class ContactUsController extends Controller {
 
     public function index(ContactUs $contact) {
 		SEOMeta::setTitle(Setting::get_key('company_name').' '.Lang::get('contact-us::app.contact us'))
-		->setDescription(Setting::get_key('company_name').' '.Lang::get('contact-us::app.career'))
+		->setDescription(Setting::get_key('company_name').' '.Lang::get('contact-us::app.contact us'))
 		->setCanonical(url('/'))
 		->addKeyword(Setting::get_key('company_name').' '.Lang::get('contact-us::app.contact us'));
 		

@@ -11,11 +11,13 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use App\Modules\Setting\Models\Setting;
 use Auth;
+use Config;
 use Crypt;
 use Lang;
 use Redirect;
 use Request;
 use Response;
+use SEOMeta;
 use Theme;
 use Validator;
 
@@ -25,7 +27,7 @@ class SettingController extends Controller {
     }
 
     public function index(Setting $setting) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('setting::app.setting'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('setting::app.setting'));
         return Theme::view ('setting::Administrator.form',array(
             'setting' =>  null,
         ));

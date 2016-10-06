@@ -12,6 +12,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
+use Config;
 use Lang;
 use Response;
 use Theme;
@@ -23,7 +24,7 @@ class AuthController extends Controller {
     }
 
     public function index() {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.login'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.login'));
 		
         if(Auth::check())
             return Redirect::intended('/user/administrator/');

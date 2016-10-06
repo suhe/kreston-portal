@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	{!! SEOMeta::generate() !!}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui">
-    <meta name="description" content="Admin, Dashboard, Bootstrap">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,minimal-ui" />
     <meta name="csrf_token" content="{!! csrf_token() !!}" />
     <link rel="shortcut icon" sizes="196x196" href="{!! Theme::asset('administrator::images/logo.png') !!}" />
-    <title>Infinity - Bootstrap Admin Template</title>
     <link rel="stylesheet" href="{!! Theme::asset('libs/bower/font-awesome/css/font-awesome.min.css') !!}" />
     <link rel="stylesheet" href="{!! Theme::asset('libs/bower/material-design-iconic-font/dist/css/material-design-iconic-font.css') !!}" />
     <link rel="stylesheet" href="{!! Theme::asset('css/app.min.css') !!}" />
@@ -164,7 +163,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a class="job_vacancy" href="{!! url("job-vacancy/administrator") !!}"><i class="menu-icon zmdi zmdi-search zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.job vacancy") !!}</span></a>
+                    <a class="job_vacancy" href="{!! url("job-vacancy/administrator/index") !!}"><i class="menu-icon zmdi zmdi-search zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.job vacancy") !!}</span></a>
                 </li>
                 <li class="has-submenu">
                     <a href="javascript:void(0)" class="submenu-toggle"><i class="menu-icon zmdi zmdi-pages zmdi-hc-lg"></i>
@@ -180,8 +179,8 @@
                                 class="menu-icon zmdi zmdi-check zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.company profile") !!}</span> <i
                                 class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a class="people" href="{!! url("people/administrator") !!}"><span class="menu-text">{!! Lang::get("action.our people") !!}</span></a></li>
-                        <li><a class="contact" href="{!! url("contact-us/administrator") !!}"><span class="menu-text">{!! Lang::get("action.contact us") !!}</span></a></li>
+                        <li><a class="people" href="{!! url("people/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.our people") !!}</span></a></li>
+                        <li><a class="contact" href="{!! url("contact-us/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.contact us") !!}</span></a></li>
                         <li><a class="newsletter" href="{!! url("newsletter/administrator") !!}"><span class="menu-text">{!! Lang::get("action.newsletter") !!}</span></a></li>
                     </ul>
                 </li>

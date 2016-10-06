@@ -16,4 +16,5 @@ return array (
     'name' => 'Name',
     'phone number' => 'Phone',
     'website' => 'Website',
+	'zip code' => 'ZIP Code',
 );

@@ -8,9 +8,9 @@
 				<div class="content gallery col-sm-12 col-md-12">
 					<div class="row">
 					  @foreach($photos as $key => $photo)
-					  <div class="images-box col-sm-3 col-md-3">
+					  <div class="images-box col-sm-4 col-md-4">
 						<a class="gallery-images" rel="fancybox" href="{!! url($photo->photo_storage_location) !!}">
-						  <img class="replace-2x" src="{!! url($photo->photo_storage_location) !!}" width="270" height="197" alt="">
+						  <img class="replace-2x img-responsive" src="{{ url(ImageManager::getImagePath($photo->photo_storage_location, 297, 157, 'crop')) }}"  alt="">
 						  <span class="bg-images"><i class="fa fa-search"></i></span>
 						</a>
 					  </div><!-- .images-box -->

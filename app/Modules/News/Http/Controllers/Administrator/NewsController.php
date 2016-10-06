@@ -18,6 +18,7 @@ use Lang;
 use Redirect;
 use Request;
 use Response;
+use SEOMeta;
 use Setting;
 use Theme;
 use Validator;
@@ -28,7 +29,7 @@ class NewsController extends Controller {
     }
 
     public function index(Post $post) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('news::app.news'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('news::app.news'));
         return Theme::view ('news::Administrator.index',array(
             'posts' =>  $post
                 ->where("title", "like", "%".Request::get("title")."%")
@@ -37,14 +38,14 @@ class NewsController extends Controller {
     }
 
     public function create() {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('news::app.news'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('news::app.news'));
         return Theme::view ('news::Administrator.form',array(
             'post' =>  null,
         ));
     }
 
     public function view($id,Post $post) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('news::app.news'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('news::app.news'));
         $id = Crypt::decrypt($id);
         return Theme::view ('news::Administrator.view',array(
             'post' =>  $post->find($id),
@@ -69,7 +70,7 @@ class NewsController extends Controller {
     }
 
     public function edit($id,Post $post) {
-		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('news::app.news'));
+		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('news::app.news'));
         $id = Crypt::decrypt($id);
         return Theme::view ('news::Administrator.form',array(
             'post' =>  $post->find($id),
