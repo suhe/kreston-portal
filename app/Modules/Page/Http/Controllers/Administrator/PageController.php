@@ -27,6 +27,7 @@ class PageController extends Controller {
     }
 
     public function index(Page $page) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('page::app.page'));
         return Theme::view ('page::Administrator.index',array(
             'pages' => $page->recursive(),
 		
@@ -34,6 +35,7 @@ class PageController extends Controller {
     }
 
     public function create(Page $page) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('page::app.page'));
         return Theme::view ('page::Administrator.form',array(
 			'page_dropdown' => $page->dropdown(Lang::get("action.root")),  
 			'page_related' => $page->dropdown(), 
@@ -42,6 +44,7 @@ class PageController extends Controller {
     }
 
     public function view($id,Page $page) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('page::app.page'));
         $id = Crypt::decrypt($id);
         return Theme::view ('page::Administrator.view',array(
             'page' =>  $page->find($id),
@@ -66,6 +69,7 @@ class PageController extends Controller {
     }
 
     public function edit($id,Page $page) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('page::app.page'));
         $id = Crypt::decrypt($id);
 		$page = $page->find($id);
 		$related_page = explode(";",$page->related_page);

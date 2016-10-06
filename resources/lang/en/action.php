@@ -20,6 +20,7 @@ return array(
     'job vacancy' => 'Job Vacancy',
 	'keyword' => 'Keyword',
 	'location' => 'Location',
+	'login' => 'Login',
     'logout' => 'Logout',
     'media' => 'Media',
     'navigation' => 'Navigation',

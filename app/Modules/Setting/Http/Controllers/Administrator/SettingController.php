@@ -25,6 +25,7 @@ class SettingController extends Controller {
     }
 
     public function index(Setting $setting) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('setting::app.setting'));
         return Theme::view ('setting::Administrator.form',array(
             'setting' =>  null,
         ));

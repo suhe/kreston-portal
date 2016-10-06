@@ -27,6 +27,7 @@ class ContactUsController extends Controller {
     }
 
     public function index(ContactUs $contact_us) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('contact-us::app.contact us'));
         return Theme::view ('contact-us::Administrator.index',array(
             'contacts' =>  $contact_us
                 ->where("name", "like", "%".Request::get("name")."%")
@@ -35,6 +36,7 @@ class ContactUsController extends Controller {
     }
 
     public function create() {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('contact-us::app.contact us'));
         return Theme::view ('contact-us::Administrator.form',array(
             'event' =>  null,
         ));
@@ -66,6 +68,7 @@ class ContactUsController extends Controller {
     }
 
     public function edit($id,ContactUs $contact_us) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('contact-us::app.contact us'));
         $id = Crypt::decrypt($id);
         return Theme::view ('contact-us::Administrator.form',array(
             'contact' =>  $contact_us->selectRaw("*")->find($id),

@@ -6,5 +6,6 @@
  * Time: 14:21
  */
 return array(
+	'admin_page_title' = 'Administrator',
     'limit_page' => 5,
 );

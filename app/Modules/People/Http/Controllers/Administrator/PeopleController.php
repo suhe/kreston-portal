@@ -28,6 +28,7 @@ class PeopleController extends Controller {
     }
 
     public function index(People $people) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('people::app.people'));
         return Theme::view ('people::Administrator.index',array(
             'people' =>  $people
                 ->where("name", "like", "%".Request::get("name")."%")
@@ -37,12 +38,14 @@ class PeopleController extends Controller {
     }
 
     public function create() {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('people::app.people'));
         return Theme::view ('people::Administrator.form',array(
             'people' =>  null,
         ));
     }
 
     public function view($id,People $people) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('people::app.people'));
         $id = Crypt::decrypt($id);
         return Theme::view ('people::Administrator.view',array(
             'people' =>  $people->find($id),
@@ -67,6 +70,7 @@ class PeopleController extends Controller {
     }
 
     public function edit($id,People $people) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('people::app.people'));
         $id = Crypt::decrypt($id);
         return Theme::view ('people::Administrator.form',array(
             'people' =>  $people->find($id),

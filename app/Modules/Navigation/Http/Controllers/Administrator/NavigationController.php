@@ -28,12 +28,14 @@ class NavigationController extends Controller {
     }
 
     public function index(Navigation $navigation) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('navigation::app.navigation'));
         return Theme::view ('navigation::Administrator.index',array(
             'navigations' => $navigation->recursive(),
         ));
     }
 
     public function create(Navigation $navigation) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('navigation::app.navigation'));
         return Theme::view ('navigation::Administrator.form',array(
 			'navigation_dropdown' => $navigation->dropdown(),  
             'navigation' =>  null,
@@ -41,6 +43,7 @@ class NavigationController extends Controller {
     }
 
     public function view($id,Navigation $navigation) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('navigation::app.navigation'));
         $id = Crypt::decrypt($id);
         return Theme::view ('navigation::Administrator.view',array(
             'navigation' =>  $navigation->find($id),
@@ -66,6 +69,7 @@ class NavigationController extends Controller {
     }
 
     public function edit($id,Navigation $navigation) {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('navigation::app.navigation'));
         $id = Crypt::decrypt($id);
         return Theme::view ('navigation::Administrator.form',array(
 			'navigation_dropdown' => $navigation->dropdown(),  

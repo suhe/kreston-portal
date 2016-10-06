@@ -23,6 +23,8 @@ class AuthController extends Controller {
     }
 
     public function index() {
+		SEOMeta::setTitle(Config::get_key('site.admin_page_title').' '.Lang::get('action.login'));
+		
         if(Auth::check())
             return Redirect::intended('/user/administrator/');
         return Theme::view ('session::Administrator.index');
