@@ -20,7 +20,7 @@ class JobVacancyController extends Controller {
 		// Home > [Career]
 		Breadcrumbs::register('job_vacancy', function($breadcrumbs) {
 			$breadcrumbs->parent('home');
-			$breadcrumbs->push(Lang::get('gallery::app.gallery'), url('gallery/collection'));
+			$breadcrumbs->push(Lang::get('job-vacancy::app.career'), url('job-vacancy'));
 		});
 		
 		Breadcrumbs::register('job_vacancy_detail', function($breadcrumbs) {
