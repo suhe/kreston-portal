@@ -45,6 +45,10 @@
                                 <th>{!! Lang::get('people::app.name') !!}</th>
                                 <td>{!! $people->name !!}</td>
                             </tr>
+							<tr>
+                                <th>{!! Lang::get('people::app.url') !!}</th>
+                                <td>{!! '/people/'.Str::slug($people->name,'-') !!}</td>
+                            </tr>
                         </table>
                     </div>
 				</div>

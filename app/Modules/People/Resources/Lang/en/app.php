@@ -10,4 +10,5 @@ return array (
     'name' => 'Name',
     'our people' => 'Our People',
     'photo' => 'Photo',
+	'url' => 'Url',
 );
