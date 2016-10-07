@@ -23,6 +23,10 @@ class PeopleController extends Controller {
 			$breadcrumbs->push($people->name, url('people/'.$people->slug));
 		});
     }
+	
+	public function page() {
+		
+	}
 
     public function show($slug,People $people) {
 		$xpeople = $people->where(['slug' => $slug])->first();

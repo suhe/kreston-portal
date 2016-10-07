@@ -7,6 +7,7 @@
  */
 namespace App\Modules\Page\Http\Controllers;
 use Illuminate\Routing\Controller;
+use App\Modules\Navigation\Models\Navigation;
 use App\Modules\Page\Models\Page;
 use Breadcrumbs;
 use SEOMeta;
@@ -23,10 +24,12 @@ class PageController extends Controller {
 		});
     }
 
-    public function show($slug,Page $page) {
+    public function show($slug,Page $page,Navigation $navigation) {
 		$xpage = $page->where(['slug' => $slug])->first();
 		$related_page = explode(";",$xpage->related_page);
+		$related_nav = explode(";",$xpage->related_navigation)
 		$link_related_page = $related_page ? $related_page : null; 
+		$link_related_navigation = $related_nav ? $related_nav : null; 
 		
 		SEOMeta::setTitle(Setting::get_key('company_name').' '.$page->name)
 		->setDescription($page->meta_description)
@@ -36,6 +39,7 @@ class PageController extends Controller {
         return Theme::view ('page::index',array(
             'page' => $xpage,
 			'link_related_page' => $page->whereIn('id',$link_related_page)->get(),
+			'link_related_navigation' => $navigation->whereIn('id',$link_related_navigation)->get(),
         ));
     }
 }

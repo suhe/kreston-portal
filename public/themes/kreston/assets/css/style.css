@@ -2922,7 +2922,9 @@ a.edit i:before {
     color: #1e1e1e;
     display: block;
     text-decoration: none;
-    width: 175px;
+    width: 200px;
+	line-height:1.5em;
+	padding: 2px 0;
     -webkit-transition: opacity .2s linear;
     transition: opacity .2s linear
 }

@@ -10,11 +10,14 @@ namespace App\Modules\Page\Http\Controllers\Administrator;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
+use App\Modules\Navigation\Models\Navigation;
 use App\Modules\Page\Models\Page;
 use Illuminate\Support\Str;
+use App\Helpers\Text;
 use Auth;
 use Config;
 use Crypt;
+use File;
 use Lang;
 use Redirect;
 use Request;
@@ -37,12 +40,16 @@ class PageController extends Controller {
         ));
     }
 
-    public function create(Page $page) {
+    public function create(Page $page,Navigation $navigation) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('page::app.page'));
         return Theme::view ('page::Administrator.form',array(
 			'page_dropdown' => $page->dropdown(Lang::get("action.root")),  
 			'page_related' => $page->dropdown(), 
+			'navigation_related' => $navigation->dropdown(), 
             'page' =>  null,
+			'related_page' => Config::get('site.default_blade'),
+			'related_navigation' => null,
+			'blade_template' => Text::listThemeBladeTemplate(),
         ));
     }
 
@@ -71,16 +78,20 @@ class PageController extends Controller {
         return Redirect::intended ( '/page/administrator/view/'.$id);
     }
 
-    public function edit($id,Page $page) {
+    public function edit($id,Page $page,Navigation $navigation) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('page::app.page'));
         $id = Crypt::decrypt($id);
 		$page = $page->find($id);
 		$related_page = explode(";",$page->related_page);
+		$related_navigation = explode(";",$page->related_navigation);
         return Theme::view ('page::Administrator.form',array(
 			'page_dropdown' => $page->dropdown(Lang::get("action.root")),  
 			'page_related' => $page->dropdown(), 
+			'navigation_related' => $navigation->dropdown(), 
             'page' =>  $page,
+			'blade_template' => Text::listThemeBladeTemplate(),
 			'related_page' => (count($related_page) > 0 ? $related_page : null),
+			'related_navigation' => (count($related_navigation) > 0 ? $related_navigation : null),
         ));
     }
 
@@ -92,9 +103,14 @@ class PageController extends Controller {
         $content = Input::get("content");
 		$meta_keyword = Input::get("meta_keyword");
 		$meta_description = Input::get("meta_description");
+		$blade_template = Input::get("template");
 		$link_page = "";
+		$link_navigation = "";
 		$related_page = Input::get("related_page");
+		$related_navigation = Input::get("related_navigation");
 		$total_related_page = count($related_page);
+		$total_related_navigation = count($related_navigation);
+		
 		if($total_related_page > 0) {
 			for($i = 0;$i<$total_related_page;$i++) {
 				if(isset($related_page[$i])) {
@@ -102,6 +118,18 @@ class PageController extends Controller {
 					$link_page.=$related_page[$i];
 					if($i != ($total_related_page - 1)) {
 						$link_page.=";";
+					}
+				}
+			} 
+		}
+		
+		if($total_related_navigation > 0) {
+			for($i = 0;$i<$total_related_navigation;$i++) {
+				if(isset($related_navigation[$i])) {
+					//link page
+					$link_navigation.= $related_navigation[$i];
+					if($i != ($total_related_navigation - 1)) {
+						$link_navigation.= ";";
 					}
 				}
 			} 
@@ -123,7 +151,7 @@ class PageController extends Controller {
             );
         } else {
             if(!empty($id)) {
-                //update home_banner
+                //update page
                 $page = $page->find($id);
 				$page->name  = $name;
                 $page->slug  = Str::slug($name,'-');
@@ -131,8 +159,10 @@ class PageController extends Controller {
                 $page->parent_id = $parent_id;
                 $page->content = $content;
 				$page->related_page = $link_page;
+				$page->related_navigation= $link_navigation;
 				$page->meta_keyword = $meta_keyword;
 				$page->meta_description = $meta_description;
+				$page->template = $blade_template;
                 $page->updated_at = date("Y-m-d H:i:s");
 				$page->updated_by = Auth::user()->id;
                 $page->save();
@@ -144,8 +174,10 @@ class PageController extends Controller {
                 $page->parent_id = $parent_id;
                 $page->content = $content;
 				$page->related_page = $link_page;
+				$page->related_navigation= $link_navigation;
 				$page->meta_keyword = $meta_keyword;
 				$page->meta_description = $meta_description;
+				$page->template = $blade_template;
                 $page->created_at = date("Y-m-d H:i:s");
                 $page->created_by = Auth::user()->id;
                 $page->updated_at = date("Y-m-d H:i:s");

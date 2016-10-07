@@ -38,7 +38,7 @@ class NavigationController extends Controller {
     public function create(Navigation $navigation) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('navigation::app.navigation'));
         return Theme::view ('navigation::Administrator.form',array(
-			'navigation_dropdown' => $navigation->dropdown(),  
+			'navigation_dropdown' => $navigation->dropdown(Lang::get("action.root")),  
             'navigation' =>  null,
         ));
     }
@@ -73,7 +73,7 @@ class NavigationController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('navigation::app.navigation'));
         $id = Crypt::decrypt($id);
         return Theme::view ('navigation::Administrator.form',array(
-			'navigation_dropdown' => $navigation->dropdown(),  
+			'navigation_dropdown' => $navigation->dropdown(Lang::get("action.root")),  
             'navigation' =>  $navigation->find($id),
         ));
     }

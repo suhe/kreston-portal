@@ -29,6 +29,7 @@ class Page extends Model {
 			$recursive[] = array(
 				"id" => $page->id,
 				"name"   => (isset($data['spacing']) ? $data['spacing'] : '').$page->name,
+				"url"   =>  (isset($data['spacing']) ? $data['spacing'] : '').$page->url,
 				"content" =>  $page->content,
 				"is_active" => $page->is_active,
 			);	
@@ -36,6 +37,7 @@ class Page extends Model {
 			$recursive = self::recursive($recursive,array(
 				'parent_id' => $page->id,
 				'name' => (isset($data['name']) ? $data['name'] : ''),
+				'url' => (isset($data['url']) ? $data['url'] : ''),
 				'paginate' => isset($data['paginate']) ? $data['paginate'] : 0,
 				'spacing' => '&nbsp;&nbsp;&rarr;'.(isset($data['spacing']) ? $data['spacing'] : ''),
 			));

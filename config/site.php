@@ -6,6 +6,7 @@
  * Time: 14:21
  */
 return array(
-	'admin_page_title' = 'Administrator',
+	'admin_page_title' => 'Administrator',
+	'default_blade' => 'page.blade.php',
     'limit_page' => 5,
 );

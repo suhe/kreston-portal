@@ -15,7 +15,7 @@
                             <div class="btn-group pull-right">
                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#search_modal"><i class="fa fa-search"></i>  {!! Lang::get("action.search") !!}</button>
 								<a href="{!! url('page/administrator/') !!}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i> {!! Lang::get("action.refresh") !!}</a>
-                                <a href="{!! url('page/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.add new") !!}</a>
+                                <a href="{!! url('page/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.create") !!}</a>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,8 @@
                 <table class="table">
                     <tr>
                         <th class="col-sm-1">#</th>
-                        <th class="col-sm-8">{!! Lang::get("page::app.page name") !!}</th>
+                        <th class="col-sm-4">{!! Lang::get("page::app.page name") !!}</th>
+						<th class="col-sm-4">{!! Lang::get("page::app.url") !!}</th>
                         <th class="col-sm-1 text-center">{!! Lang::get('action.active') !!}</th>
                         <th class="col-sm-1">{!! Lang::get('action.edit') !!}</th>
                     </tr>
@@ -40,7 +41,7 @@
                         <tr class="row-{!! $page['id'] !!}">
                             <td>{!! ($key + 1 + (Request::has("page")? Request::get("page") : 0)) !!}</td>
                             <td>{!! $page['name'] !!}</td>
-                            
+                            <td>{!! $page['url'] !!}</td>
                             <td class="text-center">{!! $page['is_active'] == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
                             <td>
                                 <div class="dropdown">

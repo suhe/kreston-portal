@@ -15,6 +15,8 @@ use Auth;
 use Config;
 use Lang;
 use Response;
+use SEOMeta;
+use Setting;
 use Theme;
 use Validator;
 
