@@ -27,7 +27,7 @@ class PageController extends Controller {
     public function show($slug,Page $page,Navigation $navigation) {
 		$xpage = $page->where(['slug' => $slug])->first();
 		$related_page = explode(";",$xpage->related_page);
-		$related_nav = explode(";",$xpage->related_navigation)
+		$related_nav = explode(";",$xpage->related_navigation);
 		$link_related_page = $related_page ? $related_page : null; 
 		$link_related_navigation = $related_nav ? $related_nav : null; 
 		

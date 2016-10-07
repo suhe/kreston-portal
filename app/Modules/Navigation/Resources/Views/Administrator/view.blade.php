@@ -49,6 +49,10 @@
                                 <th>{!! Lang::get('action.order') !!}</th>
 								<td>{!! $navigation->order !!}</td>
                             </tr>
+							<tr>
+                                <th>{!! Lang::get('navigation::app.post') !!}</th>
+								<td>{!! $navigation->post !!}</td>
+                            </tr>
 							
 						</table>
 					</div>

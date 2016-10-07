@@ -11,9 +11,6 @@
 |
 */
 
-
-
-
 Route::get('/', function () {
 	return redirect("/home");
 });
@@ -30,41 +27,29 @@ Route::get('/photo/{filename}/{w?}/{h?}', function($filename,$w=100,$h=100) {
 });
 
 use App\Modules\Navigation\Models\Navigation;
+use App\Modules\Post\Models\Post;
 $NavBar = new Navigation();
-Menu::make('MyNavBar', function($menu) use($NavBar)  {
+$Post = new Post();
+
+Menu::make('MyNavBar', function($menu) use($NavBar,$Post)  {
     $navs = $NavBar->where(['is_active' => 1,'parent_id' => 0])->orderBy('order','asc')->get();
     foreach ($navs as $key => $nav) {
         $nav_bar = $menu->add($nav->name, url($nav->url));
-        $nav_items = $NavBar->where(['is_active' => 1,'parent_id' => $nav->id])->orderBy('order','asc')->get();
+		if(!empty($nav->post)) {
+			$nav_items = $Post->where(['type' => $nav->post,'is_active' => 1])->orderBy('created_at','desc')
+			->selectRaw("id,title as name,CONCAT(LOWER(type),'/read/',id,'/',slug) as url")->get();
+		} else {
+			$nav_items = $NavBar->where(['is_active' => 1,'parent_id' => $nav->id])->orderBy('order','asc')->get();
+		}
+		   
         foreach ($nav_items as $xkey => $nav_item) {
             $nav_bar->add($nav_item->name, url($nav_item->url));
         }
-
-
-
-        /*{
-            $nav_items = $NavBar->where(['parent_id' => $nav->id,'is_active' => 1])->orderBy('order','asc')->get();
-            foreach ($nav_items as $xkey => $nav_item) {
-                $nav_bar->add($nav_item->name, url($nav_item->url));
-            }
-        }*/
-    }
-    //$home = $menu->add('Home');
-   // $home->add('what','what_we_are');
-    //$menu->add('what','what_we_are');
-    //$menu->about->add('Who are we?', 'who-we-are');
-    //$menu->about->add('What we do?', 'what-we-do');
-    //$menu->get('what')->add('What We Do', 'what-we-do');
-
+	}	
 });
 
 
 
-/*foreach (Addons::enabled() as $module){
-    $file = app_path("../addons").'/'.$module['basename'].'/Routes/web.php';
-    if (file_exists($file)){
-        include $file;
-    }
-}*/
+
 
 

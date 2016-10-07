@@ -20,6 +20,7 @@ use Request;
 use Response;
 use SEOMeta;
 use Setting;
+use Str;
 use Theme;
 use Validator;
 
@@ -103,9 +104,11 @@ class NewsController extends Controller {
             );
         } else {
             if(!empty($id)) {
-                //update home_banner
+                //update news
                 $post = $post->find($id);
                 $post->title  = $title;
+				$post->slug  = Str::slug($title,'-');
+				$post->type = 'News';
                 $post->category_id = $category_id;
                 $post->content = $content;
                 $post->updated_at = date("Y-m-d H:i:s");
@@ -114,6 +117,7 @@ class NewsController extends Controller {
                 $message = Lang::get('news::message.update successfully');
             } else {
                 $post->title  = $title;
+				$post->slug  = Str::slug($title,'-');
                 $post->type = 'News';
                 $post->category_id = $category_id;
                 $post->content = $content;

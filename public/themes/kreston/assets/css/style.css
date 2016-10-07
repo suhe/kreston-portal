@@ -2753,7 +2753,7 @@ a.edit i:before {
     border-radius: 3px;
     color: #1e1e1e;
     line-height: 20px;
-    padding: 11px 13px;
+    padding: 11px 10px;
     position: static;
     text-shadow: none;
     -webkit-transition: all 0.2s linear;

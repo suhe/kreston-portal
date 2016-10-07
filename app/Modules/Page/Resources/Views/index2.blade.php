@@ -7,7 +7,6 @@
         </article><!-- .content -->
 
         <div id="sidebar" class="sidebar col-sm-12 col-md-3">
-			@if(count($link_related_page)>0)
             <aside class="widget menu">
                 <header>
                     <h3 class="title">{!! $page->name !!}</h3>
@@ -21,25 +20,6 @@
                     </ul>
                 </nav>
             </aside><!-- .menu-->
-			@endif
-			
-			@if(count($link_related_navigation)>0)
-            <aside class="widget menu">
-                <header>
-                    <h3 class="title">{!! $page->name !!}</h3>
-                </header>
-                <nav>
-                    <ul>
-						@foreach($link_related_navigation as $key => $nav)
-							<li><a href="{!! url($nav->url) !!}">{!! $nav->name !!}</a></li>
-						@endforeach
-             
-                    </ul>
-                </nav>
-            </aside><!-- .menu-->
-			@endif
-			
-			
         </div><!-- .sidebar -->
     </div>
 @endsection

@@ -5,8 +5,8 @@
                 {!! $item->title !!}
         </a>
         @if($item->hasChildren())
-            <ul class="sub">           
-                @include('kreston::navbar.items', array('items' => $item->children()))
+            <ul class="sub">
+				@include('kreston::navbar.items', array('items' => $item->children()))
             </ul>
         @endif
     </li>

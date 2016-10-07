@@ -51,6 +51,12 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="url" class="col-sm-2 control-label text-left">{!! Lang::get('navigation::app.post') !!}</label>
+							<div class="col-sm-10">
+								{!! Form::select('post',$post_dropdown,isset($navigation)?$navigation->post:null, ['class' => 'form-control input-md','id'=>'post']) !!}
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="order" class="col-sm-2 control-label text-left">{!! Lang::get('action.order') !!}</label>
 							<div class="col-sm-10">
 								{!! Form::text('order',isset($navigation)?$navigation->order:null, ['class' => 'form-control numeric input-md','id'=>'order','placeholder'=>Lang::get('action.order'),'maxlength'=>5]) !!}

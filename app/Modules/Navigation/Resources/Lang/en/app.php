@@ -11,6 +11,7 @@ return array (
 	'description' => 'Description',
 	'name' => 'Name',
     'navigation' => 'Navigation',
+	'post' => 'Post',
 	'parent' => 'Parent',
 	'url' => 'Url',
 );

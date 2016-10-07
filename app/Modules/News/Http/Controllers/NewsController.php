@@ -35,7 +35,7 @@ class NewsController extends Controller {
 		
 		return Theme::view ('news::index',array(
 			'posts' =>  $post
-                ->where('is_active',1)
+                ->where('is_active',1)->where('type','News')
 				->orderBy('created_at','desc')
                 ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
 			'post_archieves' => $post->selectRaw("CONCAT(YEAR(created_at),'/',MONTH(created_at)) as url,CONCAT(MONTHNAME(created_at),' ',YEAR(created_at)) as periode")

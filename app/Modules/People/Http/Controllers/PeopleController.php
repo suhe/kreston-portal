@@ -24,7 +24,7 @@ class PeopleController extends Controller {
 		});
     }
 	
-	public function page() {
+	public function index() {
 		
 	}
 

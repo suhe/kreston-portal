@@ -39,6 +39,7 @@ class NavigationController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('navigation::app.navigation'));
         return Theme::view ('navigation::Administrator.form',array(
 			'navigation_dropdown' => $navigation->dropdown(Lang::get("action.root")),  
+			'post_dropdown' => array(''=>'','News' => 'News','Article' => 'Article'),
             'navigation' =>  null,
         ));
     }
@@ -74,6 +75,7 @@ class NavigationController extends Controller {
         $id = Crypt::decrypt($id);
         return Theme::view ('navigation::Administrator.form',array(
 			'navigation_dropdown' => $navigation->dropdown(Lang::get("action.root")),  
+			'post_dropdown' => array(''=>'','News' => 'News','Article' => 'Article'),
             'navigation' =>  $navigation->find($id),
         ));
     }
@@ -83,6 +85,7 @@ class NavigationController extends Controller {
         $name = Input::get("name");
 		$parent_id = Input::get("parent_id");
 		$url = Input::get("url");
+		$post = Input::get("post");
 		$order = Input::get("order");
         
         $field = array (
@@ -110,6 +113,7 @@ class NavigationController extends Controller {
 				$navigation->name  = $name;
                 $navigation->parent_id = $parent_id;
                 $navigation->url = $url;
+				$navigation->post = $post;
 				$navigation->order = $order;
                 $navigation->updated_at = date("Y-m-d H:i:s");
 				$navigation->updated_by = Auth::user()->id;
@@ -119,6 +123,7 @@ class NavigationController extends Controller {
                 $navigation->name  = $name;
                 $navigation->parent_id = $parent_id;
                 $navigation->url = $url;
+				$navigation->post = $post;
 				$navigation->order = $order;
                 $navigation->created_at = date("Y-m-d H:i:s");
                 $navigation->created_by = Auth::user()->id;
