@@ -32,7 +32,8 @@ class HomeController extends Controller {
 		
         return Theme::view ('home::index',array(
 			'home_banners' => $home_banners->where(['is_active' => 1])->get(),
-			'latest_news' => $post->where(['is_active' => 1,'type' => 'News'])->orderBy('created_at','asc')->limit(10)->get(),
+			'latest_news' => $post->where(['is_active' => 1,'type' => 'News'])->orderBy('created_at','desc')->limit(10)->get(),
+			'latest_article' => $post->where(['is_active' => 1,'type' => 'Article'])->orderBy('created_at','desc')->limit(10)->get(),
         ));
     }
 
