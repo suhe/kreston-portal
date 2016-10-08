@@ -52,6 +52,7 @@ class NewsController extends Controller {
 			$breadcrumbs->push($post->title,url('/'));
 		});
 		
+		$increment = $post->where(['id' => $id])->increment('total_view');
 		$xpost = $post->where(['id' => $id])->first();
 		SEOMeta::setTitle(Setting::get_key('company_name').' '.$xpost->title)
 		->setDescription(str_limit($xpost->description,100))

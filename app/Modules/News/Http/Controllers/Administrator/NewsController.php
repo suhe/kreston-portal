@@ -32,7 +32,7 @@ class NewsController extends Controller {
     public function index(Post $post) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('news::app.news'));
         return Theme::view ('news::Administrator.index',array(
-            'posts' =>  $post
+            'posts' =>  $post->where('type','News')
                 ->where("title", "like", "%".Request::get("title")."%")
                 ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));

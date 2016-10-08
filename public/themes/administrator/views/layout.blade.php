@@ -43,13 +43,16 @@
                 <li><h5 class="page-title hidden-menubar-top hidden-float"></h5></li>
             </ul>
             <ul class="nav navbar-toolbar navbar-toolbar-right navbar-right">
+				<li class="nav-item dropdown hidden-float"><a href="{!! url('/') !!}" target="_blank" aria-expanded="false"><i class="fa fa-globe"></i> {!! Lang::get('app.visit frontend') !!}</a></li>
                 <li class="nav-item dropdown hidden-float"><a href="javascript:void(0)" data-toggle="collapse"
                                                               data-target="#navbar-search" aria-expanded="false"><i
                                 class="zmdi zmdi-hc-lg zmdi-search"></i></a></li>
                 <li class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
                                         role="button" aria-haspopup="true" aria-expanded="false"><i
                                 class="zmdi zmdi-hc-lg zmdi-notifications"></i></a>
-                    <div class="media-group dropdown-menu animated flipInY"><a href="javascript:void(0)"
+                    <div class="media-group dropdown-menu animated flipInY">
+					
+					<a href="javascript:void(0)"
                                                                                class="media-group-item">
                             <div class="media">
                                 <div class="media-left">

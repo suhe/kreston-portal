@@ -2,5 +2,6 @@
 
 return array(
     'setting' => 'Setting',
-    'user' => 'User'
+    'user' => 'User',
+	'visit frontend' => 'Visit Frontend',
 );
