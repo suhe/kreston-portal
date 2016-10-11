@@ -1,19 +1,12 @@
 @extends('kreston::page')
-@section('breadcrumbs', Breadcrumbs::render('people-index'))
+@section('breadcrumbs', Breadcrumbs::render('people-single',$people->slug))
 @section('content')
     <div class="row">
 		<article class="content col-sm-12 col-md-9">
-			@foreach($peoples as $key => $people) 
-				<div class="row">
-					<div class="col-md-12">
-						<h4 class="title">{!! isset($people) ? $people->name : null !!}</h4>
-						<img class="img-responsive" src="{!! url(ImageManager::getImagePath($people->photo_storage_location, 200, 300, 'crop')) !!}" style="float:left;margin:0 20px 20px" />
-						{!! $people->description !!}
-						
-					</div>
-				</div>
-				<div class="horizontal_dotted_line"></div>
-			@endforeach	
+			<h1 class="title">{!! isset($people) ? $people->name : null !!}</h1>
+			<img class="img-responsive" src="{!! url(ImageManager::getImagePath($people->photo_storage_location, 200, 300, 'crop')) !!}" style="float:left;margin:0 20px 20px" />
+			{!! $people->description !!}
+			
 		  </article><!-- .content -->
 		  
         <div id="sidebar" class="sidebar col-sm-12 col-md-3">

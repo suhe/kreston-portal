@@ -35,6 +35,7 @@
                         <th class="col-sm-2">@sortablelink('name')</th>
 						<th class="col-sm-2">@sortablelink('contact_id',Lang::get("people::app.location"))</th>
                         <th class="col-sm-2 text-center">{!! Lang::get('action.active') !!}</th>
+						<th class="col-sm-1 text-center">@sortablelink('order')</th>
                         <th class="col-sm-1">{!! Lang::get('action.edit') !!}</th>
                     </tr>
 
@@ -45,6 +46,7 @@
                             <td>{!! $user->name !!}</td>
 							<td>{!! $user->location !!}</td>
                             <td class="text-center">{!! $user->is_active == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
+							<td>{!! $user->order !!}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">

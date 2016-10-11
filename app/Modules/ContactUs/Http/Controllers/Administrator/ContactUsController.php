@@ -19,6 +19,7 @@ use Request;
 use Response;
 use Setting;
 use SEOMeta;
+use Str;
 use Theme;
 use Validator;
 
@@ -32,7 +33,7 @@ class ContactUsController extends Controller {
         return Theme::view ('contact-us::Administrator.index',array(
             'contacts' =>  $contact_us
                 ->where("name", "like", "%".Request::get("name")."%")
-                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
+                ->sortable(['order' => 'asc'])->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 
@@ -80,6 +81,7 @@ class ContactUsController extends Controller {
         $email = Input::get("email");
         $website = Input::get("website");
 		$zip_code = Input::get("zip_code");
+		$order = Input::get("order");
 
         $field = array (
             'name' => $name,
@@ -88,7 +90,7 @@ class ContactUsController extends Controller {
             'city' => $city,
             'country' => $country,
             'phone_number' => $phone_number,
-            //'fax_number' => $fax_number,
+            'order' => $order,
             //'email' => $email,
         );
 
@@ -99,7 +101,7 @@ class ContactUsController extends Controller {
             'city' => 'required',
             'country' => 'required',
             'phone_number' => 'required',
-            //'fax_number' => 'required',
+            'order' => 'required',
             //'email' => 'required|email',
         );
 
@@ -114,6 +116,7 @@ class ContactUsController extends Controller {
                 //update home_banner
                 $contact_us = $contact_us->find($id);
                 $contact_us->name  = $name;
+				$contact_us->slug  = Str::slug($name,'-');
                 $contact_us->contact_name  = $contact_name;
 				$contact_us->address = $address;
                 $contact_us->city = $city;
@@ -123,12 +126,14 @@ class ContactUsController extends Controller {
                 $contact_us->fax_number = $fax_number;
                 $contact_us->email = $email;
                 $contact_us->website = $website;
+				$contact_us->order  = $order;
                 $contact_us->updated_at = date("Y-m-d H:i:s");
 				$contact_us->updated_by = Auth::user()->id;
                 $contact_us->save();
                 $message = Lang::get('contact-us::message.update successfully');
             } else {
                 $contact_us->name  = $name;
+				$contact_us->slug  = Str::slug($name,'-');
                 $contact_us->contact_name  = $contact_name;
                 $contact_us->address = $address;
                 $contact_us->city = $city;
@@ -138,6 +143,7 @@ class ContactUsController extends Controller {
                 $contact_us->fax_number = $fax_number;
                 $contact_us->email = $email;
                 $contact_us->website = $website;
+				$contact_us->order  = $order;
                 $contact_us->created_at = date("Y-m-d H:i:s");
                 $contact_us->created_by = Auth::user()->id;
                 $contact_us->updated_at = date("Y-m-d H:i:s");

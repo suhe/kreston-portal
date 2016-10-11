@@ -31,7 +31,8 @@
                 <table class="table">
                     <tr>
                         <th class="col-sm-1">#</th>
-                        <th class="col-sm-8">@sortablelink('title')</th>
+                        <th class="col-sm-6">@sortablelink('title')</th>
+						<th class="col-sm-3">@sortablelink('category_id',Lang::get('category::app.name'))</th>
                         <th class="col-sm-1 text-center">@sortablelink('total_view')</th>
                         <th class="col-sm-1 text-center">{!! Lang::get('action.active') !!}</th>
                         <th class="col-sm-1">{!! Lang::get('action.edit') !!}</th>
@@ -41,6 +42,7 @@
                         <tr class="row-{!! $post->id !!}">
                             <td>{!! ($key + 1 + (Request::has("page")? Request::get("page") : 0)) !!}</td>
                             <td>{!! $post->title !!}</td>
+							<td>{!! $post->category_name !!}</td>
                             <td class="text-center">{!! number_format($post->total_view,0) !!}</td>
                             <td class="text-center">{!! $post->is_active == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
                             <td>

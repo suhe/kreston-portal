@@ -37,7 +37,7 @@
 							<tr>
                                 <td>{!! $post->title !!}</td>
 							</tr>
-							 <tr>
+							<tr>
                                 <th>{!! Lang::get('category::app.name') !!}</th>
                             </tr>
 							<tr>

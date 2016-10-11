@@ -58,6 +58,12 @@
 								{!! Form::select('contact_id',$contact_dropdown,isset($people)?$people->contact_id:null, ['class' => 'form-control input-md','id'=>'contact_id','placeholder'=>lang::get('people::app.please select a location'),'maxlength'=>100]) !!}
 							</div>
                         </div>
+						<div class="form-group">
+							<label for="name" class="col-sm-2 control-label text-left">{!! Lang::get('people::app.order') !!}</label>
+                            <div class="col-sm-3">
+								{!! Form::text('order',isset($people)?$people->order:null, ['class' => 'form-control input-md','id'=>'order','placeholder'=>lang::get('people::app.order'),'maxlength'=>100]) !!}
+							</div>
+                        </div>
 					</div>
 				</div>
 

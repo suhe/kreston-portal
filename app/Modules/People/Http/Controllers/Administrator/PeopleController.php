@@ -37,7 +37,7 @@ class PeopleController extends Controller {
 				->leftJoin("contact_us","contact_us.id","=","people.contact_id")
                 ->where("people.name", "like", "%".Request::get("name")."%")
                 ->where("photo_storage_location", "like", "%".Request::get("location")."%")
-                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
+                ->sortable(['order'=>'asc'])->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 
@@ -89,12 +89,14 @@ class PeopleController extends Controller {
 		$contact_id = Input::get("contact_id");
         $photo_storage_location = str_replace(url("/")."/","",Input::get('filepath'));
         $description = Input::get('description');
+		$order = Input::get('order');
 
         $field = array (
             'name' => $name,
 			'contact_id' => $contact_id,
             //'photo_storage_location' => $photo_storage_location,
             'description' => $description,
+			'order' => $order,
         );
 
         $rules = array (
@@ -102,6 +104,7 @@ class PeopleController extends Controller {
 			'contact_id' => 'required',
             //'photo_storage_location' => "required",
             'description' => "required",
+			'order' => "required",
         );
 
         $validate = Validator::make($field,$rules);
@@ -119,6 +122,7 @@ class PeopleController extends Controller {
 				$people->slug = Str::slug($name,"-");
                 $people->photo_storage_location = $photo_storage_location;
                 $people->description = $description;
+				$people->order = $order;
                 $people->updated_at = date("Y-m-d H:i:s");
                 $people->save();
                 $message = Lang::get('people::message.update successfully');
@@ -128,6 +132,7 @@ class PeopleController extends Controller {
 				$people->slug = Str::slug($name,"-");
                 $people->photo_storage_location = $photo_storage_location;
                 $people->description = $description;
+				$people->order = $order;
                 $people->created_at = date("Y-m-d H:i:s");
                 $people->created_by = Auth::user()->id;
                 $people->updated_at = date("Y-m-d H:i:s");

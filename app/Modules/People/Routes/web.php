@@ -12,7 +12,9 @@
 */
 
 Route::group(['prefix' => 'people'], function() {
+	Route::get('/', 'PeopleController@index');
 	Route::get('/{id}', 'PeopleController@show');
+	Route::get('/office/{slug}', 'PeopleController@group');
     Route::group(['prefix' => 'administrator','middleware' => ['permission']], function() {
         Route::get('/index', 'Administrator\PeopleController@index');
         Route::get('/view/{id}', 'Administrator\PeopleController@view');

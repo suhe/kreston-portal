@@ -37,6 +37,12 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('contact-us::app.order') !!}</label>
+							<div class="col-sm-3">
+								{!! Form::text('order',isset($contact)?$contact->order:null, ['class' => 'form-control input-md','id'=>'order','placeholder'=>0,'maxlength'=>100]) !!} 
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('contact-us::app.address') !!}</label>
 							<div class="col-sm-9">
 								{!! Form::textarea('address',isset($contact)?$contact->address:null, ['class' => 'form-control input-md','id'=>'address','placeholder'=>lang::get('contact-us::app.address'),'maxlength'=>255,'rows' => 5]) !!}

@@ -14,6 +14,7 @@ return array (
     'email' => 'Email',
     'fax number' => 'Fax',
     'name' => 'Name',
+	'order' => 'Order',
     'phone number' => 'Phone',
     'website' => 'Website',
 	'zip code' => 'ZIP Code',

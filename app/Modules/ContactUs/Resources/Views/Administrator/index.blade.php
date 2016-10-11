@@ -23,7 +23,7 @@
         @foreach($contacts as $key => $contact)
             <div class="col-md-4 col-sm-6" id="row-{!! $contact->id !!}">
                 <div class="widget">
-                    <header class="widget-header"><h4 class="widget-title widget-primary">{!! $contact->name !!}</h4></header>
+                    <header class="widget-header"><h4 class="widget-title widget-primary">{!! $contact->name !!} <span class="badge">{!! $contact->order !!}</span> </h4></header>
                     <hr class="widget-separator">
                     <div class="widget-body p-h-lg">
                         <div class="media">

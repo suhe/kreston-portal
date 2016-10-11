@@ -53,6 +53,10 @@
                                 <th>{!! Lang::get('people::app.location') !!}</th>
                                 <td>{!! $people->location !!}</td>
                             </tr>
+							<tr>
+                                <th>{!! Lang::get('people::app.order') !!}</th>
+                                <td>{!! $people->order !!}</td>
+                            </tr>
                         </table>
                     </div>
 				</div>

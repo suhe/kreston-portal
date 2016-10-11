@@ -34,6 +34,9 @@
 							{!! Form::text('title',isset($post)?$post->title:null, ['class' => 'form-control input-lg','id'=>'title','placeholder'=>lang::get('article::app.title'),'maxlength'=>100]) !!}
 						</div>
 						<div class="form-group">
+							{!! Form::select('category_id',$category_dropdown,isset($post)?$post->category_id:null, ['class' => 'form-control input-lg','id'=>'category_id','placeholder'=>lang::get('news::app.please select a category')]) !!}
+						</div>
+						<div class="form-group">
 							{!! Form::textarea('content',isset($post)?$post->content:null, ['class' => 'form-control input-lg','id'=>'content','placeholder'=>lang::get('article::app.content'),'rows' => 20]) !!}
 						</div>
 					</div>

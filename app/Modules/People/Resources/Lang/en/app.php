@@ -9,6 +9,7 @@ return array (
     'description' => 'Description',
 	'location' => 'Location',
     'name' => 'Name',
+	'order' => 'Order',
     'our people' => 'Our People',
 	'please select a location' => 'Please select a location',
 	'people' => 'People',

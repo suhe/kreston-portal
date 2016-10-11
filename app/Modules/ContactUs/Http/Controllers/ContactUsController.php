@@ -33,9 +33,11 @@ class ContactUsController extends Controller {
         return Theme::view ('contact-us::index',array(
 			'index' => 'contact-us',
 			'page_title' => Lang::get('contact-us::app.contact us'),	
-            'contacts' => $contact->where('is_active','=',1)->get()
+            'contacts' => $contact->where('is_active','=',1)->orderBy('order','asc')->get()
         ));
     }
+	
+	
 	
 	
 }

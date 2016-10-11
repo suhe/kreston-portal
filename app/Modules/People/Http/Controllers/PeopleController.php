@@ -8,8 +8,10 @@
 namespace App\Modules\People\Http\Controllers;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
+use App\Modules\ContactUs\Models\ContactUs;
 use App\Modules\People\Models\People;
 use Breadcrumbs;
+use Lang;
 use SEOMeta;
 use Setting;
 use Theme;
@@ -17,14 +19,48 @@ use Theme;
 class PeopleController extends Controller {
     public function __construct() {
 		// Home > [People]
-		Breadcrumbs::register('people', function($breadcrumbs, $slug) {
+		Breadcrumbs::register('people-index', function($breadcrumbs) {
+			$breadcrumbs->parent('home');
+			$breadcrumbs->push(Lang::get('people::app.people'), url('/people'));
+		});
+		
+		Breadcrumbs::register('people-office', function($breadcrumbs, $slug) {
+			$contact = ContactUs::where(['slug' => $slug])->first();
+			$breadcrumbs->parent('home');
+			$breadcrumbs->push($contact->name, url('people/office/'.$contact->slug));
+		});
+		
+		Breadcrumbs::register('people-single', function($breadcrumbs, $slug) {
 			$people = People::where(['slug' => $slug])->first();
 			$breadcrumbs->parent('home');
 			$breadcrumbs->push($people->name, url('people/'.$people->slug));
 		});
     }
 	
-	public function index() {
+	public function index(People $people) {
+		SEOMeta::setTitle(Setting::get_key('company_name').' '.Lang::get('people::app.people'))
+		->setDescription(Setting::get_key('company_name').' '.Lang::get('people::app.people'))
+		->setCanonical(url('/'))
+		->addKeyword(Setting::get_key('company_name').' '.Lang::get('people::app.people'));
+		
+		return Theme::view ('people::index',array(
+            'peoples' => $people->leftJoin('contact_us','contact_us.id','=','people.contact_id')->select(['people.*'])->where('people.is_active',1)->orderBy('order','asc')->get(),
+			'our_peoples' => $people->where('is_active',1)->orderBy('order','asc')->get(),
+        ));
+		
+	}
+	
+	public function group($slug,ContactUs $contact,People $people) {
+		SEOMeta::setTitle(Setting::get_key('company_name').' '.Lang::get('people::app.people'))
+		->setDescription(Setting::get_key('company_name').' '.Lang::get('people::app.people'))
+		->setCanonical(url('/'))
+		->addKeyword(Setting::get_key('company_name').' '.Lang::get('people::app.people'));
+		
+		return Theme::view ('people::group',array(
+			'slug' => $slug,
+            'peoples' => $people->leftJoin('contact_us','contact_us.id','=','people.contact_id')->select(['people.*'])->where('people.is_active',1)->where('contact_us.slug',$slug)->orderBy('people.order','asc')->get(),
+			'our_contacts' => $contact->getNavigation(),
+        ));
 		
 	}
 
@@ -35,9 +71,9 @@ class PeopleController extends Controller {
 		->setCanonical(url('/'))
 		->addKeyword($people->name);
 		
-        return Theme::view ('people::index',array(
+        return Theme::view ('people::single',array(
             'people' => $xpeople,
-			'our_peoples' => $people->where('is_active',1)->get(),
+			'our_peoples' => $people->where('is_active',1)->orderBy('order','asc')->get(),
         ));
     }
 }

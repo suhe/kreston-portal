@@ -14383,3 +14383,10 @@ a.big-icon:hover {
 .package {
 	min-height : 320px;
 }
+
+.horizontal_dotted_line{
+  border-bottom: 1px dotted #CCC;
+  width: 100%;
+  margin-bottom : 25px;
+}
+

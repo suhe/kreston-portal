@@ -1,5 +1,5 @@
 @extends('kreston::page')
-@section('breadcrumbs', Breadcrumbs::render('people-index'))
+@section('breadcrumbs', Breadcrumbs::render('people-office',$slug))
 @section('content')
     <div class="row">
 		<article class="content col-sm-12 col-md-9">
@@ -23,8 +23,8 @@
                 </header>
                 <nav>
                     <ul>
-						@foreach($our_peoples as $key => $row)
-							<li class="{!! Request::segment(2) == $row->slug ? 'active' : '' !!}"><a href="{!! url('people/'.$row->slug) !!}">{!! $row->name !!}</a></li>
+						@foreach($our_contacts as $key => $contact)
+							<li class="{!! Request::segment(3) == $contact->slug ? 'active' : '' !!}"><a href="{!! url('people/office/'.$contact->slug) !!}">{!! $contact->name !!}</a></li>
 						@endforeach
                         
                     </ul>

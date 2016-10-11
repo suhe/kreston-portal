@@ -10,6 +10,7 @@ namespace App\Modules\Article\Http\Controllers\Administrator;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
+use App\Modules\Category\Models\Category;
 use App\Modules\Post\Models\Post;
 use Auth;
 use Config;
@@ -33,14 +34,17 @@ class ArticleController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('article::app.article'));
         return Theme::view ('article::Administrator.index',array(
             'posts' =>  $post->where('type','Article')
+				->select(["posts.*","categories.name as category_name"])
+				->leftJoin("categories","categories.id","=","posts.category_id")
                 ->where("title", "like", "%".Request::get("title")."%")
                 ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 
-    public function create() {
+    public function create(Category $category) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('article::app.article'));
         return Theme::view ('article::Administrator.form',array(
+			'category_dropdown' => $category->dropdown(Lang::get("article::app.please select category")),
             'post' =>  null,
         ));
     }
@@ -49,7 +53,7 @@ class ArticleController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('article::app.article'));
         $id = Crypt::decrypt($id);
         return Theme::view ('article::Administrator.view',array(
-            'post' =>  $post->find($id),
+            'post' =>  $post->select(["posts.*","categories.name"])->leftJoin('categories','categories.id','=','posts.category_id')->find($id),
         ));
     }
 
@@ -70,18 +74,19 @@ class ArticleController extends Controller {
         return Redirect::intended ( '/article/administrator/view/'.$id);
     }
 
-    public function edit($id,Post $post) {
+    public function edit($id,Post $post,Category $category) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('article::app.article'));
         $id = Crypt::decrypt($id);
         return Theme::view ('article::Administrator.form',array(
-            'post' =>  $post->find($id),
+            'post' =>  $post->select(["posts.*"])->find($id),
+			'category_dropdown' => $category->dropdown(Lang::get("article::app.please select category")),
         ));
     }
 
     public function update(Post $post) {
         $id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
         $title = Input::get("title");
-        $category_id = 1;
+        $category_id = Input::get("category_id");
         $type = "Article";
         $total_view = 0;
         $content = Input::get("content");
