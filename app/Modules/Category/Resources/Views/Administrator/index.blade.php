@@ -6,16 +6,16 @@
             <div class="panel p-xs">
                 <div class="panel-heading clearfix">
                     <div class="col-md-2">
-                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><i class="fa fa-newspaper-o"></i>  {!! Lang::get('news::app.news') !!}</h4>
+                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><i class="fa fa-flag"></i>  {!! Lang::get('category::app.category') !!}</h4>
                     </div>
 
                     <div class="col-md-10">
                         <div class="pull-right">
-                            {!! $posts->appends(\Request::except('page'))->render() !!}
+                            {!! $categories->appends(\Request::except('page'))->render() !!}
                             <div class="btn-group pull-right">
                                 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#search_modal"><i class="fa fa-search"></i>  {!! Lang::get("action.search") !!}</button>
-								<a href="{!! url('news/administrator/') !!}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i> {!! Lang::get("action.refresh") !!}</a>
-                                <a href="{!! url('news/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.create") !!}</a>
+								<a href="{!! url('category/administrator/index') !!}" class="btn btn-primary btn-sm"><i class="fa fa-refresh"></i> {!! Lang::get("action.refresh") !!}</a>
+                                <a href="{!! url('category/administrator/create') !!}" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i> {!! Lang::get("action.add new") !!}</a>
                             </div>
                         </div>
                     </div>
@@ -31,20 +31,18 @@
                 <table class="table">
                     <tr>
                         <th class="col-sm-1">#</th>
-                        <th class="col-sm-6">@sortablelink('title')</th>
-						<th class="col-sm-3">@sortablelink('category_id',Lang::get('category::app.name'))</th>
-                        <th class="col-sm-1 text-center">@sortablelink('total_view')</th>
-                        <th class="col-sm-1 text-center">{!! Lang::get('action.active') !!}</th>
+                        <th class="col-sm-2">@sortablelink('name')</th>
+                        <th class="col-sm-2">@sortablelink('slug')</th>
+                        <th class="col-sm-2 text-center">{!! Lang::get('action.active') !!}</th>
                         <th class="col-sm-1">{!! Lang::get('action.edit') !!}</th>
                     </tr>
 
-                    @foreach ($posts as $key => $post)
-                        <tr class="row-{!! $post->id !!}">
+                    @foreach ($categories as $key => $category)
+                        <tr class="row-{!! $category->id !!}">
                             <td>{!! ($key + 1 + (Request::has("page")? Request::get("page") : 0)) !!}</td>
-                            <td>{!! $post->title !!}</td>
-							<td>{!! $post->category_name !!}</td>
-                            <td class="text-center">{!! number_format($post->total_view,0) !!}</td>
-                            <td class="text-center">{!! $post->is_active == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
+                            <td>{!! $category->name !!}</td>
+                            <td>{!! $category->slug !!}</td>
+                            <td class="text-center">{!! $category->is_active == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
@@ -52,9 +50,9 @@
                                         <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a href="{!! url('news/administrator/view/'.Crypt::encrypt($post->id)) !!}"> {!! Lang::get('action.view') !!}</a></li>
-                                        <li><a href="{!! url('news/administrator/edit/'.Crypt::encrypt($post->id)) !!}"> {!! Lang::get('action.edit') !!}</a></li>
-                                        <li><a href="#" id="{!! Crypt::encrypt($post->id) !!}" class="delete"> {!! Lang::get('action.remove') !!}</a></li>
+                                        <li><a href="{!! url('category/administrator/view/'.Crypt::encrypt($category->id)) !!}"> {!! Lang::get('action.view') !!}</a></li>
+                                        <li><a href="{!! url('category/administrator/edit/'.Crypt::encrypt($category->id)) !!}"> {!! Lang::get('action.edit') !!}</a></li>
+                                        <li><a href="#" id="{!! Crypt::encrypt($category->id) !!}" class="delete"> {!! Lang::get('action.remove') !!}</a></li>
                                     </ul>
                                 </div>
                             </td>
@@ -71,7 +69,7 @@
 
             <!-- Modal content-->
             <div class="modal-content">
-                {!! Form::open(['url' => 'news/administrator','role' => 'form','id'=>'news_search_form','method'=>'GET']) !!}
+                {!! Form::open(['url' => 'category/administrator','role' => 'form','id'=>'banner_search_form','method'=>'GET']) !!}
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">{!! Lang::get("action.search") !!}</h4>
@@ -79,9 +77,9 @@
                 <div class="modal-body">
                     <div class="row-fluid">
                         <div class="form-group">
-                            {!! Form::text('title',Request::get('title'),['class' => 'form-control input-md','id'=>'title','placeholder'=>lang::get('news::app.title'),'maxlength'=>100]) !!}
+                            {!! Form::text('name',Request::get('name'),['class' => 'form-control input-md','id'=>'first_name','placeholder'=>lang::get('category::app.name'),'maxlength'=>100]) !!}
                         </div>
-
+                        
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -107,7 +105,7 @@
                 confirm: function(){
                     $.ajax({
                         type  : "post",
-                        url   : "{!! url('news/administrator/delete') !!}",
+                        url   : "{!! url('category/administrator/delete') !!}",
                         data  : {id : id},
                         dataType: "json",
                         cache : false,

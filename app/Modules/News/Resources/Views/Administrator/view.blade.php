@@ -37,6 +37,12 @@
 							<tr>
                                 <td>{!! $post->title !!}</td>
 							</tr>
+							 <tr>
+                                <th>{!! Lang::get('category::app.name') !!}</th>
+                            </tr>
+							<tr>
+                                <td>{!! $post->name !!}</td>
+							</tr>
                             <tr>
                                 <th>{!! Lang::get('news::app.content') !!}</th>
                             </tr>

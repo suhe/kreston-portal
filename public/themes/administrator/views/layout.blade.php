@@ -176,7 +176,8 @@
                         <li><a class="news" href="{!! url("news/administrator") !!}"><span class="menu-text">{!! Lang::get("action.news") !!}</span></a></li>
                         <li><a class="page" href="{!! url("page/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.page") !!}</span></a></li>
                         <li><a class="article" href="{!! url("article/administrator") !!}"><span class="menu-text">{!! Lang::get("action.article") !!}</span></a></li>
-                    </ul>
+						<li><a class="category" href="{!! url("category/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.category") !!}</span></a></li>
+					</ul>
                 </li>
                 <li class="has-submenu"><a href="javascript:void(0)" class="submenu-toggle"><i
                                 class="menu-icon zmdi zmdi-check zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.company profile") !!}</span> <i

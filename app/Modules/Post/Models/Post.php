@@ -17,7 +17,7 @@ class Post extends Model {
     protected $fillable = ['id','title','content','is_active'];
     protected $primaryKey = 'id';
     public $timestamps = false;
-    public $sortable = ['id', 'title', 'total_view'];
+    public $sortable = ['id', 'title','category_name','total_view'];
 	protected $casts = ['grant_all_permissions' => true,];
 
 

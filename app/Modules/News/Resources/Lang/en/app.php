@@ -9,6 +9,7 @@ return array (
     'description' => 'Description',
     'content' => 'Content',
     'news' => 'News',
+	'please select a category' => 'Please select a category',
     'title' => 'Title',
     'total view' => 'Total View',
 );

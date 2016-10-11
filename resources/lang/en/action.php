@@ -6,6 +6,7 @@ return array(
 	'article' => 'Article',
 	'back' => 'Back',
     'banner' => 'Banner',
+	'category' => 'Category',
     'choose' => 'Choose',
     'close' => 'Close',
 	'create' => 'Create',

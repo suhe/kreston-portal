@@ -8,10 +8,9 @@
                     </div>
                     <p>Follow us in social media</p>
                     <div class="social-list">
-                        <a class="icon rounded icon-facebook" href="{!! 'http:://facebook.com/'.Setting::get_key('social_facebook') !!}"><i class="fa fa-facebook"></i></a>
-                        <a class="icon rounded icon-twitter" href="{!! 'http:://twitter.com/'.Setting::get_key('social_twitter') !!}"><i class="fa fa-twitter"></i></a>
-                        <a class="icon rounded icon-google" href="{!! 'http:://plus.google.com/'.Setting::get_key('social_gplus') !!}"><i class="fa fa-google"></i></a>
-                        <a class="icon rounded icon-linkedin" href="{!! 'http:://linkedin.com/'.Setting::get_key('social_linkedin') !!}"><i class="fa fa-linkedin"></i></a>
+                        <a class="icon rounded icon-facebook" href="{!! 'https://www.facebook.com/'.Setting::get_key('social_facebook') !!}"><i class="fa fa-facebook"></i></a>
+                        <a class="icon rounded icon-twitter" href="{!! 'https://twitter.com/'.Setting::get_key('social_twitter') !!}"><i class="fa fa-twitter"></i></a>
+                        <a class="icon rounded icon-linkedin" href="{!! 'https://www.linkedin.com/company/'.Setting::get_key('social_linkedin') !!}"><i class="fa fa-linkedin"></i></a>
                     </div>
                     <div class="clearfix"></div>
                 </aside>
@@ -21,7 +20,7 @@
                         <h3 class="title">Newsletter Signup</h3>
                     </div>
                     <div>
-                        <p>Sign up for newsletter</p>
+                        <!--<p>Sign up for newsletter</p>
                         <div class="clearfix"></div>
                         <form class="subscribe-form" method="post" action="php/subscribe.php">
                             <input class="form-control email" type="email" name="subscribe">
@@ -29,7 +28,7 @@
                                 <span class="glyphicon glyphicon-arrow-right"></span>
                             </button>
                             <span class="form-message" style="display: none;"></span>
-                        </form>
+                        </form>-->
                     </div>
                 </aside><!-- .newsletter -->
 

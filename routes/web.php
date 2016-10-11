@@ -44,6 +44,7 @@ Menu::make('MyNavBar', function($menu) use($NavBar,$Post)  {
 		   
         foreach ($nav_items as $xkey => $nav_item) {
             $nav_bar->add($nav_item->name, url($nav_item->url));
+			
         }
 	}	
 });

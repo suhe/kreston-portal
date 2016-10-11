@@ -10,6 +10,7 @@ namespace App\Modules\News\Http\Controllers\Administrator;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
+use App\Modules\Category\Models\Category;
 use App\Modules\Post\Models\Post;
 use Auth;
 use Config;
@@ -33,14 +34,17 @@ class NewsController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('news::app.news'));
         return Theme::view ('news::Administrator.index',array(
             'posts' =>  $post->where('type','News')
+				->select(["posts.*","categories.name as category_name"])
+				->leftJoin("categories","categories.id","=","posts.category_id")
                 ->where("title", "like", "%".Request::get("title")."%")
                 ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 
-    public function create() {
+    public function create(Category $category) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('news::app.news'));
         return Theme::view ('news::Administrator.form',array(
+			'category_dropdown' => $category->dropdown(Lang::get("news::app.please select category")),
             'post' =>  null,
         ));
     }
@@ -49,7 +53,7 @@ class NewsController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('news::app.news'));
         $id = Crypt::decrypt($id);
         return Theme::view ('news::Administrator.view',array(
-            'post' =>  $post->find($id),
+            'post' =>  $post->select(["posts.*","categories.name"])->leftJoin('categories','categories.id','=','posts.category_id')->find($id),
         ));
     }
 
@@ -70,30 +74,31 @@ class NewsController extends Controller {
         return Redirect::intended ( '/news/administrator/view/'.$id);
     }
 
-    public function edit($id,Post $post) {
+    public function edit($id,Post $post,Category $category) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('news::app.news'));
         $id = Crypt::decrypt($id);
         return Theme::view ('news::Administrator.form',array(
-            'post' =>  $post->find($id),
+            'post' =>  $post->select(["posts.*"])->find($id),
+			'category_dropdown' => $category->dropdown(Lang::get("news::app.please select category")),
         ));
     }
 
     public function update(Post $post) {
         $id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
         $title = Input::get("title");
-        $category_id = 1;
+        $category_id = Input::get("category_id");
         $type = "News";
         $total_view = 0;
         $content = Input::get("content");
 
         $field = array (
             'title' => $title,
-            //'content' => $content,
+            'category_id' => $category_id,
         );
 
         $rules = array (
             'title' => 'required',
-            //'content' => "required",
+            'category_id' => "required",
         );
 
         $validate = Validator::make($field,$rules);
