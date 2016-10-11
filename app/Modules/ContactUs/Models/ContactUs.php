@@ -18,5 +18,14 @@ class ContactUs extends Model {
     protected $primaryKey = 'id';
     public $timestamps = false;
     public $sortable = ['id', 'name'];
+	
+	public static function dropdown($label = null) {
+		$data =array();
+		$contacts = self::where('is_active',1)->orderBy('name','asc')->get();
+		foreach($contacts as $key => $contact) {
+			$data[$contact->id] = $contact->name;
+		}
+		return $data;
+	}
 
 }

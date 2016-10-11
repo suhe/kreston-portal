@@ -7,8 +7,11 @@
  */
 return array (
     'description' => 'Description',
+	'location' => 'Location',
     'name' => 'Name',
     'our people' => 'Our People',
+	'please select a location' => 'Please select a location',
+	'people' => 'People',
     'photo' => 'Photo',
 	'url' => 'Url',
 );

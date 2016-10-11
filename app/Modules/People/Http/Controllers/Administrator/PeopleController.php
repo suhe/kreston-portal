@@ -10,6 +10,7 @@ namespace App\Modules\People\Http\Controllers\Administrator;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
+use App\Modules\ContactUs\Models\ContactUs;
 use App\Modules\People\Models\People;
 use Auth;
 use Config;
@@ -32,16 +33,19 @@ class PeopleController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('people::app.people'));
         return Theme::view ('people::Administrator.index',array(
             'people' =>  $people
-                ->where("name", "like", "%".Request::get("name")."%")
+				->select(["people.*","contact_us.name as location"])
+				->leftJoin("contact_us","contact_us.id","=","people.contact_id")
+                ->where("people.name", "like", "%".Request::get("name")."%")
                 ->where("photo_storage_location", "like", "%".Request::get("location")."%")
                 ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 
-    public function create() {
+    public function create(ContactUs $contact) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('people::app.people'));
         return Theme::view ('people::Administrator.form',array(
             'people' =>  null,
+			'contact_dropdown' => $contact->dropdown(),
         ));
     }
 
@@ -49,7 +53,7 @@ class PeopleController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.view').' '.Lang::get('people::app.people'));
         $id = Crypt::decrypt($id);
         return Theme::view ('people::Administrator.view',array(
-            'people' =>  $people->find($id),
+            'people' =>  $people->leftJoin('contact_us','contact_us.id','people.contact_id')->select(['people.*','contact_us.name as location'])->find($id),
         ));
     }
 
@@ -70,29 +74,33 @@ class PeopleController extends Controller {
         return Redirect::intended ( '/people/administrator/view/'.$id);
     }
 
-    public function edit($id,People $people) {
+    public function edit($id,People $people,ContactUs $contact) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.edit').' '.Lang::get('people::app.people'));
         $id = Crypt::decrypt($id);
         return Theme::view ('people::Administrator.form',array(
             'people' =>  $people->find($id),
+			'contact_dropdown' => $contact->dropdown(),
         ));
     }
 
     public function update(People $people) {
         $id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
         $name = Input::get("name");
+		$contact_id = Input::get("contact_id");
         $photo_storage_location = str_replace(url("/")."/","",Input::get('filepath'));
         $description = Input::get('description');
 
         $field = array (
             'name' => $name,
-            'photo_storage_location' => $photo_storage_location,
+			'contact_id' => $contact_id,
+            //'photo_storage_location' => $photo_storage_location,
             'description' => $description,
         );
 
         $rules = array (
             'name' => 'required',
-            'photo_storage_location' => "required",
+			'contact_id' => 'required',
+            //'photo_storage_location' => "required",
             'description' => "required",
         );
 
@@ -107,6 +115,7 @@ class PeopleController extends Controller {
                 //update home_banner
                 $people = $people->find($id);
                 $people->name  = $name;
+				$people->contact_id  = $contact_id;
 				$people->slug = Str::slug($name,"-");
                 $people->photo_storage_location = $photo_storage_location;
                 $people->description = $description;
@@ -115,6 +124,7 @@ class PeopleController extends Controller {
                 $message = Lang::get('people::message.update successfully');
             } else {
                 $people->name  = $name;
+				$people->contact_id  = $contact_id;
 				$people->slug = Str::slug($name,"-");
                 $people->photo_storage_location = $photo_storage_location;
                 $people->description = $description;
