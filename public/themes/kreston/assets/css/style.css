@@ -310,11 +310,11 @@ hr.margin-top {
     transition: background .2s linear, border .2s linear, color .2s linear;
     white-space: normal
 }
-
+/*
 .btn.btn-default:hover, .btn.btn-default:focus, .btn.btn-default.focus, .btn.btn-default:active, .btn.btn-default.active, .open > .btn.btn-default.dropdown-toggle {
     background: #565656;
     border-color: #565656
-}
+}*/
 
 .btn.btn-primary:hover, .btn.btn-primary:focus, .btn.btn-primary.focus, .btn.btn-primary:active, .btn.btn-primary.active, .open > .btn.btn-primary.dropdown-toggle {
     background: #0499f7;
@@ -4285,12 +4285,14 @@ a.edit i:before {
 }
 
 .breadcrumb-box {
-    background: #f2f2f2;
+    /*background: #f2f2f2;*/
+	background: #005B7F;
     overflow: hidden
 }
 
 .breadcrumb {
-    background: #f2f2f2;
+    /*background: #f2f2f2;*/
+	background : #005B7F;
     color: #7f7f7f;
     font-size: 11px;
     line-height: 18px;
@@ -4304,7 +4306,8 @@ a.edit i:before {
 }
 
 .breadcrumb > li > a {
-    color: #7f7f7f;
+    /*color: #7f7f7f;*/
+	color : #fff;
     text-decoration: none;
     -webkit-transition: opacity .2s linear;
     transition: opacity .2s linear
@@ -4319,7 +4322,11 @@ a.edit i:before {
 
 .breadcrumb > li + li:before {
     padding: 0 6px;
-    color: #7f7f7f
+    /*color: #7f7f7f*/
+	color : #fff;
+}
+.breadcrumb > .active {
+  color : #fff;
 }
 
 .breadcrumb-none {
@@ -14389,4 +14396,45 @@ a.big-icon:hover {
   width: 100%;
   margin-bottom : 25px;
 }
+.box_style_1 {
+    background-color: #fff;
+    border: 5px solid #fbfbfc;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #e0e5e9 inset;
+    font-size: 13px;
+    line-height: 20px;
+    margin-bottom: 30px;
+    padding: 15px 25px 5px;
+}
+.box_style_1 hr {
+   -moz-border-bottom-colors: none;
+   -moz-border-left-colors: none;
+   -moz-border-right-colors: none;
+   -moz-border-top-colors: none;
+   border-color: #eee -moz-use-text-color -moz-use-text-color;
+   border-image: none;
+   border-style: solid none none;
+   border-width: 1px 0 0;
+   margin-bottom: 20px;
+   margin-top: 20px;
+}
+ul.list_1 {
+    font-size: 12px;
+    font-weight: 700;
+    list-style: outside none none;
+    margin: 0 0 20px;
+    padding: 0;
+}
+ul.list_1 li a {
+    border-bottom: 1px solid #efefef;
+    display: block;
+    margin-bottom: 0;
+    padding: 4px 10px;
+    text-decoration: none;
+}
+ul.list_1 li a:hover {
+	background:#efefef;
+	color:#326e99;
+}
+
 

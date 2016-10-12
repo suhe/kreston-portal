@@ -33,9 +33,9 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{!! Theme::asset('css/style.css') !!}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{!! Theme::asset('css/customizer/pages.css') !!}">
-    <link rel="stylesheet" href="{!! Theme::asset('css/customizer/shop-pages-customizer.css') !!}">
-    <link rel="stylesheet" href="css/custom.css" />
+    <link rel="stylesheet" href="{!! Theme::asset('css/customizer/pages.css') !!}" />
+    <!--<link rel="stylesheet" href="{!! Theme::asset('css/customizer/shop-pages-customizer.css') !!}">-->
+    <link rel="stylesheet" href="{!! Theme::asset('css/custom.css') !!}" />
     <!-- IE Styles-->
     <link rel='stylesheet' href="{!! Theme::asset('css/ie/ie.css') !!}">
     @stack('css')

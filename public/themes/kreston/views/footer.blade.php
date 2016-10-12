@@ -14,13 +14,13 @@
                     </div>
                     <div class="clearfix"></div>
                 </aside>
-
+				<!--
                 <aside class="col-xs-12 col-sm-6 col-md-3 widget newsletter">
                     <div class="title-block">
                         <h3 class="title">Newsletter Signup</h3>
                     </div>
                     <div>
-                        <!--<p>Sign up for newsletter</p>
+                        <p>Sign up for newsletter</p>
                         <div class="clearfix"></div>
                         <form class="subscribe-form" method="post" action="php/subscribe.php">
                             <input class="form-control email" type="email" name="subscribe">
@@ -28,9 +28,9 @@
                                 <span class="glyphicon glyphicon-arrow-right"></span>
                             </button>
                             <span class="form-message" style="display: none;"></span>
-                        </form>-->
+                        </form>
                     </div>
-                </aside><!-- .newsletter -->
+                </aside>newsletter -->
 
                 <aside class="col-xs-12 col-sm-6 col-md-3 widget links">
                     <div class="title-block">

@@ -1,0 +1,17 @@
+.btn-default {
+	background:#b20000;
+	border-color:#cc0000;
+	color:#FFFFFF;
+}
+.btn-default:hover {
+	color:#fff;
+	background-color:#005B7F;
+	border-color:#005A7F;
+}
+#footer .footer-bottom {
+  background:#02366A;
+  border-top-width:1px;
+  font-size:11px;
+  line-height:17px;
+  padding:21px 0 20px;
+}
