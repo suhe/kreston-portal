@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => 'article'], function() {
 	Route::get('/', 'ArticleController@index');
+	Route::get('/category/{slug}', 'ArticleController@category');
 	Route::get('/feed', 'ArticleController@feed');
 	Route::get('/read/{id}/{slug}', 'ArticleController@read');
 	Route::get('/archieve/{year}/{month}', 'ArticleController@archieve');

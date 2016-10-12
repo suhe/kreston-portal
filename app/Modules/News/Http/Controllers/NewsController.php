@@ -8,6 +8,7 @@
 namespace App\Modules\News\Http\Controllers;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Str;
+use App\Modules\Category\Models\Category;
 use App\Modules\Post\Models\Post;
 use Breadcrumbs;
 use Config;
@@ -27,7 +28,7 @@ class NewsController extends Controller {
 
     }
 	
-	public function index(Post $post) {
+	public function index(Post $post,Category $category) {
 		SEOMeta::setTitle(Setting::get_key('company_name').' '.Lang::get('news::app.news'))
 		->setDescription('Kreston News')
 		->setCanonical(url('/'))
@@ -42,10 +43,36 @@ class NewsController extends Controller {
 			->where('is_active',1)
 			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
 			->orderBy("created_at",SORT_DESC)->get(),	
+			'categories' => $category->where('is_active',1)->get(),
+			//'latest_posts' => $post->where('is_active',1)->orderBy('created_at','desc')->get(10),
+        ));
+	}
+	
+	public function category($slug,Category $category,Post $post) {
+		$xcategory = $category->where('slug',$slug)->first();
+		SEOMeta::setTitle(Setting::get_key('company_name').' '.Lang::get('news::app.news').' '.$xcategory->name)
+		->setDescription('Kreston News')
+		->setCanonical(url('/'))
+		->addKeyword('kreston','kreston news','news');
+		
+		return Theme::view ('news::index',array(
+			'posts' =>  $post
+				->leftJoin('categories','categories.id','=','posts.category_id')
+				->select(['posts.*'])
+                ->where('posts.is_active',1)->where('type','News')->where('categories.slug',$slug)
+                ->sortable(['created_at' =>'desc'])->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
+			'post_archieves' => $post
+			->selectRaw("CONCAT(YEAR(created_at),'/',MONTH(created_at)) as url,CONCAT(MONTHNAME(created_at),' ',YEAR(created_at)) as periode")
+			->where('is_active',1)
+			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
+			->orderBy("created_at",SORT_DESC)->get(),	
+			'categories' => $category->where('is_active',1)->get(),
+			//'latest_posts' => $post->where('is_active',1)->orderBy('created_at','desc')->get(10),
+
         ));
 	}
 
-    public function read($id,Post $post) {
+    public function read($id,Post $post,Category $category) {
 		Breadcrumbs::register('news_read', function($breadcrumbs) use ($id) {
 			$post = Post::where(['id' => $id])->first();
 			$breadcrumbs->parent('home');
@@ -65,10 +92,12 @@ class NewsController extends Controller {
 			->where('is_active',1)
 			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
 			->orderBy("created_at",SORT_DESC)->get(),	
+			'categories' => $category->where('is_active',1)->get(),
+			//'latest_posts' => $post->where('is_active',1)->orderBy('created_at','desc')->get(10),
         ));
     }
 	
-	public function archieve($year,$month,Post $post) {
+	public function archieve($year,$month,Post $post,Category $category) {
 		SEOMeta::setTitle(Setting::get_key('company_name').' '.Lang::get('news::app.news'))
 		->setDescription('Kreston News')
 		->setCanonical(url('/'))
@@ -84,6 +113,7 @@ class NewsController extends Controller {
 			->where('is_active',1)
 			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
 			->orderBy("created_at",SORT_DESC)->get(),	
+			'categories' => $category->where('is_active',1)->get(),
         ));
 		
 	}

@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => 'news'], function() {
 	Route::get('/', 'NewsController@index');
+	Route::get('/category/{slug}', 'NewsController@category');
 	Route::get('/read/{id}/{slug}', 'NewsController@read');
 	Route::get('/archieve/{year}/{month}', 'NewsController@archieve');
     Route::group(['prefix' => 'administrator','middleware'=>['permission']], function() {

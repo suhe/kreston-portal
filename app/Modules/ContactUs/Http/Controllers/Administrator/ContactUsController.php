@@ -72,7 +72,7 @@ class ContactUsController extends Controller {
     public function update(ContactUs $contact_us) {
         $id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
         $name = Input::get("name");
-        $contact_name = Input::get("contact_name");
+        //$contact_name = Input::get("contact_name");
         $address = Input::get("address");
         $city = Input::get("city");
         $country = Input::get("country");
@@ -85,7 +85,7 @@ class ContactUsController extends Controller {
 
         $field = array (
             'name' => $name,
-            'contact_name' => $contact_name,
+            //'contact_name' => $contact_name,
             'address' => $address,
             'city' => $city,
             'country' => $country,
@@ -96,7 +96,7 @@ class ContactUsController extends Controller {
 
         $rules = array (
             'name' => 'required',
-            'contact_name' => 'required',
+            //'contact_name' => 'required',
             'address' => 'required',
             'city' => 'required',
             'country' => 'required',
@@ -117,7 +117,7 @@ class ContactUsController extends Controller {
                 $contact_us = $contact_us->find($id);
                 $contact_us->name  = $name;
 				$contact_us->slug  = Str::slug($name,'-');
-                $contact_us->contact_name  = $contact_name;
+                //$contact_us->contact_name  = $contact_name;
 				$contact_us->address = $address;
                 $contact_us->city = $city;
 				$contact_us->zip_code = $zip_code;
@@ -134,7 +134,7 @@ class ContactUsController extends Controller {
             } else {
                 $contact_us->name  = $name;
 				$contact_us->slug  = Str::slug($name,'-');
-                $contact_us->contact_name  = $contact_name;
+                //$contact_us->contact_name  = $contact_name;
                 $contact_us->address = $address;
                 $contact_us->city = $city;
 				$contact_us->zip_code = $zip_code;

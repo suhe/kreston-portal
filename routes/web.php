@@ -62,6 +62,13 @@ Menu::make('MyNavBar', function($menu) use($NavBar)  {
 					$sub_menu_category->add($sub_nav->title, url($sub_nav->url));
 				}
 			} 
+		} else if($nav->post == 'Contact Us') {
+			$Contact = new ContactUs();
+			$nav_items = $Contact->where('is_active',1)->orderBy('order','asc')->get();
+			foreach($nav_items as $xkey => $nav_item) {
+				$sub_menu_contact = $nav_bar->add($nav_item->name, url($nav->url.'/office/'.$nav_item->slug));
+			} 
+			
 		} else {
 			$nav_items = $NavBar->where(['is_active' => 1,'parent_id' => $nav->id])->orderBy('order','asc')->get();
 			foreach ($nav_items as $xkey => $nav_item) {

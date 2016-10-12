@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => 'contact-us'], function() {
 	Route::get('/', 'ContactUsController@index');
+	Route::get('/office/{id}', 'ContactUsController@office');
     Route::group(['prefix' => 'administrator','middleware' => ['permission']], function() {
         Route::get('/index', 'Administrator\ContactUsController@index');
         Route::get('/view/{id}', 'Administrator\ContactUsController@view');

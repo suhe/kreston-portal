@@ -6,8 +6,11 @@
  * Time: 9:06
  */
 return array (
+	'archieves' => 'Archieves',
+	'category' => 'Category',
+	'content' => 'Content',
     'description' => 'Description',
-    'content' => 'Content',
+	'latest news' => 'Latest News',
     'news' => 'News',
 	'please select a category' => 'Please select a category',
     'title' => 'Title',

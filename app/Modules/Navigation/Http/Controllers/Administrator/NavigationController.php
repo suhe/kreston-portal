@@ -39,7 +39,7 @@ class NavigationController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.create').' '.Lang::get('navigation::app.navigation'));
         return Theme::view ('navigation::Administrator.form',array(
 			'navigation_dropdown' => $navigation->dropdown(Lang::get("action.root")),  
-			'post_dropdown' => array(''=>'','News' => 'News','Article' => 'Article','People' => 'People'),
+			'post_dropdown' => array(''=>'','News' => 'News','Article' => 'Article','People' => 'People','Contact Us' => 'Contact Us'),
             'navigation' =>  null,
         ));
     }
@@ -75,7 +75,7 @@ class NavigationController extends Controller {
         $id = Crypt::decrypt($id);
         return Theme::view ('navigation::Administrator.form',array(
 			'navigation_dropdown' => $navigation->dropdown(Lang::get("action.root")),  
-			'post_dropdown' => array(''=>'','News' => 'News','Article' => 'Article','People' => 'People'),
+			'post_dropdown' => array(''=>'','News' => 'News','Article' => 'Article','People' => 'People','Contact Us' => 'Contact Us'),
             'navigation' =>  $navigation->find($id),
         ));
     }

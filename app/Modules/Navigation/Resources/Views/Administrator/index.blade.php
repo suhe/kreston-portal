@@ -33,6 +33,7 @@
                         <th class="col-sm-1">#</th>
                         <th class="col-sm-4">{!! Lang::get("navigation::app.name") !!}</th>
 						<th class="col-sm-4">{!! Lang::get("navigation::app.url") !!}</th>
+						<th class="col-sm-1">{!! Lang::get("navigation::app.post") !!}</th>
                         <th class="col-sm-1 text-center">{!! Lang::get('action.active') !!}</th>
 						<th class="col-sm-1 text-center">{!! Lang::get("action.order") !!}</th>
                         <th class="col-sm-1">{!! Lang::get('action.edit') !!}</th>
@@ -43,6 +44,7 @@
                             <td>{!! ($key + 1 + (Request::has("page")? Request::get("page") : 0)) !!}</td>
                             <td>{!! $nav['name'] !!}</td>
                             <td>{!! $nav['url'] !!}</td>
+							<td>{!! $nav['post'] !!}</td>
                             <td class="text-center">{!! $nav['is_active'] == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
 							<td>{!! $nav['order'] !!}</td>
                             <td>

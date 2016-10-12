@@ -28,8 +28,8 @@
                     <div class="widget-body p-h-lg">
                         <div class="media">
                             <div class="media-body">
-                                <small class="media-meta"><i class="fa fa-user"></i> {!! $contact->contact_name !!}</small>
-                                <br/>
+                                <!--<small class="media-meta"><i class="fa fa-user"></i> $contact->contact_name</small>
+                                <br/>-->
                                 <small class="media-meta"><i class="fa fa-map-marker"></i> {!! $contact->address !!}</small>
                                 <br/>
                                 <small class="media-meta"><i class="fa fa-map"></i> {!! $contact->city !!} {!! $contact->zip_code !!}</small>

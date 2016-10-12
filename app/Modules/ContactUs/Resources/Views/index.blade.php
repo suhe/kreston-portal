@@ -16,7 +16,7 @@
 						{!! $contact->address !!} 
 					</div>	
 					
-					<div class="price">{!! $contact->contact_name !!}</div>
+					<!--<div class="price">$contact->contact_name </div>-->
 					
 					<div class="starting"><i class="fa fa-map-marker"></i> {!! $contact->city !!} {!! $contact->zip_code !!}</div>
 					<div class="starting"><i class="fa fa-flag"></i> {!! $contact->country !!} </div>

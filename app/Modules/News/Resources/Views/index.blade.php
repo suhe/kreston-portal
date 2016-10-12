@@ -38,17 +38,27 @@
       <div id="sidebar" class="sidebar col-sm-3 col-md-3">
 		<aside class="widget list">
 		  <header>
-			<h3 class="title">Archives</h3>
+			<h3 class="title">{!! Lang::get('news::app.category') !!}</h3>
+		  </header>
+		  <ul>
+			@foreach($categories as $key => $category)
+				<li><a href="{!! url('news/category/'.$category->slug) !!}">{!! $category->name !!}</a></li>
+			@endforeach
+		  </ul>
+		</aside><!-- .list -->
+		
+		
+		
+		<aside class="widget list">
+		  <header>
+			<h3 class="title">{!! Lang::get('news::app.archieves') !!}</h3>
 		  </header>
 		  <ul>
 			@foreach($post_archieves as $key => $row)
 				<li class="active"><a href="{!! url('news/archieve/'.$row->url) !!}">{!! $row->periode !!}</a></li>
 			@endforeach
-
 		  </ul>
 		</aside><!-- .list -->
-		
-		
 	  </div><!-- .sidebar -->
     </div>
 @endsection

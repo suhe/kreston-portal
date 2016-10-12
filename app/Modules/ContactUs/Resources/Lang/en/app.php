@@ -8,6 +8,7 @@
 return array (
     'address' => 'Address',
     'city' => 'City',
+	'contact' => 'Contact',
     'contact name' => 'Contact Name',
     'contact us' => 'Contact Us',
     'country' => 'Country',
@@ -15,6 +16,7 @@ return array (
     'fax number' => 'Fax',
     'name' => 'Name',
 	'order' => 'Order',
+	'other contact' => 'Other contact',
     'phone number' => 'Phone',
     'website' => 'Website',
 	'zip code' => 'ZIP Code',

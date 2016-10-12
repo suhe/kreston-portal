@@ -32,6 +32,7 @@ class Navigation extends Model {
 				"name"   => (isset($data['spacing']) ? $data['spacing'] : '').$nav->name,
 				"content" =>  $nav->content,
 				"url" =>  $nav->url,
+				"post" =>  !$nav->post ? 'Page' : $nav->post,
 				"order" =>  (isset($data['spacing']) ? $data['spacing'] : '').$nav->order,
 				"is_active" => $nav->is_active,
 			);	

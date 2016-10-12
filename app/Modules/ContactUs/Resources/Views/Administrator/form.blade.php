@@ -68,12 +68,12 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<div class="form-group">
+						<!--<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('contact-us::app.contact name') !!}</label>
 							<div class="col-sm-9">
-								{!! Form::text('contact_name',isset($contact)?$contact->contact_name:null, ['class' => 'form-control input-md','id'=>'contact_name','placeholder'=>lang::get('contact-us::app.contact name'),'maxlength'=>100]) !!}
+								Form::text('contact_name',isset($contact)?$contact->contact_name:null, ['class' => 'form-control input-md','id'=>'contact_name','placeholder'=>lang::get('contact-us::app.contact name'),'maxlength'=>100])
 							</div>
-						</div>
+						</div>-->
 						<div class="form-group">
 							<label for="#" class="col-sm-3 control-label text-left">{!! Lang::get('contact-us::app.phone number') !!}</label>
 							<div class="col-sm-9">
