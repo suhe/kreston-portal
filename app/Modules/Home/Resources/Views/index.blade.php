@@ -3,12 +3,50 @@
 	<div class="slider progressive-slider load">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12">
-					<ul class="pgwSlider">
+				<div class="col-md-9">
+					<ul class="pgwSlideshow">
 						@foreach($home_banners as $key => $row)
 							<li><img src="{!! url($row->storage_location) !!}" alt="{!! $row->name !!}" data-description="{!! $row->description !!}"></li>
 						@endforeach
 					</ul>
+				</div>
+				<div class="col-md-3 latest-post">
+					<!-- Nav tabs -->
+					<div class="card">
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">News</a></li>
+                            <li role="presentation"><a href="#article" aria-controls="article" role="tab" data-toggle="tab">Article</a></li>
+                        </ul>
+						<!-- Tab panes -->
+                       <div class="tab-content" style="padding:5px 10px;">
+                           <div role="tabpanel" class="tab-pane active" id="news">
+								<ul class="most__wrap clearfix">
+									@foreach($latest_news as $key => $news)
+									<li class="most__item">
+										<div class="most__num">{!! ($key + 1) !!}</div>
+										<div class="most__title">
+											<a href="{!! url('news/read/'.$news->id.'/'.Str::slug($news->title,'-')) !!}"> {!! $news->title !!} </a>
+										</div>	
+										<span class="most__info">Reading : {!! $news->total_view !!} viewer</span>
+									</li>
+									@endforeach
+								</ul>
+							</div>
+                            <div role="tabpanel" class="tab-pane" id="article">
+								<ul class="most__wrap clearfix">
+									@foreach($latest_article as $key => $article)
+									<li class="most__item">
+										<div class="most__num">{!! ($key + 1) !!}</div>
+										<div class="most__title">
+											<a href="{!! url('article/read/'.$article->id.'/'.Str::slug($article->title,'-')) !!}"> {!! $article->title !!} </a>
+										</div>	
+										<span class="most__info">Reading : {!! $article->total_view !!} viewer</span>
+									</li>
+									@endforeach
+								</ul>
+							</div>
+                        </div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -17,7 +55,7 @@
 
 
 @section('content')
-	<div class="row">
+	<!--<div class="row">
 		<div class="col-sm-4 col-md-4">
 			<h5 class="title text-center">ACHIEVEMENTS</h5>
 			<img class="img-responsive" src="{!! Theme::asset('content/img/about-us/a1.png') !!}" />
@@ -51,11 +89,11 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>-->
 @endsection
 
 @section('latest-post')
-	<div class="slider progressive-slider load">
+	<!--<div class="slider progressive-slider load">
 	
 	<div class="container">
 		<div class="row">
@@ -85,21 +123,26 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>-->
 @endsection
 @push('css')
-	<link rel='stylesheet' href="{!! Theme::asset('css/pgwslider.min.css') !!}">
+	<link rel='stylesheet' href="{!! asset('vendor/pgwslideshow/pgwslideshow.min.css') !!}">
+	<link rel='stylesheet' href="{!! asset('vendor/pgwslideshow/pgwslideshow_light.min.css') !!}">
+	<link rel='stylesheet' href="{!! asset('vendor/perfect-scrollbar/css/perfect-scrollbar.min.css') !!}">
 @endpush
 @push('scripts')
-	<script src="{!! Theme::asset('js/pgwslider.min.js') !!}"></script>
+	
+	<script src="{!! asset('vendor/pgwslideshow/pgwslideshow.min.js') !!}"></script>
+	<script src="{!! asset('vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js') !!}"></script>
 	<script>
-    $(document).ready(function() {
-        $('.pgwSlider').pgwSlider({
-            displayControls:true,
-            maxHeight : 600,
-            adaptiveHeight: true
-        });
-    });
+    
+	$(document).ready(function() {
+		$('.pgwSlideshow').pgwSlideshow({
+			maxHeight:550,
+		});
+		
+		$('.tab-content').perfectScrollbar();
+	});
 </script
 @endpush
 

@@ -57,6 +57,17 @@
                         </ul>
                     </nav>
                 </aside>
+				<aside class="col-xs-12 col-sm-6 col-md-3 widget links">
+					<div class="title-block">
+                        <h3 class="title">Our Office</h3>
+					 </div>	
+					<div>
+						{!! Setting::get_key('company_address') !!} <br/>
+						Phone : {!! Setting::get_key('company_phone_number') !!}<br/>
+						Fax : {!! Setting::get_key('company_fax_number') !!}<br/>
+					</div>
+                   
+				</aside>
             </div>
         </div>
     </div><!-- .footer-top -->
@@ -67,15 +78,19 @@
                 <div class="copyright col-xs-12 col-sm-3 col-md-3">
                     &copy; Copyright {!! date('Y') !!} {!! Setting::get_key('company_name') !!}
                 </div>
+				
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					People do business with people they know, like and trus
+				</div>
 
-                <div class="phone col-xs-6 col-sm-3 col-md-3">
+                <!--<div class="phone col-xs-6 col-sm-3 col-md-3">
                     <strong class="title">Call:</strong> {!! Setting::get_key('company_phone_number') !!} <br>
                     <strong class="title">Fax :</strong> {!! Setting::get_key('company_fax_number') !!}<br>
                 </div>
 
                 <div class="address col-xs-6 col-sm-3 col-md-3">
                     <i class="fa fa-map-marker"></i> {!! Setting::get_key('company_address') !!} {!! Setting::get_key('company_city') !!} {!! Setting::get_key('company_country') !!}
-                </div>
+                </div>-->
 
                 <div class="col-xs-12 col-sm-3 col-md-3">
                     <a href="#" class="up">

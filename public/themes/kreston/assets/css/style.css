@@ -14436,5 +14436,86 @@ ul.list_1 li a:hover {
 	background:#efefef;
 	color:#326e99;
 }
+.card{
+	background:#fff;
+}
 
+.card .tab-content > .tab-pane, .pill-content > .pill-pane{
+	padding-top: 5px;
+}
 
+.card .tab-content {
+	height: 509px;
+	overflow: auto;
+}
+
+.card .tab-content .clearfix::after, .tab-content .clearfix::before{
+  content: "";
+  display: table;
+  line-height: 0;
+}
+
+.card .tab-content .most__wrap {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+}
+.card .tab-content  ol, .tab-content  ul {
+    list-style-image: none;
+    list-style-position: outside;
+    list-style-type: none;
+}
+.card .tab-content .most__item {
+    border-bottom-color: #ebebeb;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    display: block;
+    float: left;
+    padding-bottom: 10px;
+    padding-left: 33px;
+    padding-right: 0;
+    padding-top: 10px;
+    position: relative;
+}
+
+.card .tab-content .most__num {
+    color: #f96;
+    display: block;
+    font-size: 24px;
+    left: 0;
+    letter-spacing: -3px;
+    line-height: 1;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    position: absolute;
+    text-align: center;
+    top: 10px;
+    width: 21px;
+}
+
+.card .tab-content .mos__title{
+	font-weight:600;
+}
+
+.card .tab-content .most__title a {
+    color: inherit;
+    outline-color: -moz-use-text-color;
+    outline-style: none;
+    outline-width: 0;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+    transition-property: all;
+    transition-timing-function: ease;
+}
+
+.card .tab-content .most__info {
+    color: #8c8c8c;
+    font-size: 11px;
+}
