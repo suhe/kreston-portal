@@ -40,7 +40,7 @@
 								<td>{!! $category->slug !!}</td>
 							</tr>
 							<tr>
-								<th>{!! Lang::get('category::app.slug') !!}</th>
+								<th>{!! Lang::get('category::app.order') !!}</th>
 								<td>{!! $category->order !!}</td>
 							</tr>
 							
