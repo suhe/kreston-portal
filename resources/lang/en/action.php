@@ -33,6 +33,7 @@ return array(
     'our people' => 'Our People',
     'page' => 'Page',
 	'parent' => 'Parent',
+	'publication' => 'Publication',
 	'refresh' => 'Refresh',
     'remove' => 'Remove',
 	'reset password' => 'Reset Password',

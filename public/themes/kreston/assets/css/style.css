@@ -14546,7 +14546,7 @@ ul.list_1 li a:hover {
     border-bottom-style: solid;
     border-bottom-width: 1px;
     display: block;
-    float: left;
+    /*float: left;*/
     padding-bottom: 8px;
     padding-left: 33px;
     padding-right: 0;

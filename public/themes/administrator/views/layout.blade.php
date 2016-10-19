@@ -186,7 +186,7 @@
                     <ul class="submenu">
                         <li><a class="people" href="{!! url("people/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.our people") !!}</span></a></li>
                         <li><a class="contact" href="{!! url("contact-us/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.contact us") !!}</span></a></li>
-                        
+                        <li><a class="publication" href="{!! url("publication/administrator") !!}"><span class="menu-text">{!! Lang::get("action.publication") !!}</span></a></li>
                     </ul>
                 </li>
                 <li class="has-submenu"><a href="javascript:void(0)" class="submenu-toggle"><i

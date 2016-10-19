@@ -29,20 +29,22 @@
 					<!-- Nav tabs -->
 					<div class="card">
 						<ul class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">News</a></li>
-                            <li role="presentation"><a href="#article" aria-controls="article" role="tab" data-toggle="tab">Article</a></li>
+							<li role="presentation" class="active"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">{!! Lang::get('action.news') !!}</a></li>
+                            <li role="presentation"><a href="#article" aria-controls="article" role="tab" data-toggle="tab">{!! Lang::get('action.article') !!}</a></li>
+							<li role="presentation"><a href="#publication" aria-controls="publication" role="tab" data-toggle="tab">{!! Lang::get('action.publication') !!}</a></li>
                         </ul>
 						<!-- Tab panes -->
                        <div class="tab-content" style="padding:5px 10px;">
                            <div role="tabpanel" class="tab-pane active" id="news">
 								<ul class="most__wrap clearfix">
+									
 									@foreach($latest_news as $key => $news)
 									<li class="most__item">
 										<div class="most__num">{!! ($key + 1) !!}</div>
 										<div class="most__title">
-											<a class="latest-post" href="{!! url('news/read/'.$news->id.'/'.Str::slug($news->title,'-')) !!}" data-toggle="tooltip" title="{!! $news->title !!}"> {!! str_limit($news->title,35,'') !!} </a>
+											<a target="_blank" class="latest-post" href="{!! url('news/read/'.$news->id.'/'.Str::slug($news->title,'-')) !!}" data-toggle="tooltip" title="{!! $news->title !!}"> {!! str_limit($news->title,35,'') !!} </a>
 										</div>	
-										<!--<span class="most__info">Reading : {!! $news->total_view !!} viewer</span>-->
+										
 									</li>
 									@endforeach
 								</ul>
@@ -56,6 +58,19 @@
 											<a class="latest-post" href="{!! url('article/read/'.$article->id.'/'.Str::slug($article->title,'-')) !!}" data-toggle="tooltip" title="{!! $article->title !!}"> {!! str_limit($article->title,35,'') !!} </a>
 										</div>	
 										<!--<span class="most__info">Reading : {!! $article->total_view !!} viewer</span>-->
+									</li>
+									@endforeach
+								</ul>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="publication">
+								<ul class="most__wrap clearfix">
+									@foreach($latest_publications as $key => $pub)
+									<li class="most__item">
+										<div class="most__num">{!! ($key + 1) !!}</div>
+										<div class="most__title">
+											<a target="_blank" class="latest-post" href="{!! url($pub->storage_location) !!}" data-toggle="tooltip" title="{!! $pub->title !!}"> {!! str_limit($pub->title,35,'') !!} </a>
+										</div>	
+										
 									</li>
 									@endforeach
 								</ul>

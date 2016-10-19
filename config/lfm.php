@@ -51,6 +51,8 @@ return [
         'image/png',
         'image/gif',
         'application/pdf',
+		'application/vnd.ms-excel',
+		'application/vnd.ms-office',
         'text/plain',
     ],
 
