@@ -12,7 +12,9 @@ use App\Modules\ContactUs\Models\ContactUs;
 use App\Modules\People\Models\People;
 use Breadcrumbs;
 use Lang;
+use Menu;
 use SEOMeta;
+use Session;
 use Setting;
 use Theme;
 
@@ -34,6 +36,19 @@ class PeopleController extends Controller {
 			$people = People::where(['slug' => $slug])->first();
 			$breadcrumbs->parent('home');
 			$breadcrumbs->push($people->name, url('people/'.$people->slug));
+		});
+		
+		Menu::make('our_partner_links', function($menu) {
+			$Contact = new ContactUs();
+			$groups  = $Contact->getNavigation();
+			foreach($groups as $xkey => $nav_item) {
+				$sub_menu_contact = $menu->add($nav_item->name, url('/people/office/'.$nav_item->slug));
+				$People = new People();
+				$sub_menu_people  = $People->where(['is_active' => 1,'contact_id' => $nav_item->id])->orderBy('name','asc')->get();
+				foreach($sub_menu_people as $xkey => $sub_nav) {
+					$sub_menu_contact->add($sub_nav->name, url('/people/'.$sub_nav->slug));
+				}
+			} 
 		});
     }
 	
@@ -64,12 +79,18 @@ class PeopleController extends Controller {
 		
 	}
 
-    public function show($slug,People $people) {
+    public function show($slug,People $people,ContactUs $contact) {
 		$xpeople = $people->where(['slug' => $slug])->first();
 		SEOMeta::setTitle(Setting::get_key('company_name').' '.$people->name)
 		->setDescription($people->description)
 		->setCanonical(url('/'))
 		->addKeyword($people->name);
+		
+		//get slug
+		$contact = $contact->where('id',$xpeople->contact_id)->first();
+		if($contact) {
+			Session::put('people_office_url', url('/people/office/'.$contact->slug));
+		}
 		
         return Theme::view ('people::single',array(
             'people' => $xpeople,

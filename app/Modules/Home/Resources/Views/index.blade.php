@@ -4,11 +4,26 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9">
-					<ul class="pgwSlideshow">
-						@foreach($home_banners as $key => $row)
-							<li><img src="{!! url($row->storage_location) !!}" alt="{!! $row->name !!}" data-description="{!! $row->description !!}"></li>
-						@endforeach
-					</ul>
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="pgwSlideshow">
+								@foreach($home_banners as $key => $row)
+									<li><img src="{!! url($row->storage_location) !!}" alt="{!! $row->name !!}" data-description="{!! $row->description !!}"></li>
+								@endforeach
+							</ul>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-12 col-sm-12">
+							<div class="content" style="background:#fff;padding:15px;margin-top:20px;margin-bottom:10px">
+								<h1 class="title">Welcome to Kreston Indonesia</h1>
+								<p>Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil sebuah kumpulan teks dan mengacaknya untuk menjadi sebuah buku contoh huruf. Ia tidak hanya bertahan selama 5 abad, tapi juga telah beralih ke penataan huruf elektronik, tanpa ada perubahan apapun. Ia mulai dipopulerkan pada tahun 1960 dengan diluncurkannya lembaran-lembaran Letraset yang menggunakan kalimat-kalimat dari Lorem Ipsum, dan seiring munculnya perangkat lunak Desktop Publishing seperti Aldus PageMaker juga memiliki versi Lorem Ipsum.</p>
+								<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+							</div>
+						</div>
+					</div>	
+					
 				</div>
 				<div class="col-md-3 latest-post">
 					<!-- Nav tabs -->
@@ -25,9 +40,9 @@
 									<li class="most__item">
 										<div class="most__num">{!! ($key + 1) !!}</div>
 										<div class="most__title">
-											<a href="{!! url('news/read/'.$news->id.'/'.Str::slug($news->title,'-')) !!}"> {!! $news->title !!} </a>
+											<a class="latest-post" href="{!! url('news/read/'.$news->id.'/'.Str::slug($news->title,'-')) !!}" data-toggle="tooltip" title="{!! $news->title !!}"> {!! str_limit($news->title,35,'') !!} </a>
 										</div>	
-										<span class="most__info">Reading : {!! $news->total_view !!} viewer</span>
+										<!--<span class="most__info">Reading : {!! $news->total_view !!} viewer</span>-->
 									</li>
 									@endforeach
 								</ul>
@@ -38,93 +53,46 @@
 									<li class="most__item">
 										<div class="most__num">{!! ($key + 1) !!}</div>
 										<div class="most__title">
-											<a href="{!! url('article/read/'.$article->id.'/'.Str::slug($article->title,'-')) !!}"> {!! $article->title !!} </a>
+											<a class="latest-post" href="{!! url('article/read/'.$article->id.'/'.Str::slug($article->title,'-')) !!}" data-toggle="tooltip" title="{!! $article->title !!}"> {!! str_limit($article->title,35,'') !!} </a>
 										</div>	
-										<span class="most__info">Reading : {!! $article->total_view !!} viewer</span>
+										<!--<span class="most__info">Reading : {!! $article->total_view !!} viewer</span>-->
 									</li>
 									@endforeach
 								</ul>
 							</div>
                         </div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-@endsection
-
-
-@section('content')
-	<!--<div class="row">
-		<div class="col-sm-4 col-md-4">
-			<h5 class="title text-center">ACHIEVEMENTS</h5>
-			<img class="img-responsive" src="{!! Theme::asset('content/img/about-us/a1.png') !!}" />
-			<div class="text-small">
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-				<div class="clearfix"></div><br>
-				<div class="text-center">
-					<button class="btn btn-default">Read more</button>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4 col-md-4">
-			<h5 class="title text-center">TESTIMONIALS</h5>
-			<img class="img-responsive" src="{!! Theme::asset('content/img/about-us/a2.png') !!}" />
-			<div class="text-small">
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-				<div class="clearfix"></div><br>
-				<div class="text-center">
-					<button class="btn btn-default">Read more</button>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-4 col-md-4">
-			<h5 class="title text-center">OUR DIVISIONS</h5>
-			<img class="img-responsive" src="{!! Theme::asset('content/img/about-us/a3.png') !!}" />
-			<div class="text-small">
-				Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.
-				<div class="clearfix"></div><br>
-				<div class="text-center">
-					<button class="btn btn-default">Read more</button>
-				</div>
-			</div>
-		</div>
-	</div>-->
-@endsection
-
-@section('latest-post')
-	<!--<div class="slider progressive-slider load">
-	
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6">
-				<div class="box_style_1">
-                    <div><span style="font-size:24px;font-weight:500">Article</span><span class="pull-right"><a href="{!! url('/article') !!}">See all <i class="icon-right-dir"></i></a></span></div>
-                    <hr>
-					<ul class="list_1">
-						@foreach($latest_article as $key => $article)
-							<li><a href="{!! url('article/read/'.$article->id.'/'.Str::slug($article->title,'-')) !!}"><i class="fa fa-caret-right"></i> {!! $article->title !!}</a></li>
-						@endforeach
-                    </ul>		
+					
+					<div class="banner" style="margin-top:20px;">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="panel panel-primary">
+								  <div class="panel-heading">Accounting Visset</div>
+								  <div class="panel-body" style="padding:0px">
+									<img class="img-responsive" src="{!! asset('banner/1.jpg') !!}" />
+								  </div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="panel panel-primary">
+								  <div class="panel-heading">Finibus Finance</div>
+								  <div class="panel-body" style="padding:0px">
+									<img class="img-responsive" src="{!! asset('banner/2.png') !!}" />
+								  </div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 			</div>
 			
-			<div class="col-md-6">
-				<div class="box_style_1">
-                    <div><span style="font-size:24px;font-weight:500"> News</span><span class="pull-right"><a href="{!! url('/news') !!}">See all <i class="icon-right-dir"></i></a></span></div>
-                    <hr>
-                    <ul class="list_1">
-						@foreach($latest_news as $key => $news)
-							<li><a href="{!! url('news/read/'.$news->id.'/'.Str::slug($news->title,'-')) !!}"><i class="fa fa-caret-right"></i> {!! $news->title !!}</a></li>
-						@endforeach
-                    </ul>
-                     
-           </div>
-			</div>
+			
+			
 		</div>
 	</div>
-</div>-->
 @endsection
+
 @push('css')
 	<link rel='stylesheet' href="{!! asset('vendor/pgwslideshow/pgwslideshow.min.css') !!}">
 	<link rel='stylesheet' href="{!! asset('vendor/pgwslideshow/pgwslideshow_light.min.css') !!}">
@@ -139,8 +107,12 @@
 	$(document).ready(function() {
 		$('.pgwSlideshow').pgwSlideshow({
 			maxHeight:550,
+			autoSlide:true,
 		});
-		
+		$('[data-toggle="tooltip"]').tooltip({
+			placement:"bottom",
+			
+		}); 
 		$('.tab-content').perfectScrollbar();
 	});
 </script

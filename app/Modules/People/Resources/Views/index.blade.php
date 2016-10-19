@@ -23,10 +23,7 @@
                 </header>
                 <nav>
                     <ul>
-						@foreach($our_peoples as $key => $row)
-							<li class="{!! Request::segment(2) == $row->slug ? 'active' : '' !!}"><a href="{!! url('people/'.$row->slug) !!}">{!! $row->name !!}</a></li>
-						@endforeach
-                        
+						@include('kreston::our-people-links', array('items' => $our_partner_links->roots()))
                     </ul>
                 </nav>
             </aside><!-- .menu-->

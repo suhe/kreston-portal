@@ -23,9 +23,7 @@
                 </header>
                 <nav>
                     <ul>
-						@foreach($our_contacts as $key => $contact)
-							<li class="{!! Request::segment(3) == $contact->slug ? 'active' : '' !!}"><a href="{!! url('people/office/'.$contact->slug) !!}">{!! $contact->name !!}</a></li>
-						@endforeach
+						@include('kreston::our-people-links', array('items' => $our_partner_links->roots()))
                         
                     </ul>
                 </nav>

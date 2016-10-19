@@ -63,6 +63,7 @@ class ImageRepository {
         $image = new Image;
         $image->gallery_event_id =$form_data['gallery_event_id'];
         $image->photo_storage_location = $image_folder.'/'.$allowed_filename;
+		$image->description = $originalNameWithoutExt;
         $image->created_at = date("Y-m-d H:i:s");
         $image->created_by = Auth::user()->id;
         $image->updated_at = date("Y-m-d H:i:s");

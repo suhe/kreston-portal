@@ -9,10 +9,14 @@
 					<div class="row">
 					  @foreach($photos as $key => $photo)
 					  <div class="images-box col-sm-4 col-md-4">
-						<a class="gallery-images" rel="fancybox" href="{!! url($photo->photo_storage_location) !!}">
+						<a class="gallery-images" title="{!! $photo->description !!}" rel="fancybox" href="{!! url($photo->photo_storage_location) !!}">
 						  <img class="replace-2x img-responsive" src="{{ url(ImageManager::getImagePath($photo->photo_storage_location, 297, 157, 'crop')) }}"  alt="">
 						  <span class="bg-images"><i class="fa fa-search"></i></span>
 						</a>
+						<div class="caption">
+							<p>{!! $photo->description !!}</p>
+						</div>
+						
 					  </div><!-- .images-box -->
 					  @endforeach
 		  
@@ -47,6 +51,34 @@
 
 @push('css')
 	<link rel="stylesheet" href="{!! Theme::asset('css/jquery.fancybox.css') !!}">
+	<style>
+		
+		.caption {
+			margin:5px;
+			width:100%;
+			padding:5px;
+			bottom: 0px;
+			position: absolute;
+			background:#fff;
+			background: -webkit-linear-gradient(bottom, #fff 80%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+			background: -moz-linear-gradient(bottom, #fff 80%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+			background: -o-linear-gradient(bottom, #fff 80%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+			background: linear-gradient(to top, #fff 80%, rgba(0, 0, 0, 0) 100%) repeat scroll 0 0 rgba(0, 0, 0, 0);
+		}
+
+		.images-box {
+			border: 0 none;
+			box-shadow: none;
+			margin:0;
+			padding:0;
+		}
+
+		.caption p {
+			color: #333;
+			-webkit-font-smoothing: antialiased;
+		}
+    
+	</style>
 @endpush
 @push('scripts')
 	<script src="{!! Theme::asset('js/jquery.fancybox.pack.js') !!}"></script>
