@@ -39,6 +39,10 @@
 								<th>{!! Lang::get('category::app.slug') !!}</th>
 								<td>{!! $category->slug !!}</td>
 							</tr>
+							<tr>
+								<th>{!! Lang::get('category::app.slug') !!}</th>
+								<td>{!! $category->order !!}</td>
+							</tr>
 							
 						</table>
 					</div>

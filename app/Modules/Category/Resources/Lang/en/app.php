@@ -8,5 +8,6 @@
 return array(
 	'category' => 'Category',
     'name' => 'Category Name',
+	'order' => 'Order',
     'slug' => 'Slug',
 );

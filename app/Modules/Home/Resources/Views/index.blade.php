@@ -85,7 +85,7 @@
 								<div class="panel panel-primary">
 								  <div class="panel-heading">{!! $row->name !!}</div>
 								  <div class="panel-body" style="padding:0px">
-									<img class="img-responsive" src="{!! asset($row->storage_location) !!}" />
+									<a href="{!! $row->link !!}"><img class="img-responsive" src="{!! asset($row->storage_location) !!}" /></a>
 								  </div>
 								</div>
 							</div>

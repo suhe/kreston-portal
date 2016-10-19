@@ -36,6 +36,12 @@
 								{!! Form::text('name',isset($category)?$category->name:null, ['class' => 'form-control input-md','id'=>'name','placeholder'=>lang::get('category::app.name'),'maxlength'=>100]) !!}
 							</div>
                         </div>
+						<div class="form-group">
+							<label for="first_name" class="col-sm-2 control-label text-left">{!! Lang::get('category::app.order') !!}</label>
+                            <div class="col-sm-2">
+								{!! Form::text('order',isset($category)?$category->order:0, ['class' => 'form-control input-md','id'=>'order','placeholder'=>'0','maxlength'=>3]) !!}
+							</div>
+                        </div>
 					</div>
 				</div>
             </div>

@@ -33,7 +33,7 @@ class CategoryController extends Controller {
         return Theme::view ('category::Administrator.index',array(
             'categories' =>  $home_banner
                 ->where("name", "like", "%".Request::get("name")."%")
-                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
+                ->sortable(['order' => 'asc'])->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
         ));
     }
 
@@ -81,14 +81,17 @@ class CategoryController extends Controller {
         $id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
         $name = Input::get("name");
         $slug = Str::slug($name,"-");
+		$order = Input::get("order");
         $description = Input::get('description');
 
         $field = array (
             'name' => $name,
+			'order' => $order,
         );
 
         $rules = array (
             'name' => 'required',
+			'order' => 'required',
         );
 
         $validate = Validator::make($field,$rules);
@@ -103,13 +106,15 @@ class CategoryController extends Controller {
                 $category = $category->find($id);
                 $category->name  = $name;
                 $category->slug = $slug;
+				$category->order = $order;
 				$category->updated_by = Auth::user()->id;
                 $category->updated_at = date("Y-m-d H:i:s");
                 $category->save();
                 $message = Lang::get('category::message.update successfully');
             } else {
-                 $category->name  = $name;
+                $category->name  = $name;
                 $category->slug = $slug;
+				$category->order = $order;
                 $category->created_at = date("Y-m-d H:i:s");
                 $category->created_by = Auth::user()->id;
                 $category->updated_at = date("Y-m-d H:i:s");

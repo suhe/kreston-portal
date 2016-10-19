@@ -34,6 +34,7 @@
                         <th class="col-sm-2">@sortablelink('name')</th>
                         <th class="col-sm-2">@sortablelink('slug')</th>
                         <th class="col-sm-2 text-center">{!! Lang::get('action.active') !!}</th>
+						<th class="col-sm-1">@sortablelink('order')</th>
                         <th class="col-sm-1">{!! Lang::get('action.edit') !!}</th>
                     </tr>
 
@@ -43,6 +44,7 @@
                             <td>{!! $category->name !!}</td>
                             <td>{!! $category->slug !!}</td>
                             <td class="text-center">{!! $category->is_active == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
+							<td>{!! $category->order !!}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">

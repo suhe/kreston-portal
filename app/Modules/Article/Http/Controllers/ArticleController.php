@@ -44,7 +44,7 @@ class ArticleController extends Controller {
 			->where('is_active',1)
 			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
 			->orderBy("created_at",SORT_DESC)->get(),
-			'categories' => $category->where('is_active',1)->get(),		
+			'categories' => $category->where('is_active',1)->orderBy('order','asc')->get(),		
         ));
 	}
 	
@@ -66,7 +66,7 @@ class ArticleController extends Controller {
 			->where('is_active',1)
 			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
 			->orderBy("created_at",SORT_DESC)->get(),	
-			'categories' => $category->where('is_active',1)->get(),
+			'categories' => $category->where('is_active',1)->orderBy('order','asc')->get(),
 			//'latest_posts' => $post->where('is_active',1)->orderBy('created_at','desc')->get(10),
 
         ));
@@ -93,7 +93,7 @@ class ArticleController extends Controller {
 			->where('is_active',1)
 			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
 			->orderBy("created_at",SORT_DESC)->get(),
-			'categories' => $category->where('is_active',1)->get(),		
+			'categories' => $category->where('is_active',1)->orderBy('order','asc')->get(),		
         ));
     }
 	
@@ -114,7 +114,8 @@ class ArticleController extends Controller {
 			'post_archieves' => $post->selectRaw("CONCAT(YEAR(created_at),'/',MONTH(created_at)) as url,CONCAT(MONTHNAME(created_at),' ',YEAR(created_at)) as periode")
 			->where('is_active',1)
 			->groupBy(DB::raw("YEAR(created_at),MONTH(created_at)"))
-			->orderBy("created_at",SORT_DESC)->get(),	
+			->orderBy("created_at",SORT_DESC)->get(),
+			'categories' => $category->where('is_active',1)->orderBy('order','asc')->get(),			
         ));	
 	}
 	

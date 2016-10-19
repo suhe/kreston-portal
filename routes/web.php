@@ -52,7 +52,7 @@ Menu::make('MyNavBar', function($menu) use($NavBar)  {
 			
 		} else if($nav->post == 'News' || $nav->post == 'Article') {
 			$Category = new Category();
-			$nav_items = $Category->where('is_active',1)->orderBy('name','asc')->get();
+			$nav_items = $Category->where('is_active',1)->orderBy('order','asc')->get();
 			foreach($nav_items as $xkey => $nav_item) {
 				$sub_menu_category = $nav_bar->add($nav_item->name, url($nav->url.'/category/'.$nav_item->slug));
 				$Post = new Post();

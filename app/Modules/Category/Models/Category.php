@@ -17,11 +17,11 @@ class Category extends Model {
     protected $fillable = ['id','name','slug'];
     protected $primaryKey = 'id';
     public $timestamps = false;
-    public $sortable = ['id', 'name', 'slug'];
+    public $sortable = ['id', 'name', 'slug','order'];
 	
 	public static function dropdown($label = null) {
 		$data =array();
-		$categories = self::where('is_active',1)->orderBy('name','asc')->get();
+		$categories = self::where('is_active',1)->orderBy('order','asc')->get();
 		foreach($categories as $key => $category) {
 			$data[$category->id] = $category->name;
 		}
