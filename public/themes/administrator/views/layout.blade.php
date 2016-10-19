@@ -161,9 +161,10 @@
                     <a href="javascript:void(0)" class="submenu-toggle"  >
                         <i class="menu-icon zmdi zmdi-puzzle-piece zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.home page") !!}</span>
                         <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
-                    <ul class="submenu active">
+                    <ul class="submenu">
                         <li><a class="home_banner" href="{!! url("home-banner/administrator") !!}"><span class="menu-text">{!! Lang::get("action.banner") !!}</span></a></li>
-                    </ul>
+						<li><a class="advertising" href="{!! url("advertising/administrator") !!}"><span class="menu-text">{!! Lang::get("action.advertising") !!}</span></a></li>
+					</ul>
                 </li>
                 <li>
                     <a class="job_vacancy" href="{!! url("job-vacancy/administrator/index") !!}"><i class="menu-icon zmdi zmdi-search zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.job vacancy") !!}</span></a>

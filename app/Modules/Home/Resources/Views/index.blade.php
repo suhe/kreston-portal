@@ -65,30 +65,22 @@
 					
 					<div class="banner" style="margin-top:20px;">
 						<div class="row">
+							@foreach($advertisings as $key => $row)
 							<div class="col-md-12">
 								<div class="panel panel-primary">
-								  <div class="panel-heading">Accounting Visset</div>
+								  <div class="panel-heading">{!! $row->name !!}</div>
 								  <div class="panel-body" style="padding:0px">
-									<img class="img-responsive" src="{!! asset('banner/1.jpg') !!}" />
+									<img class="img-responsive" src="{!! asset($row->storage_location) !!}" />
 								  </div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="panel panel-primary">
-								  <div class="panel-heading">Finibus Finance</div>
-								  <div class="panel-body" style="padding:0px">
-									<img class="img-responsive" src="{!! asset('banner/2.png') !!}" />
-								  </div>
-								</div>
-							</div>
+							@endforeach
+							
 						</div>
 					</div>
 					
 				</div>
-			</div>
-			
-			
-			
+			</div>			
 		</div>
 	</div>
 @endsection

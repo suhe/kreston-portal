@@ -1,21 +1,21 @@
 @extends('administrator::layout')
 @section('content')
-	{!! Form::open(['url' => 'home-banner/administrator/update','id'=>'home_banner_form','class'=>'form-horizontal']) !!}
-	{!! Form::hidden('id', isset($home_banner) ?  Crypt::encrypt($home_banner->id) : null, ['id' => 'id']) !!}
+	{!! Form::open(['url' => 'advertising/administrator/update','id'=>'advertising_form','class'=>'form-horizontal']) !!}
+	{!! Form::hidden('id', isset($advertising) ?  Crypt::encrypt($advertising->id) : null, ['id' => 'id']) !!}
     <!-- Panel Header -->
     <div class="row">
         <div class="col-md-12">
             <div class="panel p-xs">
                 <div class="panel-heading clearfix">
                     <div class="col-md-2">
-                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><i class="fa fa-flag"></i>  {!! Lang::get('home-banner::app.home banner') !!}</h4>
+                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><i class="fa fa-flag"></i>  {!! Lang::get('advertising::app.advertising') !!}</h4>
                     </div>
 
                     <div class="col-md-10">
                         <div class="pull-right">
                             <div class="btn-group pull-right">
 								<button class="btn btn-primary btn-sm" type="submit" id="btn-submit"><i class="fa fa-save"></i> {!! Lang::get('action.save') !!}</button>
-								<a href="{!! url('home-banner/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
+								<a href="{!! url('advertising/administrator') !!}" class="btn btn-primary btn-sm"><i class="fa fa-undo"></i> {!! Lang::get("action.back") !!}</a>
                             </div>
                         </div>
                     </div>
@@ -31,13 +31,13 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
-							<label for="first_name" class="col-sm-2 control-label text-left">{!! Lang::get('home-banner::app.name') !!}</label>
+							<label for="first_name" class="col-sm-2 control-label text-left">{!! Lang::get('advertising::app.name') !!}</label>
                             <div class="col-sm-10">
-								{!! Form::text('name',isset($home_banner)?$home_banner->name:null, ['class' => 'form-control input-md','id'=>'name','placeholder'=>lang::get('home-banner::app.name'),'maxlength'=>100]) !!}
+								{!! Form::text('name',isset($advertising)?$advertising->name:null, ['class' => 'form-control input-md','id'=>'name','placeholder'=>lang::get('advertising::app.name'),'maxlength'=>100]) !!}
 							</div>
                         </div>
 						<div class="form-group">
-							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('home-banner::app.image') !!}</label>
+							<label for="#" class="col-sm-2 control-label text-left">{!! Lang::get('advertising::app.image') !!}</label>
                             <div class="col-sm-10">
 								<div class="input-group">
 									  <span class="input-group-btn">
@@ -45,15 +45,21 @@
 										  <i class="fa fa-picture-o"></i> {!! Lang::get('action.choose') !!}
 										</a>
 									  </span>
-									<input id="thumbnail" class="form-control" type="text" value="{!! isset($home_banner)?url($home_banner->storage_location):null !!}" name="filepath">
+									<input id="thumbnail" class="form-control" type="text" value="{!! isset($advertising)?url($advertising->storage_location):null !!}" name="filepath">
 								</div>
-								<img id="holder" @if(isset($home_banner)) src="{!! url($home_banner->storage_location) !!}" @endif style="margin-top:15px;">
+								<img id="holder" @if(isset($advertising)) src="{!! url($advertising->storage_location) !!}" @endif style="margin-top:15px;">
 							</div>
                         </div>
 						<div class="form-group">
-							<label for="description" class="col-sm-2 control-label text-left">{!! Lang::get('home-banner::app.description') !!}</label>
+							<label for="first_name" class="col-sm-2 control-label text-left">{!! Lang::get('advertising::app.link') !!}</label>
+                            <div class="col-sm-10">
+								{!! Form::text('link',isset($advertising)?$advertising->link:"http://", ['class' => 'form-control input-md','id'=>'link','placeholder'=>lang::get('advertising::app.link'),'maxlength'=>255]) !!}
+							</div>
+                        </div>
+						<div class="form-group">
+							<label for="description" class="col-sm-2 control-label text-left">{!! Lang::get('advertising::app.description') !!}</label>
 							<div class="col-sm-10">
-								{!! Form::textarea('description',isset($home_banner)?$home_banner->description:null, ['class' => 'form-control input-md','id'=>'description','placeholder'=>lang::get('home-banner::app.description')]) !!}
+								{!! Form::textarea('description',isset($advertising)?$advertising->description:null, ['class' => 'form-control input-md','id'=>'description','placeholder'=>lang::get('advertising::app.description')]) !!}
 							</div>
 						</div>
 					</div>
@@ -69,7 +75,7 @@
     <script type="text/javascript">
 		$(function() {
 			$('#lfm').filemanager('image','{!! url("/") !!}');
-			$('#home_banner_form').on('submit', function(event) {
+			$('#advertising_form').on('submit', function(event) {
 				event.preventDefault();
 				$("#divLoading").addClass('show');
 				$.ajax({

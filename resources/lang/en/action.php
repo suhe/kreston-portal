@@ -3,6 +3,7 @@ return array(
     'active' => 'Active',
 	'add new' => 'Add New',
     'administration' => 'Administration',
+	'advertising' => 'Advertising',
 	'article' => 'Article',
 	'back' => 'Back',
     'banner' => 'Banner',

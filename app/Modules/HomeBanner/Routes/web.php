@@ -11,8 +11,8 @@
 |
 */
 
-Route::group(['prefix' => 'home-banner','middleware' => ['permission']], function() {
-    Route::group(['prefix' => 'administrator'], function() {
+Route::group(['prefix' => 'home-banner'], function() {
+    Route::group(['prefix' => 'administrator','middleware' => ['permission']], function() {
         Route::get('/', 'Administrator\HomeBannerController@index');
         Route::get('/view/{id}', 'Administrator\HomeBannerController@view');
 		Route::get('/status/{id}', 'Administrator\HomeBannerController@status');
