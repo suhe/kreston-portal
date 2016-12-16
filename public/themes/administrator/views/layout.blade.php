@@ -29,8 +29,9 @@
         <button type="button" class="navbar-toggle navbar-toggle-right collapsed" data-toggle="collapse"
                 data-target="#navbar-search" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span
                     class="zmdi zmdi-hc-lg zmdi-search"></span></button>
-        <a href="index.html" class="navbar-brand"><span class="brand-icon"><i class="fa fa-gg"></i></span> <span
-                    class="brand-name">Infinity</span></a>
+        <a href="{!! url('/') !!}" class="navbar-brand">
+			<img src="{!! Theme::asset('images/small-logo.png') !!}" />
+		</a>
     </div>
 
     <div class="navbar-container container-fluid">
@@ -150,10 +151,10 @@
             <ul class="app-menu">
                 <li class="has-submenu"><a href="javascript:void(0)" class="submenu-toggle"><i
                                 class="menu-icon zmdi zmdi-view-dashboard zmdi-hc-lg"></i> <span
-                                class="menu-text">Dashboards</span> <i
+                                class="menu-text">{!! Lang::get("action.dashboard") !!}</span> <i
                                 class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
-                        <li><a href="index.html"><span class="menu-text">Web Statistic</span></a></li>
+                        <li><a href="{!! url('/dashboard') !!}"><span class="menu-text">{!! Lang::get("action.web statistic") !!}</span></a></li>
                     </ul>
                 </li>
 
@@ -162,6 +163,7 @@
                         <i class="menu-icon zmdi zmdi-puzzle-piece zmdi-hc-lg"></i> <span class="menu-text">{!! Lang::get("action.home page") !!}</span>
                         <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
+						<li><a class="popup_banner" href="{!! url("popup-banner/administrator") !!}"><span class="menu-text">{!! Lang::get("action.popup banner") !!}</span></a></li>
                         <li><a class="home_banner" href="{!! url("home-banner/administrator") !!}"><span class="menu-text">{!! Lang::get("action.banner") !!}</span></a></li>
 						<li><a class="advertising" href="{!! url("advertising/administrator") !!}"><span class="menu-text">{!! Lang::get("action.advertising") !!}</span></a></li>
 					</ul>

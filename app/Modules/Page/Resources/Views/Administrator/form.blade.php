@@ -40,6 +40,9 @@
 							{!! Form::textarea('content',isset($page)?$page->content:null, ['class' => 'form-control input-lg','id'=>'content','placeholder'=> Lang::get('page::app.content'),'rows' => 20]) !!}
 						</div>
 						<div class="form-group">
+							{!! Form::textarea('short_content',isset($page)?$page->short_content:null, ['class' => 'form-control input-lg','id'=>'short_content','placeholder'=> Lang::get('page::app.short content'),'rows' => 10]) !!}
+						</div>
+						<div class="form-group">
 							{!! Form::select('related_page[]',$page_related,$related_page, ['class' => 'chosen form-control input-lg','id'=>'parent_id','data-placeholder'=> Lang::get('page::app.related page'),'multiple' => true]) !!}
 						</div>
 						<div class="form-group">
@@ -70,13 +73,14 @@
 	<script src="{!! url('vendor/unisharp/laravel-ckeditor/ckeditor.js') !!}"></script>
 	<script type="text/javascript">
 		$(".chosen").chosen();
-		CKEDITOR.config.extraPlugins = 'justify';
+		CKEDITOR.config.extraPlugins = 'justify,colorbutton,link';
 		CKEDITOR.replace( 'content', {
 			toolbarGroups: [
-				{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ] },
+				{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ,'colors'] },
 				{ name: 'styles' },
 				{ name: 'insert' },
-				{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ] },
+				{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup'] },
+				{ name: 'links', groups : [ 'link','unlink','anchor' ]},
 				{ name: 'tools', groups: [ 'Maximize' ] },
 				{ name: 'mode' },
 			],
@@ -84,6 +88,18 @@
 			filebrowserImageUploadUrl: '{!! url("/") !!}/filemanager/upload?type=Images&_token={{csrf_token()}}',
 			filebrowserBrowseUrl: '{!! url("/") !!}/filemanager?type=Files',
 			filebrowserUploadUrl: '{!! url("/") !!}/filemanager/upload?type=Files&_token={{csrf_token()}}'
+		});
+		
+		CKEDITOR.replace( 'short_content', {
+			toolbarGroups: [
+				{ name: 'paragraph', groups: [ 'list', 'indent', 'blocks', 'align', 'bidi' ,'colors'] },
+				{ name: 'styles' },
+				{ name: 'insert' },
+				{ name: 'basicstyles', groups: [ 'basicstyles', 'cleanup'] },
+				{ name: 'links', groups : [ 'link','unlink','anchor' ]},
+				{ name: 'tools', groups: [ 'Maximize' ] },
+				{ name: 'mode' },
+			],
 		});
 	</script>
 

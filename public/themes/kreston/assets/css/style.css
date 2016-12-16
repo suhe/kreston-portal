@@ -1482,7 +1482,7 @@ blockquote small {
     font-size: 26px;
     position: absolute;
     right: 20px;
-    top: 20px
+    top: 10px
 }
 
 .modal .close span {
@@ -2776,8 +2776,9 @@ a.edit i:before {
     color:#00607a;
 	font-size:9pt;
 	font-weight:600;
+	text-transform:uppercase;
     line-height: 20px;
-    padding: 11px 10px;
+    padding: 11px 8px;
     position: static;
     text-shadow: none;
     -webkit-transition: all 0.2s linear;
@@ -4378,7 +4379,10 @@ a.edit i:before {
 }
 
 #main {
-    padding: 40px 0
+    padding: 40px 0;
+	background-image: url("../img/bottom-background2.png"),url("../img/top-background2.png");
+	background-repeat: no-repeat,no-repeat;
+	background-position: left bottom,right top; 
 }
 
 #main.no-padding {
@@ -4829,6 +4833,9 @@ a.edit i:before {
 
 .slider {
     background: #f2f2f2;
+	background-image: url("../img/bottom-background2.png"),url("../img/top-background2.png");
+	background-repeat: no-repeat,no-repeat;
+	background-position: left bottom,right top; 
     padding: 54px 0
 }
 
@@ -5500,11 +5507,10 @@ a.edit i:before {
 }
 
 .sidebar .widget header .title, .sidebar .widget .title-block .title {
-    color: #00607a;
-	font-weight:600;
+    color: #FF0000;
+	font-weight:1200;
 	text-transform:uppercase;
     font-size: 18px;
-    font-weight: normal;
     line-height: 1;
     margin: 0
 }

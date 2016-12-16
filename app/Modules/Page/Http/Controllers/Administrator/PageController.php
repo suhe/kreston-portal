@@ -101,6 +101,7 @@ class PageController extends Controller {
 		$parent_id = Input::get("parent_id");
         $category_id = 1;
         $content = Input::get("content");
+		$short_content = Input::get("short_content");
 		$meta_keyword = Input::get("meta_keyword");
 		$meta_description = Input::get("meta_description");
 		$blade_template = Input::get("template");
@@ -158,6 +159,7 @@ class PageController extends Controller {
                 $page->url  = '/page/'.Str::slug($name,'-');
                 $page->parent_id = $parent_id;
                 $page->content = $content;
+				$page->short_content = $short_content;
 				$page->related_page = $link_page;
 				$page->related_navigation= $link_navigation;
 				$page->meta_keyword = $meta_keyword;
@@ -173,6 +175,7 @@ class PageController extends Controller {
                 $page->url  = '/page/'.Str::slug($name,'-');
                 $page->parent_id = $parent_id;
                 $page->content = $content;
+				$page->short_content = $short_content;
 				$page->related_page = $link_page;
 				$page->related_navigation= $link_navigation;
 				$page->meta_keyword = $meta_keyword;

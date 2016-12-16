@@ -15,5 +15,6 @@ return array (
 	'meta keyword'=> 'SEO Meta Keyword',
 	'related page' => 'Related Page',
 	'related url' => 'Related Url',
+	'short content' => 'Short Content',
 	'url' => 'Url',
 );
