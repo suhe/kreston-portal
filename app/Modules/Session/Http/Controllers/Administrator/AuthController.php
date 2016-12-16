@@ -29,7 +29,7 @@ class AuthController extends Controller {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('action.login'));
 		
         if(Auth::check())
-            return Redirect::intended('/user/administrator/');
+            return Redirect::intended('/dashboard');
         return Theme::view ('session::Administrator.index');
     }
 
@@ -65,7 +65,7 @@ class AuthController extends Controller {
             } else {
                 $params = array(
                     'success' => true,
-                    'redirect' => url("user/administrator"),
+                    'redirect' => url("/dashboard"),
                 );
             }
         }

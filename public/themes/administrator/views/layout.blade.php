@@ -48,7 +48,8 @@
                 <li class="nav-item dropdown hidden-float"><a href="javascript:void(0)" data-toggle="collapse"
                                                               data-target="#navbar-search" aria-expanded="false"><i
                                 class="zmdi zmdi-hc-lg zmdi-search"></i></a></li>
-                <li class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
+                <!--
+				<li class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
                                         role="button" aria-haspopup="true" aria-expanded="false"><i
                                 class="zmdi zmdi-hc-lg zmdi-notifications"></i></a>
                     <div class="media-group dropdown-menu animated flipInY">
@@ -95,19 +96,15 @@
                                 </div>
                             </div>
                         </a></div>
-                </li>
+                </li>-->
                 <li class="dropdown"><a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown"
                                         role="button" aria-haspopup="true" aria-expanded="false"><i
                                 class="zmdi zmdi-hc-lg zmdi-settings"></i></a>
                     <ul class="dropdown-menu animated flipInY">
-                        <li><a href="javascript:void(0)"><i class="zmdi m-r-md zmdi-hc-lg zmdi-account-box"></i>My
-                                Profile</a></li>
-                        <li><a href="javascript:void(0)"><i class="zmdi m-r-md zmdi-hc-lg zmdi-balance-wallet"></i>Balance</a>
-                        </li>
-                        <li><a href="javascript:void(0)"><i class="zmdi m-r-md zmdi-hc-lg zmdi-phone-msg"></i>Connection<span
-                                        class="label label-primary">3</span></a></li>
-                        <li><a href="javascript:void(0)"><i class="zmdi m-r-md zmdi-hc-lg zmdi-info"></i>privacy</a>
-                        </li>
+                        <li><a href="{!! url('/profile') !!}"><i class="fa fa-user fa-md"></i> {!! Lang::get('action.my profile') !!}</a></li>
+						<li><a href="{!! url('/profile/change-password') !!}"><i class="fa fa-key fa-md"></i> {!! Lang::get('action.change password') !!}</a></li>
+                        <li><a href="{!! url('/setting') !!}"><i class="fa fa-gear fa-md"></i> {!! Lang::get('action.setting') !!}</a></li>
+                        <li><a href="{!! url('/session/logout') !!}"><i class="fa fa-power-off fa-md"></i> {!! Lang::get('action.logout') !!}</a></li>
                     </ul>
                 </li>
 
@@ -134,11 +131,12 @@
                                 <small>{!! Auth::user()->email!!}</small> <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu animated flipInY">
-                                <li><a class="text-color" href="/index.html"><span class="m-r-xs"><i class="fa fa-home"></i></span> <span>Home</span></a></li>
-                                <li><a class="text-color" href="profile.html"><span class="m-r-xs"><i class="fa fa-user"></i></span> <span>Profile</span></a></li>
-                                <li><a class="text-color" href="settings.html"><span class="m-r-xs"><i class="fa fa-gear"></i></span> <span>Settings</span></a></li>
+                                <li><a class="text-color" href="{!! url('/dashboard') !!}"><span class="m-r-xs"><i class="fa fa-home"></i></span> <span>{!! Lang::get('action.dashboard') !!}</span></a></li>
+                                <li><a class="text-color" href="{!! url('/profile') !!}"><span class="m-r-xs"><i class="fa fa-user"></i></span> <span>{!! Lang::get('action.my profile') !!}</span></a></li>
+								<li><a class="text-color" href="{!! url('/profile/change-password') !!}"><span class="m-r-xs"><i class="fa fa-key"></i></span> <span>{!! Lang::get('action.change password') !!}</span></a></li>
+                                <li><a class="text-color" href="{!! url('/setting') !!}"><span class="m-r-xs"><i class="fa fa-gear"></i></span> <span>{!! Lang::get('action.setting') !!}</span></a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a class="text-color" href="{!! url("session/logout") !!}"><span class="m-r-xs"><i class="fa fa-power-off"></i></span> <span>{!! Lang::get("action.logout") !!}</span></a></li>
+                                <li><a class="text-color" href="{!! url('session/logout') !!}"><span class="m-r-xs"><i class="fa fa-power-off"></i></span> <span>{!! Lang::get("action.logout") !!}</span></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -234,9 +232,9 @@
         <footer class="app-footer">
             <div class="clearfix">
                 <ul class="footer-menu pull-right">
-                    <li><a href="javascript:void(0)">Careers</a></li>
-                    <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                    <li><a href="javascript:void(0)">Feedback <i class="fa fa-angle-up m-l-md"></i></a></li>
+                    <li><a href="{!! url('/dashboard') !!}"> {!! Lang::get('action.dashboard') !!}</a></li>
+                    <li><a href="{!! url('/job-vacancy') !!}"> {!! Lang::get('action.jobs career') !!}</a></li>
+                    <li><a href="{!! url('/setting') !!}"> {!! Lang::get('action.setting') !!} <i class="fa fa-angle-up m-l-md"></i></a></li>
                 </ul>
                 <div class="copyright pull-left">Copyright &copy; {!! date('Y') !!}</div>
             </div>
