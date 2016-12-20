@@ -18,6 +18,7 @@ return array (
 	'order' => 'Order',
 	'other contact' => 'Other contact',
     'phone number' => 'Phone',
+	'send email' => "Send Email",
     'website' => 'Website',
 	'zip code' => 'ZIP Code',
 );

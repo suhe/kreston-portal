@@ -10,6 +10,7 @@ use Illuminate\Routing\Controller;
 use App\Modules\Navigation\Models\Navigation;
 use App\Modules\Page\Models\Page;
 use Breadcrumbs;
+use Redirect;
 use SEOMeta;
 use Setting;
 use Theme;
@@ -25,7 +26,10 @@ class PageController extends Controller {
     }
 
     public function show($slug,Page $page,Navigation $navigation) {
-		$xpage = $page->where(['slug' => $slug])->first();
+		$xpage = $page->where(['slug' => $slug,'is_active' => 1])->first();
+		if(!$xpage)
+			return Redirect::intended('/',301);
+		
 		$related_page = explode(";",$xpage->related_page);
 		$related_nav = explode(";",$xpage->related_navigation);
 		$link_related_page = $related_page ? $related_page : null; 

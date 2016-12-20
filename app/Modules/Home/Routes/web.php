@@ -13,4 +13,5 @@
 
 Route::group(['prefix' => 'home'], function() {
     Route::get('/', 'HomeController@index');
+	Route::get('/popup-banner', 'HomeController@popup_banner');
 });

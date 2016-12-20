@@ -86,6 +86,7 @@ class PeopleController extends Controller {
     public function update(People $people) {
         $id =  Input::has("id") ? Crypt::decrypt(Input::get("id")) : null;
         $name = Input::get("name");
+		$email = Input::get("email");
 		$contact_id = Input::get("contact_id");
         $photo_storage_location = str_replace(url("/")."/","",Input::get('filepath'));
         $description = Input::get('description');
@@ -93,6 +94,7 @@ class PeopleController extends Controller {
 
         $field = array (
             'name' => $name,
+			'email' => $email,
 			'contact_id' => $contact_id,
             //'photo_storage_location' => $photo_storage_location,
             'description' => $description,
@@ -101,6 +103,7 @@ class PeopleController extends Controller {
 
         $rules = array (
             'name' => 'required',
+			'email' => "required|email",
 			'contact_id' => 'required',
             //'photo_storage_location' => "required",
             'description' => "required",
@@ -118,6 +121,7 @@ class PeopleController extends Controller {
                 //update home_banner
                 $people = $people->find($id);
                 $people->name  = $name;
+				$people->email  = $email;
 				$people->contact_id  = $contact_id;
 				$people->slug = Str::slug($name,"-");
                 $people->photo_storage_location = $photo_storage_location;
@@ -128,6 +132,7 @@ class PeopleController extends Controller {
                 $message = Lang::get('people::message.update successfully');
             } else {
                 $people->name  = $name;
+				$people->email  = $email;
 				$people->contact_id  = $contact_id;
 				$people->slug = Str::slug($name,"-");
                 $people->photo_storage_location = $photo_storage_location;

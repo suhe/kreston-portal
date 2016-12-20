@@ -10,6 +10,11 @@
 						<img class="img-responsive" src="{!! url(ImageManager::getImagePath($people->photo_storage_location, 142, 160, 'crop')) !!}" style="float:left;margin:0 20px 20px" />
 						{!! $people->description !!}
 						
+						@if($people->email)
+						<p style="margin-top:5px">
+							<a class="btn btn-sm btn-primary" href="mailto:{!! $people->email !!}"><i class="fa fa-envelope"></i> {!! Lang::get('people::app.send email') !!}</a>
+						</p>
+						@endif
 					</div>
 				</div>
 				<div class="horizontal_dotted_line"></div>

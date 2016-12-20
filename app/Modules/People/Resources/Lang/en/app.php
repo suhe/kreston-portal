@@ -7,6 +7,7 @@
  */
 return array (
     'description' => 'Description',
+	'email' => "Email",
 	'location' => 'Location',
     'name' => 'Name',
 	'order' => 'Order',
@@ -14,5 +15,6 @@ return array (
 	'please select a location' => 'Please select a location',
 	'people' => 'People',
     'photo' => 'Photo',
+	'send email' => "Send Email",
 	'url' => 'Url',
 );

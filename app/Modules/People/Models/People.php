@@ -17,6 +17,6 @@ class People extends Model {
     protected $fillable = ['id','name','photo_storage_location','is_active'];
     protected $primaryKey = 'id';
     public $timestamps = false;
-    public $sortable = ['id', 'name', 'photo_storage_location','order'];
+    public $sortable = ['id', 'name','email','photo_storage_location','order'];
 
 }

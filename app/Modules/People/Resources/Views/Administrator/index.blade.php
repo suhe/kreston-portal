@@ -33,6 +33,7 @@
                         <th class="col-sm-1">#</th>
                         <th class="col-sm-2 text-center">{!! Lang::get('people::app.photo') !!}</th>
                         <th class="col-sm-2">@sortablelink('name')</th>
+						<th class="col-sm-2">@sortablelink('email')</th>
 						<th class="col-sm-2">@sortablelink('contact_id',Lang::get("people::app.location"))</th>
                         <th class="col-sm-2 text-center">{!! Lang::get('action.active') !!}</th>
 						<th class="col-sm-1 text-center">@sortablelink('order')</th>
@@ -44,6 +45,7 @@
                             <td>{!! ($key + 1 + (Request::has("page")? Request::get("page") : 0)) !!}</td>
                             <td><img src="{{ url(ImageManager::getImagePath($user->photo_storage_location, 70, 50, 'crop')) }}" alt=""></td>
                             <td>{!! $user->name !!}</td>
+							<td><a href="mailto:{!! $user->email !!}"><i class="fa fa-envelope"></i> {!! $user->email !!}</a></td>
 							<td>{!! $user->location !!}</td>
                             <td class="text-center">{!! $user->is_active == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
 							<td>{!! $user->order !!}</td>

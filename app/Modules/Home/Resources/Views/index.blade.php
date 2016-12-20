@@ -84,7 +84,7 @@
 								<div class="panel panel-primary">
 									<div class="panel-heading">{!! $row->name !!}</div>
 									<div class="panel-body" style="padding:0px">
-										<img class="img-responsive" src="{!! asset($row->storage_location) !!}" />
+										<img class="img-responsive" style="width:100%" src="{!! asset($row->storage_location) !!}" />
 									</div>
 								</div>
 							</div>
@@ -110,9 +110,14 @@
 	<script src="{!! asset('vendor/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js') !!}"></script>
 	<script>
 	$(document).ready(function() {
-		@if($popup_banners)
-		$('#popup-banner').modal('show');
-		@endif
+		$.get("{!! url('/home/popup-banner') !!}", function(response) {
+			if(response.is_popup_banner == true) {
+				$('#popup-banner').modal('show');	
+			} else {
+				$('#popup-banner').modal('hide');
+			}
+		},"json");
+		
 		
 		$('.pgwSlideshow').pgwSlideshow({
 			maxHeight:550,
