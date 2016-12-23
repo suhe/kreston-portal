@@ -171,7 +171,7 @@
                 </li>
                 <li class="has-submenu">
                     <a href="javascript:void(0)" class="submenu-toggle"><i class="menu-icon zmdi zmdi-pages zmdi-hc-lg"></i>
-                        <span class="menu-text">Pages</span> <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
+                        <span class="menu-text">{!! Lang::get("action.pages") !!}</span> <i class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
                         <li><a class="navigation" href="{!! url("navigation/administrator") !!}"><span class="menu-text">{!! Lang::get("action.navigation") !!}</span></a></li>
                         <li><a class="news" href="{!! url("news/administrator") !!}"><span class="menu-text">{!! Lang::get("action.news") !!}</span></a></li>
@@ -185,6 +185,7 @@
                                 class="menu-caret zmdi zmdi-hc-sm zmdi-chevron-right"></i></a>
                     <ul class="submenu">
                         <li><a class="people" href="{!! url("people/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.our people") !!}</span></a></li>
+						<li><a class="messages" href="{!! url("contact-us/administrator/messages") !!}"><span class="menu-text">{!! Lang::get("action.messages") !!}</span></a></li>
                         <li><a class="contact" href="{!! url("contact-us/administrator/index") !!}"><span class="menu-text">{!! Lang::get("action.contact us") !!}</span></a></li>
                         <li><a class="publication" href="{!! url("publication/administrator") !!}"><span class="menu-text">{!! Lang::get("action.publication") !!}</span></a></li>
                     </ul>

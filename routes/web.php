@@ -72,8 +72,11 @@ Menu::make('MyNavBar', function($menu) use($NavBar)  {
 		} else {
 			$nav_items = $NavBar->where(['is_active' => 1,'parent_id' => $nav->id])->orderBy('order','asc')->get();
 			foreach ($nav_items as $xkey => $nav_item) {
-				$nav_bar->add($nav_item->name, url($nav_item->url));
-			
+				$nav = $nav_bar->add($nav_item->name, url($nav_item->url));
+				$nav_child_items = $NavBar->where(['is_active' => 1,'parent_id' => $nav_item->id])->orderBy('order','asc')->get();
+				foreach($nav_child_items as $xkey => $sub_nav) {
+					$nav->add($sub_nav->name,url($sub_nav->url));
+				}
 			}
 		}
 		

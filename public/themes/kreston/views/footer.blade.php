@@ -110,7 +110,7 @@
 <!--[if lte IE 8]>
 <script src="{!! Theme::asset('js/jquery-1.9.1.min.js') !!}"></script>
 <![endif]-->
-
+<script src="{!! asset('vendor/jquery-confirm/jquery-confirm.min.js') !!}"></script>
 <script src="{!! Theme::asset('js/bootstrap.min.js') !!}"></script>
 @stack('scripts')
 <script src="{!! Theme::asset('js/main.js') !!}"></script>

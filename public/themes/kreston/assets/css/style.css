@@ -597,8 +597,14 @@ textarea.form-control {
     line-height: 40px
 }
 
+.help-block{
+	padding:5px;
+	margin-top:5px;
+}
+
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline, .has-success .form-control-feedback {
-    color: #738d00
+    color: #738d00;
+	
 }
 
 .has-warning .help-block, .has-warning .control-label, .has-warning .radio, .has-warning .checkbox, .has-warning .radio-inline, .has-warning .checkbox-inline, .has-warning .form-control-feedback {
@@ -14602,4 +14608,21 @@ ul.list_1 li a:hover {
 .card .tab-content .most__info {
     color: #8c8c8c;
     font-size: 11px;
+}
+#divLoading {
+  display : none;
+}
+#divLoading.show {
+  display : block;
+  position : fixed;
+  z-index: 100;
+  background-image : url("../img/medium-loading.gif");
+  background-color:#fff;
+  opacity : 0.4;
+  background-repeat : no-repeat;
+  background-position : center;
+  left : 0;
+  bottom : 0;
+  right : 0;
+  top : 0;
 }

@@ -7,13 +7,18 @@
  */
 namespace App\Modules\ContactUs\Http\Controllers;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
 use App\Modules\ContactUs\Models\ContactUs;
+use App\Modules\ContactUs\Models\ContactMessage;
 use Breadcrumbs;
 use Lang;
+use Mail;
 use Request;
+use Response;
 use SEOMeta;
 use Setting;
 use Theme;
+use Validator;
 
 class ContactUsController extends Controller {
     public function __construct() {
@@ -57,7 +62,64 @@ class ContactUsController extends Controller {
         ));
 	}
 	
-	
+	public function do_sent_message() {
+        $name = Input::get("name");
+		$mobile_number = Input::get("mobile_number");
+        $email = Input::get("email");
+        $subject = Input::get("subject");
+        $message = Input::get("message");
+        
+        $field = array (
+            'name' => $name,
+            'email' => $email,
+			'mobile_number' => $mobile_number,
+			'subject' => $subject,
+			'message' => $message,
+			
+        );
+
+        $rules = array (
+            'name' => 'required',
+			'email' => 'required|email',
+			'mobile_number' => 'required',
+            'subject' => 'required',
+            'message' => 'required|min:10',
+        );
+
+        $validate = Validator::make($field,$rules);
+        if($validate->fails()) {
+            $params = array(
+                'success' => false,
+                'message' => $validate->getMessageBag()->toArray()
+            );
+        } else {
+				//sent email 
+				Mail::send('contact-us::Emails.contact-us-message',array('field' => $field),function($message) use($field) {
+					$message->from('noreply@kreston-indonesia.co.id', 'No Reply Kreston indonesia');
+					$message->to('wedy.nababan@gmail.com');
+					$message->bcc('hendarsyahss@gmail.com');
+					$message->subject($field['subject']);
+				});
+				//sent email
+				
+                $contact_message = new ContactMessage();
+                $contact_message->name  = $name;
+				$contact_message->email = $email;
+				$contact_message->mobile_number  = $mobile_number;
+				$contact_message->subject = $subject;
+				$contact_message->message = $message;
+				$contact_message->ip_address = Request::ip();
+                $contact_message->created_at = date("Y-m-d H:i:s");
+                $contact_message->save();
+                $message = Lang::get('contact-us::message.sent message been successfully');
+           
+            $params ['success'] =  true;
+            //$params ['redirect'] = url('/contact-us/');
+            $params ['message'] =  $message;
+        }
+
+        return Response::json($params);
+    }
 	
 	
 }

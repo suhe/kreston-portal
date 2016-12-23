@@ -21,7 +21,7 @@ class ContactUs extends Model {
 	
 	public static function dropdown($label = null) {
 		$data =array();
-		$contacts = self::where('is_active',1)->orderBy('name','asc')->get();
+		$contacts = self::where('is_active',1)->orderBy('order','asc')->get();
 		foreach($contacts as $key => $contact) {
 			$data[$contact->id] = $contact->name;
 		}

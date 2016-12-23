@@ -33,6 +33,7 @@
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{!! Theme::asset('css/style.css') !!}">
     <!-- Custom CSS -->
+	<link rel="stylesheet" href="{!! asset('vendor/jquery-confirm/jquery-confirm.min.css') !!}" />
     <link rel="stylesheet" href="{!! Theme::asset('css/customizer/pages.css') !!}" />
     <!--<link rel="stylesheet" href="{!! Theme::asset('css/customizer/shop-pages-customizer.css') !!}">-->
     <link rel="stylesheet" href="{!! Theme::asset('css/custom.css') !!}" />
