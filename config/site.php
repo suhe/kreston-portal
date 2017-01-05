@@ -7,6 +7,7 @@
  */
 return array(
 	'admin_page_title' => 'Administrator',
-	'default_blade' => 'page.blade.php',
+	'default_blade' => "page.blade.php",
+    'no_image' => "img/default/no-image.png",
     'limit_page' => 5,
 );

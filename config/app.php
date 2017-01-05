@@ -167,6 +167,7 @@ return [
          * Package Service Providers...
          */
         Anakadote\ImageManager\ImageManagerServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
 		Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Caffeinated\Modules\ModulesServiceProvider::class,
         Caffeinated\Themes\ThemesServiceProvider::class,
@@ -232,7 +233,8 @@ return [
         'Log' => Illuminate\Support\Facades\Log::class,
         'Mail' => Illuminate\Support\Facades\Mail::class,
         'Menu' => Lavary\Menu\Facade::class,
-		'Module' => Caffeinated\Modules\Facades\Module::class,	
+		'Module' => Caffeinated\Modules\Facades\Module::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         'Notification' => Illuminate\Support\Facades\Notification::class,
 		'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
         'Password' => Illuminate\Support\Facades\Password::class,

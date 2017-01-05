@@ -63,27 +63,33 @@ class ContactUsController extends Controller {
 	}
 	
 	public function do_sent_message() {
+	    $contact_id  = Input::get("contact_id");
         $name = Input::get("name");
 		$mobile_number = Input::get("mobile_number");
         $email = Input::get("email");
         $subject = Input::get("subject");
         $message = Input::get("message");
+        $g_recaptcha_response = Input::get('g-recaptcha-response');
         
         $field = array (
+            'contact_id' => $contact_id,
             'name' => $name,
             'email' => $email,
 			'mobile_number' => $mobile_number,
 			'subject' => $subject,
 			'message' => $message,
+            'g-recaptcha-response' => $g_recaptcha_response,
 			
         );
 
         $rules = array (
+            'contact_id' => 'required',
             'name' => 'required',
 			'email' => 'required|email',
 			'mobile_number' => 'required',
             'subject' => 'required',
-            'message' => 'required|min:10',
+            'message' => 'required|min:1',
+            'g-recaptcha-response' => 'required|captcha',
         );
 
         $validate = Validator::make($field,$rules);
@@ -93,11 +99,19 @@ class ContactUsController extends Controller {
                 'message' => $validate->getMessageBag()->toArray()
             );
         } else {
+                $contact = ContactUs::where(['id' => $contact_id])->first();
+                $field['bcc'] = 'wedy.nababan@gmail.com';
+                if($contact) {
+                    $field['email'] = $contact->email;
+                } else {
+                    $field['email'] = $field['bcc'];
+                }
+
 				//sent email 
 				Mail::send('contact-us::Emails.contact-us-message',array('field' => $field),function($message) use($field) {
 					$message->from('noreply@kreston-indonesia.co.id', 'No Reply Kreston indonesia');
-					$message->to('wedy.nababan@gmail.com');
-					$message->bcc('hendarsyahss@gmail.com');
+					$message->to($field['email']);
+					$message->bcc($field['bcc']);
 					$message->subject($field['subject']);
 				});
 				//sent email

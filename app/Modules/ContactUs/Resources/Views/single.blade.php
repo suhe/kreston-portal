@@ -88,8 +88,15 @@
 										{!! Form::textarea('message',null, ['class' => 'form-control input-md','id'=>'message','rows' => 4,'placeholder'=>lang::get('contact-us::app.message')]) !!}
 									</div>
 								</div>
-								  
-								  
+
+								<div class="form-group">
+									<div class="col-sm-12">
+										<div class="pull-right">
+											{!! app('captcha')->display() !!}
+										</div>
+									</div>
+								</div>
+
 								<div class="form-group"> 
 									<div class="col-sm-12">
 										<div class="pull-right">
@@ -154,6 +161,8 @@
 							});
 						} else {
 							$(".help-block").remove();
+							$("input[type='text']").val('');
+							$('textarea').val('');
 							$.alert(response.message);
 						}
 						
