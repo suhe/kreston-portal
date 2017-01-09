@@ -19,6 +19,7 @@ use Config;
 use Crypt;
 use File;
 use Lang;
+use Menu;
 use Redirect;
 use Request;
 use Response;
@@ -108,6 +109,7 @@ class PageController extends Controller {
 		$link_page = "";
 		$link_navigation = "";
 		$related_page = Input::get("related_page");
+		$order = Input::get("order");
 		$related_navigation = Input::get("related_navigation");
 		$total_related_page = count($related_page);
 		$total_related_navigation = count($related_navigation);
@@ -161,6 +163,7 @@ class PageController extends Controller {
                 $page->content = $content;
 				$page->short_content = $short_content;
 				$page->related_page = $link_page;
+				$page->order = $order;
 				$page->related_navigation= $link_navigation;
 				$page->meta_keyword = $meta_keyword;
 				$page->meta_description = $meta_description;
@@ -177,6 +180,7 @@ class PageController extends Controller {
                 $page->content = $content;
 				$page->short_content = $short_content;
 				$page->related_page = $link_page;
+				$page->order = $order;
 				$page->related_navigation= $link_navigation;
 				$page->meta_keyword = $meta_keyword;
 				$page->meta_description = $meta_description;

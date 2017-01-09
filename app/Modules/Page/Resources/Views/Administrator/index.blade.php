@@ -34,6 +34,7 @@
                         <th class="col-sm-4">{!! Lang::get("page::app.page name") !!}</th>
 						<th class="col-sm-4">{!! Lang::get("page::app.url") !!}</th>
                         <th class="col-sm-1 text-center">{!! Lang::get('action.active') !!}</th>
+						<th class="col-sm-1">{!! Lang::get('action.order') !!}</th>
                         <th class="col-sm-1">{!! Lang::get('action.edit') !!}</th>
                     </tr>
 
@@ -43,7 +44,8 @@
                             <td>{!! $page['name'] !!}</td>
                             <td>{!! $page['url'] !!}</td>
                             <td class="text-center">{!! $page['is_active'] == 1 ? Lang::get("action.yes"):Lang::get("action.no") !!}</td>
-                            <td>
+                            <td class="text-center">{!! $page['order'] !!}</td>
+							<td>
                                 <div class="dropdown">
                                     <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
                                         <i class="fa fa-pencil"> {!! Lang::get('action.edit') !!}</i>

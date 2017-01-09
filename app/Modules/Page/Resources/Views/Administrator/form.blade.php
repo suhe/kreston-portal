@@ -46,6 +46,9 @@
 							{!! Form::select('related_page[]',$page_related,$related_page, ['class' => 'chosen form-control input-lg','id'=>'parent_id','data-placeholder'=> Lang::get('page::app.related page'),'multiple' => true]) !!}
 						</div>
 						<div class="form-group">
+							{!! Form::text('order',isset($page)?$page->order:null, ['class' => 'form-control input-lg','id'=>'order','placeholder'=>Lang::get('page::app.order'),'maxlength'=>6]) !!}
+						</div>
+						<div class="form-group">
 							{!! Form::select('related_navigation[]',$navigation_related,$related_navigation, ['class' => 'chosen form-control input-lg','id'=>'parent_id','data-placeholder'=> Lang::get('page::app.related url'),'multiple' => true]) !!}
 						</div>
 						<div class="form-group">

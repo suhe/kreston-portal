@@ -37,6 +37,7 @@
 							<tr>
                                 <td>{!! $page->name !!}</td>
 							</tr>
+							
                             <tr>
                                 <th>{!! Lang::get('page::app.content') !!}</th>
                             </tr>

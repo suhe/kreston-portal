@@ -22,7 +22,9 @@ class Page extends Model {
 	
 	public static function recursive($recursive = array(),$data = array()) {
 		$pages = self::where("name", "like", "%".(isset($data['name']) ? $data['name'] : '')."%")
+		->where(['is_active' => 1])
 		->where('parent_id',(isset($data['parent_id']) ? $data['parent_id'] : 0))
+		->orderBy('order','asc')
         ->get();
 		
 		foreach($pages as $key => $page) {
@@ -32,6 +34,7 @@ class Page extends Model {
 				"url"   =>  (isset($data['spacing']) ? $data['spacing'] : '').$page->url,
 				"content" =>  $page->content,
 				"is_active" => $page->is_active,
+				'order' => $page->order,
 			);	
 			
 			$recursive = self::recursive($recursive,array(

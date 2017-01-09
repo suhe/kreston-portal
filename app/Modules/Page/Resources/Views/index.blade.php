@@ -7,37 +7,21 @@
         </article><!-- .content -->
 
         <div id="sidebar" class="sidebar col-sm-12 col-md-3">
-			@if(count($link_related_page)>0)
+			@if(count($page_links)>0)
             <aside class="widget menu">
                 <header>
                     <h3 class="title">{!! $page->name !!}</h3>
                 </header>
                 <nav>
-                    <ul>
-						@foreach($link_related_page as $key => $page)
-							<li class="{!! Request::segment(2) == $page->slug ? 'active' : '' !!}"><a href="{!! url($page->url) !!}">{!! $page->name !!}</a></li>
-						@endforeach
-             
+					<ul>
+						@include('page::sidebar', array('items' => $page_links->roots()))
                     </ul>
+                    
                 </nav>
             </aside><!-- .menu-->
 			@endif
 			
-			@if(count($link_related_navigation)>0)
-            <aside class="widget menu">
-                <header>
-                    <h3 class="title">{!! $page->name !!}</h3>
-                </header>
-                <nav>
-                    <ul>
-						@foreach($link_related_navigation as $key => $nav)
-							<li><a href="{!! url($nav->url) !!}">{!! $nav->name !!}</a></li>
-						@endforeach
-             
-                    </ul>
-                </nav>
-            </aside><!-- .menu-->
-			@endif
+			
 			
 			
         </div><!-- .sidebar -->
