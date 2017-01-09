@@ -9,13 +9,13 @@
 					<div class="row">
 					  @foreach($photos as $key => $photo)
 					  <div class="images-box col-sm-4 col-md-4">
-						<a class="gallery-images" title="{!! $photo->description !!}" rel="fancybox" href="{!! url($photo->photo_storage_location) !!}">
-						  <img class="replace-2x img-responsive" src="{{ url(ImageManager::getImagePath($photo->photo_storage_location, 297, 157, 'crop')) }}"  alt="">
+						<a class="gallery-images" title="{!! $photo->description !!}" rel="fancybox" href="{{ ImageManager::getImagePath(($photo->photo_storage_location ? public_path().$photo->photo_storage_location : public_path().Config::get('site.no-image') ) , 1080, 768, 'crop') }}">
+						  <img class="replace-2x img-responsive" src="{{ ImageManager::getImagePath(($photo->photo_storage_location ? public_path().$photo->photo_storage_location : public_path().Config::get('site.no-image') ) , 297, 157, 'crop') }}"  alt="">
 						  <span class="bg-images"><i class="fa fa-search"></i></span>
 						</a>
-						<div class="caption">
+						<!--<div class="caption">
 							<p>{!! $photo->description !!}</p>
-						</div>
+						</div>-->
 						
 					  </div><!-- .images-box -->
 					  @endforeach

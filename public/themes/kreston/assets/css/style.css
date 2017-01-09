@@ -14626,3 +14626,7 @@ ul.list_1 li a:hover {
   right : 0;
   top : 0;
 }
+
+.img-responsive {
+	min-width:100%;
+}
