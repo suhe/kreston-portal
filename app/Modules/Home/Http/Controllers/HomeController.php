@@ -47,14 +47,15 @@ class HomeController extends Controller {
     }
 	
 	public function popup_banner(PopupBanner $popup_banners) {
-		$popup_banners->where(['is_active' => 1])->first();
+		$popup_banners = $popup_banners->where(['is_active' => 1])->first();
 		
 		if($popup_banners) {
 			$params ['is_popup_banner'] =  true;
 		} else {
 			$params ['is_popup_banner'] =  false;
 		}
-		//response
+		
+		//response 
 		return Response::json($params);
 	}
 

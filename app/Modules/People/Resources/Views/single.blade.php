@@ -4,7 +4,7 @@
     <div class="row">
 		<article class="content col-sm-12 col-md-9">
 			<h1 class="title">{!! isset($people) ? $people->name : null !!}</h1>
-			<img class="img-responsive" src="{!! url(ImageManager::getImagePath(($people->photo_storage_location ? $people->photo_storage_location : Config::get('site.no-image')), 142, 160, 'crop')) !!}" style="float:left;margin:0 20px 20px" />
+			<img src="{!! url($people->photo_storage_location ? $people->photo_storage_location : Config::get('site.no-image')) !!}" style="float:left;margin:0 20px 20px" />
 			{!! $people->description !!}
 			
 			@if($people->email)

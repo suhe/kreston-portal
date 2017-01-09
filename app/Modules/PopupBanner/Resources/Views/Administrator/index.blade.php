@@ -6,7 +6,7 @@
             <div class="panel p-xs">
                 <div class="panel-heading clearfix">
                     <div class="col-md-2">
-                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><i class="fa fa-flag"></i>  {!! Lang::get('popup-banner::app.popup banner') !!}</h4>
+                        <h4 class="panel-title pull-left" style="padding-top: 7.5px;"><i class="fa fa-flag"></i>  {!! Lang::get("popup-banner::app.popup banner") !!}</h4>
                     </div>
 
                     <div class="col-md-10">

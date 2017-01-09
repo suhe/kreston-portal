@@ -29,12 +29,12 @@ class PopupBannerController extends Controller {
 
     public function index(PopupBanner $popup_banner) {
 		SEOMeta::setTitle(Config::get('site.admin_page_title').' '.Lang::get('popup-banner::app.popup banner'));
-        return Theme::view ('popup-banner::Administrator.index',array(
+		return Theme::view ('popup-banner::Administrator.index',[
             'popup_banners' =>  $popup_banner
                 ->where("name", "like", "%".Request::get("name")."%")
-                ->where("storage_location", "like", "%".Request::get("location")."%")
-                ->sortable()->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
-        ));
+                ->where("storage_location", "like", "%".Request::get("location")."%")->sortable()
+				->paginate(Setting::get_key('limit_page') ? Setting::get_key('limit_page') : Config::get('site.limit_page')),
+        ]);
     }
 
     public function create() {

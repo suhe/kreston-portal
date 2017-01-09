@@ -104,7 +104,7 @@
 <div class="clearfix"></div>
 
 <!--[if (!IE)|(gt IE 8)]><!-->
-<script src="{!! Theme::asset('js/jquery-3.0.0.min.js') !!}"></script>
+<script src="{!! asset('vendor/jquery/jquery-2.1.4.min.js') !!}"></script>
 <!--<![endif]-->
 
 <!--[if lte IE 8]>
